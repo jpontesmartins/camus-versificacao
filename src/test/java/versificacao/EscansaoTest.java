@@ -78,7 +78,7 @@ public class EscansaoTest {
 		Assert.assertTrue(classesGramaticais.contains("substantivo feminino"));
 	}
 
-	@Test
+//	@Test
 	public void deveRetornarOTituloDoSite() throws SAXException, IOException, Exception {
 //		String dicio = "https://www.dicio.com.br/";
 //		String titulo = escansao.acessarPagina(dicio + "paciencia");
