@@ -1,0 +1,44 @@
+<html ng-app="versificacao">
+<head>
+	<title>camus/versificação</title>
+	
+	<link rel="stylesheet" type="text/css" href="libs/css/bootstrap.min.css">	
+	
+	<script src="libs/js/angular.min.js"></script>
+	<script src="libs/js/jquery-2.1.4.min.js"></script>
+	
+	<script src="controllers/versificacao_ctrl.js"></script>
+	<script src="services/versificacao_srvc.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="libs/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/css/app.css">
+
+</head>
+
+<body>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">camus/versificação</a>
+		</div>
+	</nav>
+
+
+	<div class="jumbotron_dois" ng-controller="versificacao_ctrl">
+		<h4 ng-bind="app">{{app}}</h4>
+
+		<div class="form-group col-md-6">
+		  <textarea class="form-control texto-gr" ng-model="poema.poema" rows="10"  id="comment"></textarea>
+		  <button class="btn btn-primary" ng-click="versificacao(poema.poema)">Versificar</button>
+		</div>
+		
+		<!-- VERSIFICADO -->
+		<div class="form-group col-md-6 texto-gr-cinza-italico " >
+			<span class="texto-gr-cinza">{{poema.poemaVersificado}}</span>
+<!-- 			<span class="texto-gr-cinza">e/xem/plo/ de/ tex/to/ sol/to/..</span> -->
+		</div>
+
+	</div>
+	
+	
+</body>
+</html>
