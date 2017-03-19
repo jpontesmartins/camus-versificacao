@@ -57,6 +57,7 @@ public class Escansao {
 		palavra = palavra.replace(" ", "");
 
 		return palavra;
+		
 	}
 
 	public boolean identificarLinhaNaoConfundirCom(String linhaAEncontrar) throws Exception {
