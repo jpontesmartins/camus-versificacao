@@ -8,8 +8,6 @@ angular.module("versificacao").factory("versificacao_srvc",function($http) {
 		console.log('teste_19-03-2017');
 		if (window.location.host == "") {
 			endereco = "http://localhost:8080";
-		} else {
-			endereco = window.location.host;
 		}
 		console.log(window.location.host);
 		return $http.get(endereco + "/versificar?poemaTexto=" + poematexto);
