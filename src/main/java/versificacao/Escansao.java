@@ -25,6 +25,7 @@ public class Escansao {
 	private static final String MARCADOR_CLASSE_GRAMATICAL = "Classe gramatical:";
 	private static final String MARCADOR_DIVISAO_SILABICA = " Separacao das silabas: ";
 	private static final String MARCADOR_NAO_CONFUNDIR_COM = "<span>Não confundir com:";
+
 	private static final String MARCADOR_GRAFIA_CORRETA = "tit-significado";
 
 	public static final String DICIO = "https://www.dicio.com.br/";
