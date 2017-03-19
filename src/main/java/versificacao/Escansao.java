@@ -46,6 +46,7 @@ public class Escansao {
 
 	public String removerAcentuacao(String palavra) {
 		
+		
 		String caracteresARemover = "áàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ";
 		String caracteresAceitaveis = "aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC";
 		String pontuacao = " ?!,.;";
