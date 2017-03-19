@@ -22,7 +22,7 @@ public class Escansao {
 	public static final String C_TESTE_PAGE3_TXT = "C:\\teste\\page3.txt";
 	private static final String MARCADOR_CLASSE_GRAMATICAL = "Classe gramatical:";
 	private static final String MARCADOR_DIVISAO_SILABICA = " Separacao das silabas: ";
-	private static final String MARCADOR_NAO_CONFUNDIR_COM = "<span>Não confundir com:";
+	private static final String MARCADOR_NAO_CONFUNDIR_COM = "<span>Né‰¶ confundir com:";
 
 	private static final String MARCADOR_GRAFIA_CORRETA = "tit-significado";
 
@@ -43,7 +43,7 @@ public class Escansao {
 	}
 
 	public String removerAcentuacao(String palavra) {
-		String caracteresARemover = "áàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ";
+		String caracteresARemover = "Ã¡Ã Ã£Ã¢Ã¤Ã©Ã¨ÃªÃ«Ã­Ã¬Ã®Ã¯Ã³Ã²ÃµÃ´Ã¶ÃºÃ¹Ã»Ã¼Ã§ÃÃ€ÃƒÃ‚Ã„Ã‰ÃˆÃŠÃ‹ÃÃŒÃŽÃÃ“Ã’Ã•Ã–Ã”ÃšÃ™Ã›ÃœÃ‡";
 		String caracteresAceitaveis = "aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC";
 		String pontuacao = " ?!,.;";
 
@@ -181,7 +181,7 @@ public class Escansao {
 				linhaDoVerbo = linha;
 				break;
 			}
-			if (linha.contains("Flexão do verbo")) {
+			if (linha.contains("Flexé‰¶ do verbo")) {
 				linhaFlexaoDoVerbo = linha;
 			}
 		}
@@ -202,13 +202,13 @@ public class Escansao {
 		try {
 			AcessoASiteUtils.acessarOSiteECriarOArquivo(getPagina(DICIO + palavra));
 			
-			//se a palavra consultada for a mesma da palavra da página: continuar
+			//se a palavra consultada for a mesma da palavra da pé†™ina: continuar
 			Escansao escansao = new Escansao();
 			boolean mesmaPalavra = escansao.palavrasSaoIguais(palavra);
 			if (!mesmaPalavra) throw new Exception("implmentar...");
 //			linha = descobrirPalavra(palavra);
 			
-			//daqui pra baixo é pra pegar a divisão mesmo
+			//daqui pra baixo ï¿½ pra pegar a divisé‰¶ mesmo
 			linha = lerLinhaDaDivisaoSilabica();
 			linha = linha.replace(MARCADOR_DIVISAO_SILABICA, "");
 			linha = linha.replace("/>", "").replace("</b>", "").replace("<br", "").replace("<b>", "");
@@ -230,7 +230,7 @@ public class Escansao {
 	public static String buscarPalavraSugerida(String linhaPoluida) throws Exception {
 		List<String> linhasDoarquivo = Files.readAllLines(Paths.get(C_TESTE_PAGE3_TXT), StandardCharsets.ISO_8859_1);
 		String linha = "";
-		// se não tiver a linha nem vai continuar...
+		// se né‰¶ tiver a linha nem vai continuar...
 		linha = pegarLinhaNaoConfundirCom(linhasDoarquivo);
 		if (linha == "")
 			return linha;
@@ -239,7 +239,7 @@ public class Escansao {
 		String proximoLink = linkDaPalavraSugerida(linha);
 		System.out.println("proximo link: " + proximoLink);
 
-		// antes de ir para o próximo link, verificar a grafia em 'Significado
+		// antes de ir para o pré«•imo link, verificar a grafia em 'Significado
 		// de <palavra>'
 		// parar quando a grafia for igual (acentos, cedilhas, tios, etc)
 //		pegarGrafiaCorretaDaPalavraNaPagina(linhaPoluida, linha, proximoLink);
@@ -255,7 +255,7 @@ public class Escansao {
 	}
 
 	//palavra sugerida: a d
-	//palavra desejada: a palavra do verso com a acentuação, cedilha e hifen
+	//palavra desejada: a palavra do verso com a acentuaçŽ¢o, cedilha e hifen
 	
 //	private static void pegarGrafiaCorretaDaPalavraNaPagina(String linhaPoluida, String linha, String proximoLink) throws Exception {
 //		String linhaPoluidaDaGrafiaCorreta = lerLinhaDaGrafiaCorreta();
