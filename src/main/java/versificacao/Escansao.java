@@ -13,8 +13,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.xml.sax.SAXException;
 
 public class Escansao {
@@ -45,8 +43,6 @@ public class Escansao {
 	}
 
 	public String removerAcentuacao(String palavra) {
-		
-		
 		String caracteresARemover = "áàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ";
 		String caracteresAceitaveis = "aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC";
 		String pontuacao = " ?!,.;";
