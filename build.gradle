@@ -12,6 +12,8 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
+compileJava.options.encoding = 'ISO-8859-1'
+
 jar {
     baseName = 'gs-spring-boot'
     version =  '0.1.0'

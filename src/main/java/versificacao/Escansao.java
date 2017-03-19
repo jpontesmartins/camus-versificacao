@@ -23,7 +23,7 @@ public class Escansao {
 	public static final String C_TESTE_PAGE4_TXT = "C:\\teste\\page4.txt";
 	public static final String C_TESTE_PAGE3_TXT = "C:\\teste\\page3.txt";
 	private static final String MARCADOR_CLASSE_GRAMATICAL = "Classe gramatical:";
-	private static final String MARCADOR_DIVISAO_SILABICA = " Separação das sílabas: ";
+	private static final String MARCADOR_DIVISAO_SILABICA = " Separacao das silabas: ";
 	private static final String MARCADOR_NAO_CONFUNDIR_COM = "<span>Não confundir com:";
 	private static final String MARCADOR_GRAFIA_CORRETA = "tit-significado";
 
