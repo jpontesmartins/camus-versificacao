@@ -14,7 +14,7 @@ public class EscansaoController {
     public String versificar(@RequestParam String poemaTexto) {
     	System.out.println(poemaTexto);
     	String versificado = "de/ re/ pen/ te/ não/ mais/ que/ de/ re/ pen/ te";
-    	Poema poema = new Poema("de repente não mais que de repente", versificado);
+    	Poema poema = new Poema("de repente nao mais que de repente", versificado);
     	Gson gson = new Gson();
     	return gson.toJson(poema);
     }
