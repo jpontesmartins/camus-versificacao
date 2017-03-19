@@ -11,6 +11,7 @@ angular.module("versificacao").factory("versificacao_srvc",function($http) {
 		}
 		console.log(window.location.host);
 		return $http.get(endereco + "/versificar?poemaTexto=" + poematexto);
+		
 	}
 	
 	return {
