@@ -10,7 +10,7 @@ public class EscansaoService {
 	}
 	
 	public String removerAcentuacao(String palavra) {
-		String caracteresARemover = "áàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ";
+		String caracteresARemover = "Ã¡Ã Ã£Ã¢Ã¤Ã©Ã¨ÃªÃ«Ã­Ã¬Ã®Ã¯Ã³Ã²ÃµÃ´Ã¶ÃºÃ¹Ã»Ã¼Ã§ÃÃ€ÃƒÃ‚Ã„Ã‰ÃˆÃŠÃ‹ÃÃŒÃÃÃ“Ã’Ã•Ã–Ã”ÃšÃ™Ã›ÃœÃ‡";
 		String caracteresAceitaveis = "aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC";
 		String pontuacao = " ?!,.;";
 
