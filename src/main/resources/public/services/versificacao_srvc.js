@@ -12,16 +12,11 @@ angular.module("versificacao").factory("versificacao_srvc",function($http) {
 	    });
 	}
 	
-	
-	
 	var _versificar2 = function(poema){
-//	    var url = 'localhost:8080/';
-	    var url = 'http://localhost:8080/versificar';
-//	    var data = {poemaTexto: poema};
-//	    return $http.post(url, data).success(function(data){
-//	    	console.log('fdfk');
-//	    });
-	    return $http.get(url + "?poemaTexto=" + poema);
+//	    var url = 'http://' + window.location.host;
+	    var url = window.location.origin;
+	    console.log('-> ' + window.location.origin);
+	    return $http.get(window.location.origin + "/versificar?poemaTexto=" + poema);
 	};
 	
 	
