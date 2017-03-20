@@ -8,23 +8,10 @@ public class EscansaoService {
 		String palavraSemAcentuacao = "teste"+removerAcentuacao(palavra);
 		return palavraSemAcentuacao;
 	}
-	
-	public String removerAcentuacao(String palavra) {
-		String caracteresARemover = "áàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ";
-		String caracteresAceitaveis = "aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC";
-		String pontuacao = " ?!,.;";
 
-		for (int i = 0; i < caracteresARemover.length(); i++) {
-			palavra = palavra.replace(caracteresARemover.charAt(i), caracteresAceitaveis.charAt(i));
-			if (i < pontuacao.length()) {
-				palavra = palavra.replace(pontuacao.charAt(i), pontuacao.charAt(0));
-			}
-		}
-		palavra = palavra.replace(" ", "");
+	public String removerAcentuacao(String palavra) {
+		System.out.println("implementar");
+		//TODO: removidas as linhas que substituiam as letras com acentos e cedilhas.
 		return palavra;
 	}
-	
-	
-	
-
 }
