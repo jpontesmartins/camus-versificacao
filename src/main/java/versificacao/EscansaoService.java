@@ -5,7 +5,7 @@ public class EscansaoService {
 	public static final String DICIO = "https://www.dicio.com.br/";
 
 	public String fazerSeparacaoSilabicaDeUmaPalavra(String palavra) {
-		String palavraSemAcentuacao = removerAcentuacao(palavra);
+		String palavraSemAcentuacao = "teste"+removerAcentuacao(palavra);
 		return palavraSemAcentuacao;
 	}
 	
