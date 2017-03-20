@@ -91,6 +91,7 @@ body {
 		border: none;
 		box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
 		border-radius: 0;
+		font-style: italic;
 }
 
 
@@ -106,20 +107,33 @@ body {
 .cinza {
 	color: red;	
 }
-
-
 .texto-pq {
 		font-size: 12px;
 }
+.texto-md {
+	color: #999;
+	font-size: 20px;
+	font-style: italic;
+}
 .texto-gr {
 	color: #000;
-	font-size: 20px;
+	font-size: 28px;
 }
 .texto-gr-cinza-italico {
 	color: #777;
-	font-size: 20px;
+	font-size: 28px;
 	text-align: left;
 	font-style: italic;
+}
+.texto-gr-cinza {
+	color: #777;
+	font-size: 28px;
+	text-align: left;
+}
+.texto-gr-cinza-claro {
+	color: #999;
+	font-size: 28px;
+	text-align: left;
 }
 /* --------------------------- */
 
