@@ -8,7 +8,6 @@ public class EscansaoService {
 		String palavraSemAcentuacao = "teste"+removerAcentuacao(palavra);
 		return palavraSemAcentuacao;
 	}
-
 	public String removerAcentuacao(String palavra) {
 		System.out.println("implementar");
 		//TODO: removidas as linhas que substituiam as letras com acentos e cedilhas.
