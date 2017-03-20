@@ -131,7 +131,13 @@ body {
 	text-align: left;
 }
 .texto-gr-cinza-claro {
-	color: #999;
+	color: #ccc;
+	font-size: 28px;
+	text-align: left;
+}
+
+.texto-md-cinza-claro {
+	color: #ccc;
 	font-size: 28px;
 	text-align: left;
 }
