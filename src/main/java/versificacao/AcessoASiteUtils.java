@@ -31,6 +31,13 @@ public class AcessoASiteUtils {
 
 	private static final String C_TESTE_PAGE3_TXT = "C:\\teste\\page3.txt";
 
+	
+	public static InputStream getPagina(String link) throws Exception {
+		URLConnection connection = AcessoASiteUtils.acessarOLink(link);
+		return (InputStream) connection.getContent();
+	}
+	
+	
 	public static URLConnection acessarOLink(String link)
 			throws NoSuchAlgorithmException, KeyManagementException, MalformedURLException, IOException {
 
