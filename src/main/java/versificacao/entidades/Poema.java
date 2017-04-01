@@ -1,4 +1,4 @@
-package versificacao;
+package versificacao.entidades;
 
 public class Poema {
 
