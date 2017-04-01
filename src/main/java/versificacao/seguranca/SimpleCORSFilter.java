@@ -1,4 +1,4 @@
-package versificacao;
+package versificacao.seguranca;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;

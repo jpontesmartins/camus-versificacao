@@ -17,11 +17,6 @@ public class EscansaoServiceTest {
 	}
 	
 	
-	@Test
-	public void deveRetornarPalavraSeparada() {
-		Assert.assertEquals("tes-tar", escansao.fazerSeparacaoSilabicaDeUmaPalavra("testar"));
-	}
-
 
 	@Test
 	public void deveRetornarVersoEscansado() throws FileNotFoundException, IOException, Exception {

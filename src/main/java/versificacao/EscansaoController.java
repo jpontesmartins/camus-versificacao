@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
 
+import versificacao.entidades.Poema;
+
 @RestController
 public class EscansaoController {
 	
@@ -26,6 +28,7 @@ public class EscansaoController {
 		poema.setPoemaVersificado(palavraSeparada);
 		Gson gson = new Gson();
 		return gson.toJson(poema);
+		
 	}
 	
 
