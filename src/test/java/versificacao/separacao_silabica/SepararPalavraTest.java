@@ -16,8 +16,22 @@ public class SepararPalavraTest {
 	
 	
 	@Test
+	public void palavrasDaParede() {
+		Assert.assertEquals("as tu to", separarPalavra.separar("astuto"));
+		Assert.assertEquals("a li nha do", separarPalavra.separar("alinhado"));
+		Assert.assertEquals("es tre la", separarPalavra.separar("estrela"));
+		Assert.assertEquals("pers cru tar", separarPalavra.separar("perscrutar"));
+		Assert.assertEquals("pers pi caz", separarPalavra.separar("perspicaz"));
+		Assert.assertEquals("sols tí cio", separarPalavra.separar("solstício"));
+		Assert.assertEquals("ab di car", separarPalavra.separar("abdicar"));
+		Assert.assertEquals("plan ta", separarPalavra.separar("planta"));
+		Assert.assertEquals("mons tro", separarPalavra.separar("monstro"));
+	}
+	
+	@Test
 	public void identificarVogaisAcentuadas() {
 		Assert.assertEquals("sim pá ti co", separarPalavra.separar("simpático"));
+		Assert.assertEquals("não", separarPalavra.separar("não"));
 	}
 	
 	
@@ -46,22 +60,13 @@ public class SepararPalavraTest {
 		Assert.assertEquals("es qui lo", separarPalavra.separar("esquilo"));
 		Assert.assertEquals("que da", separarPalavra.separar("queda"));
 		Assert.assertEquals("guer ra", separarPalavra.separar("guerra"));
-		
-//		Assert.assertEquals("mons tro", separarPalavra.separar("monstro"));
-		//obs..: no exemplo do esquilo existe S + Q que é um encontro consonantal separável, e depois um dígrafo Q + U.
 	}
 	
 	@Test
 	public void naoSepararOsDitongosTest() {
 		Assert.assertEquals("pai sa gem", separarPalavra.separar("paisagem"));
 		Assert.assertEquals("cha péu", separarPalavra.separar("chapéu"));
-		
-		
 	}
-	
-	
-	
-	
 	
 	@Test
 	public void identificarQueEhVogal() {
