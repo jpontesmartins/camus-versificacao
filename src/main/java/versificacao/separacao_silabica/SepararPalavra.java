@@ -14,9 +14,9 @@ public class SepararPalavra {
 	public String CH = "ch";
 	public String LH = "lh";
 	public String NH = "nh";
-	public String PT = "pt"; // ap-to
-	public String FT = "ft"; // af-ta
-	public String TR = "tr"; // es-tre-la, es-tra-da
+	public String PT = "pt"; 
+	public String FT = "ft"; 
+	public String TR = "tr";
 	public String CL = "cl";
 	public String DR = "dr";
 	public String CR = "cr";
@@ -76,7 +76,7 @@ public class SepararPalavra {
 					if (isDitongo(letra, letraSeguinte)) {
 						silaba += letraSeguinte;
 						posicaoLetra++;
-						System.out.println("aqui tem um ditongo");
+//						System.out.println("aqui tem um ditongo");
 					}
 
 				}
@@ -158,7 +158,7 @@ public class SepararPalavra {
 	}
 
 	public boolean isVogal(char letra) {
-		String letraComoString = ("" + letra).replace('ã', 'a').replace('é', 'e').replace('á', 'a');
+		String letraComoString = ("" + letra).replace('ã', 'a').replace('é', 'e').replace('á', 'a').replace('í','i');
 		letra = letraComoString.charAt(0);
 		if (letra == 'A' || letra == 'E' || letra == 'I' || letra == 'O' || letra == 'U' || letra == 'a' || letra == 'e'
 				|| letra == 'i' || letra == 'o' || letra == 'u') {
