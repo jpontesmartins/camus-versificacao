@@ -14,8 +14,8 @@ public class SepararPalavra {
 	public String CH = "ch";
 	public String LH = "lh";
 	public String NH = "nh";
-	public String PT = "pt"; 
-	public String FT = "ft"; 
+	public String PT = "pt";
+	public String FT = "ft";
 	public String TR = "tr";
 	public String CL = "cl";
 	public String DR = "dr";
@@ -39,21 +39,23 @@ public class SepararPalavra {
 	public String DIGRAFOS_VOGAIS_NASAIS[] = { AM, EM, IM, OM, UM, AN, EN, IN, ON, UN };
 
 	public static void main(String[] args) {
-//		SepararPalavra separarPalavra = new SepararPalavra();
-//		System.out.println(separarPalavra.separar("simpático"));
-//		System.out.println(separarPalavra.separarFrase("os ombros suportam o mundo"));
-//		System.out.println(separarPalavra.separarFrase("Tempo de absoluta depuração"));
-		
+		SepararPalavra separarPalavra = new SepararPalavra();
+		System.out.println(separarPalavra.separar("isqueiro"));
+		// System.out.println(separarPalavra.separarFrase("os ombros suportam o
+		// mundo"));
+		// System.out.println(separarPalavra.separarFrase("Tempo de absoluta
+		// depuração"));
+
 	}
-	
+
 	public String separarFrase(String frase) {
-		
+
 		String palavas[] = frase.split(" ");
 		String fraseSeparada = "";
 		for (String palavra : palavas) {
 			fraseSeparada += separar(palavra) + " ";
 		}
-		
+
 		return fraseSeparada;
 	}
 
@@ -66,6 +68,8 @@ public class SepararPalavra {
 			char letra = palavra.charAt(posicaoLetra);
 			if (isVogal(letra)) {
 
+				// if (ultimaSilabaTemDigrafoInseparavelEDitongo())
+
 				String silaba = "";
 				for (int j = inicioSilaba; j <= posicaoLetra; j++) {
 					silaba += palavra.charAt(j);
@@ -75,8 +79,19 @@ public class SepararPalavra {
 					char letraSeguinte = palavra.charAt(posicaoLetra + 1);
 					if (isDitongo(letra, letraSeguinte)) {
 						silaba += letraSeguinte;
+
+						System.out.println("aqui tem um ditongo");
+
+						if (posicaoLetra < palavra.length() - 2) {
+							if (silaba.contains(QU)) {
+								char letraSeguinte2 = palavra.charAt(posicaoLetra + 2);
+								if (isVogal(letraSeguinte2)) {
+									silaba += letraSeguinte2;
+									posicaoLetra++;
+								}
+							}
+						}
 						posicaoLetra++;
-//						System.out.println("aqui tem um ditongo");
 					}
 
 				}
@@ -107,8 +122,6 @@ public class SepararPalavra {
 									silabaAnterior += letra;
 									silabas.set(silabas.size() - 1, silabaAnterior);
 									inicioSilaba = posicaoLetra + 1;
-//									System.out.println(
-//											"eh encontro consonantal separavel: " + letra + "" + letraSeguinte);
 								}
 							}
 						}
@@ -158,7 +171,7 @@ public class SepararPalavra {
 	}
 
 	public boolean isVogal(char letra) {
-		String letraComoString = ("" + letra).replace('ã', 'a').replace('é', 'e').replace('á', 'a').replace('í','i');
+		String letraComoString = ("" + letra).replace('ã', 'a').replace('é', 'e').replace('á', 'a').replace('í', 'i');
 		letra = letraComoString.charAt(0);
 		if (letra == 'A' || letra == 'E' || letra == 'I' || letra == 'O' || letra == 'U' || letra == 'a' || letra == 'e'
 				|| letra == 'i' || letra == 'o' || letra == 'u') {

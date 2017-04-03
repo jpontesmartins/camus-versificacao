@@ -26,6 +26,8 @@ public class SepararPalavraTest {
 		Assert.assertEquals("ab di car", separarPalavra.separar("abdicar"));
 		Assert.assertEquals("plan ta", separarPalavra.separar("planta"));
 		Assert.assertEquals("mons tro", separarPalavra.separar("monstro"));
+		Assert.assertEquals("is quei ro", separarPalavra.separar("isqueiro"));
+		
 	}
 	
 	@Test
