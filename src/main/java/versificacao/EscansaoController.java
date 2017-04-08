@@ -17,10 +17,10 @@ public class EscansaoController {
 		System.out.println("get");
 		System.out.println(poemaTexto);
 		EscansaoService escansaoService = new EscansaoService();
-		String palavraSeparada = escansaoService.fazerSeparacaoSilabicaDoVerso(poemaTexto);
+		String verso = escansaoService.fazerSeparacaoSilabicaDoVerso(poemaTexto);
 		Poema poema = new Poema();
 		poema.setPoema(poemaTexto);
-		poema.setPoemaVersificado(palavraSeparada);
+		poema.setPoemaVersificado(verso);
 		Gson gson = new Gson();
 		return gson.toJson(poema);
 		

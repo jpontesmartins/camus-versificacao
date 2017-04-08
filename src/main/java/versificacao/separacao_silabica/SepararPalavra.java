@@ -49,7 +49,6 @@ public class SepararPalavra {
 	}
 
 	public String separarFrase(String frase) {
-
 		String palavas[] = frase.split(" ");
 		String fraseSeparada = "";
 		for (String palavra : palavas) {

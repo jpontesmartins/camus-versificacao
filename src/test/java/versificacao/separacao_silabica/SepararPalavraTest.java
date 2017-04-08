@@ -14,7 +14,6 @@ public class SepararPalavraTest {
 		separarPalavra = new SepararPalavra();
 	}
 	
-	
 	@Test
 	public void palavrasDaParede() {
 		Assert.assertEquals("as tu to", separarPalavra.separar("astuto"));
@@ -80,7 +79,4 @@ public class SepararPalavraTest {
 		Assert.assertFalse(separarPalavra.isVogal('b'));
 	}
 	
-	
-	
-
 }

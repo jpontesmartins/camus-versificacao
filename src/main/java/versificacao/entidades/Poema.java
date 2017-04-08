@@ -1,9 +1,13 @@
 package versificacao.entidades;
 
+import java.util.List;
+
 public class Poema {
 
 	private String poema;
 	private String poemaVersificado;
+	
+	private List<Estrofe> estrofes;
 	
 	public Poema() {
 		
@@ -28,6 +32,14 @@ public class Poema {
 
 	public void setPoemaVersificado(String poemaVersificado) {
 		this.poemaVersificado = poemaVersificado;
+	}
+
+	public List<Estrofe> getEstrofes() {
+		return estrofes;
+	}
+
+	public void setEstrofes(List<Estrofe> estrofes) {
+		this.estrofes = estrofes;
 	}
 
 }
