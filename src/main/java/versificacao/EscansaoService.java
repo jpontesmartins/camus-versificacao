@@ -8,4 +8,6 @@ public class EscansaoService {
 		SepararPalavra separarPalavra = new SepararPalavra();
 		return separarPalavra.separarFrase(frase);
 	}
+	
+	
 }

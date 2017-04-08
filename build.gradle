@@ -1,3 +1,5 @@
+version '2.2'
+
 buildscript {
     repositories {
         mavenCentral()
@@ -27,18 +29,12 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-
 	// https://mvnrepository.com/artifact/com.google.code.gson/gson
 	compile group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
-
-    // tag::jetty[]
     compile("org.springframework.boot:spring-boot-starter-web") {
         exclude module: "spring-boot-starter-tomcat"
     }
     compile("org.springframework.boot:spring-boot-starter-jetty")
-    // end::jetty[]
-    // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    // end::actuator[]
     testCompile("junit:junit")
 }
