@@ -80,7 +80,7 @@ public class SepararPalavra {
 					if (isDitongo(letra, letraSeguinte)) {
 						silaba += letraSeguinte;
 
-						System.out.println("aqui tem um ditongo");
+//						System.out.println("aqui tem um ditongo");
 
 						if (posicaoLetra < palavra.length() - 2) {
 							if (silaba.contains(QU)) {
