@@ -33,38 +33,53 @@ public class SepararPalavra {
 	public String ON = "on";
 	public String UN = "un";
 	public String PR = "pr";
-	
 
 	public String AA = "aa";
 	public String EE = "ee";
 	public String II = "ii";
 	public String OO = "oo";
 	public String UU = "uu";
-	
+
 	public String EA = "ea";
 	public String IA = "ia";
 	public String IO = "io";
 	public String OA = "oa";
+	public String OE = "oe";
 	public String UA = "ua";
-	
-	
+
+	public String A = "a";
+	public String E = "e";
+	public String I = "i";
+	public String O = "o";
+	public String U = "u";
+
+	public String VOGAIS_2[] = { A, E, O };
+	public String SEMI_VOGAIS[] = { I, U };
+
+	public String A_ACENTO = "á";
+	public String E_ACENTO = "é";
+	public String I_ACENTO = "í";
+	public String O_ACENTO = "ó";
+	public String U_ACENTO = "ú";
+
+	public String AU_ACENTO = "aú";
+	public String AE_ACENTO = "aé";
+	public String AI_ACENTO = "aí";
+	public String OI_ACENTO = "oí";
+
+	public String A_TIL = "ã";
+	public String O_TIL = "õ";
 
 	public String DIGRAFOS_SEPARAVEIS[] = { RR, SS, SC, SCC, XC };
 	public String DIGRAFOS_INSEPARAVEIS[] = { GU, QU, LH, NH, CH, PR };
 	public String DIGRAFOS_VOGAIS_NASAIS[] = { AM, EM, IM, OM, UM, AN, EN, IN, ON, UN };
-	public String DITONGOS_SEPARAVEIS[] = { AA, EE, II, OO, UU, EA, IA, IO, OA, UA };
-	
-	
-	
+	public String HIATOS[] = { AA, EE, II, OO, UU, EA, IA, IO, OA, UA, OE, AU_ACENTO, AE_ACENTO, AI_ACENTO, OI_ACENTO };
+
+	public String VOGAIS[] = { A, E, I, O, U, A_ACENTO, E_ACENTO, I_ACENTO, O_ACENTO, U_ACENTO, A_TIL, O_TIL };
 
 	public static void main(String[] args) {
 		SepararPalavra separarPalavra = new SepararPalavra();
-		System.out.println(separarPalavra.separar("silencioso"));
-		// System.out.println(separarPalavra.separarFrase("os ombros suportam o
-		// mundo"));
-		// System.out.println(separarPalavra.separarFrase("Tempo de absoluta
-		// depuração"));
-
+		System.out.println(separarPalavra.separar("saída"));
 	}
 
 	public String separarFrase(String frase) {
@@ -93,13 +108,12 @@ public class SepararPalavra {
 
 				if (posicaoLetra < palavra.length() - 1) {
 					char letraSeguinte = palavra.charAt(posicaoLetra + 1);
-					
-					if (!isDitongoDivisivel(letra, letraSeguinte)) {
+
+					if (!isHiato(letra, letraSeguinte)) {
+
 						if (isDitongo(letra, letraSeguinte)) {
 							silaba += letraSeguinte;
-	
-							System.out.println("aqui tem um ditongo: " + letra + letraSeguinte);
-	
+//							System.out.println("aqui tem um ditongo: " + letra + letraSeguinte);
 							if (posicaoLetra < palavra.length() - 2) {
 								if (silaba.contains(QU)) {
 									char letraSeguinte2 = palavra.charAt(posicaoLetra + 2);
@@ -109,15 +123,10 @@ public class SepararPalavra {
 									}
 								}
 							}
-							
-							if (isDitongoDivisivel(silaba)) {
-								System.out.println("ditongo divisivel " + silaba);
-							}
 							posicaoLetra++;
 						}
-						
 					}
-
+					
 				}
 
 				silabas.add(silaba);
@@ -162,14 +171,10 @@ public class SepararPalavra {
 		return palavraSeparada.trim();
 	}
 
-	private boolean isDitongoDivisivel(char letra, char letraSeguinte) {
-		String ditongo = letra + "" + letraSeguinte;
-		List<String> ditongosSeparaveis = Arrays.asList(DITONGOS_SEPARAVEIS);
-		return ditongosSeparaveis.contains(ditongo);
-	}
-
-	private boolean isDitongoDivisivel(String silaba) {
-		return silaba.contains(IO);
+	private boolean isHiato(char letra, char letraSeguinte) {
+		String hiato = letra + "" + letraSeguinte;
+		List<String> hiatos = Arrays.asList(HIATOS);
+		return hiatos.contains(hiato);
 	}
 
 	private boolean isEncontroConsonantalTerminadoEmLOuR(char letra, char letraSeguinte) {
@@ -205,12 +210,12 @@ public class SepararPalavra {
 	}
 
 	public boolean isVogal(char letra) {
-		String letraComoString = ("" + letra).replace('ã', 'a').replace('é', 'e').replace('á', 'a').replace('í', 'i');
-		letra = letraComoString.charAt(0);
-		if (letra == 'A' || letra == 'E' || letra == 'I' || letra == 'O' || letra == 'U' || letra == 'a' || letra == 'e'
-				|| letra == 'i' || letra == 'o' || letra == 'u') {
+		String letraComoString = ("" + letra).toLowerCase();
+
+		List<String> vogais = Arrays.asList(VOGAIS);
+		if (vogais.contains(letraComoString))
 			return true;
-		}
+
 		return false;
 	}
 

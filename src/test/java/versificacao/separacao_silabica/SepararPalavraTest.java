@@ -17,11 +17,18 @@ public class SepararPalavraTest {
 	
 	@Test
 	public void separarOsHiatos() {
+		Assert.assertEquals("po e ma", separarPalavra.separar("poema"));
+		Assert.assertEquals("po e si a", separarPalavra.separar("poesia"));
+		Assert.assertEquals("pi a da", separarPalavra.separar("piada"));
+		Assert.assertEquals("se rei a", separarPalavra.separar("sereia"));
+		Assert.assertEquals("sa í da", separarPalavra.separar("saída"));
+		Assert.assertEquals("sa ú de", separarPalavra.separar("saúde"));
+		Assert.assertEquals("e go ís ta", separarPalavra.separar("egoísta"));
+		Assert.assertEquals("e po pei a", separarPalavra.separar("epopeia"));
 		Assert.assertEquals("si len ci o so", separarPalavra.separar("silencioso"));
 		Assert.assertEquals("fe ri a do", separarPalavra.separar("feriado"));
 		Assert.assertEquals("fa ti a do", separarPalavra.separar("fatiado"));
 		Assert.assertEquals("vo o", separarPalavra.separar("voo"));
-//		Assert.assertEquals("si len ci o so", separarPalavra.separar("silencioso"));
 	}
 	
 	@Test
