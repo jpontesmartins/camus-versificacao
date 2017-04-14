@@ -5,6 +5,7 @@
 	margin-right: auto;
 	margin-top: 2%
 }
+
 .jumbotron_dois {
 	width: 80%;
 	text-align: center;
@@ -13,31 +14,35 @@
 	margin-top: 2%
 }
 
-
 /* COR DOS CAMPOS*/
 a {
 	color: #555;
 }
+
 a:hover, a:focus {
-    color: #CCC;
-    text-decoration: underline;
+	color: #CCC;
+	text-decoration: underline;
 }
 
 /* BORDA DOS CAMPOS */
 .no-border {
-    border: 1;
-    box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+	border: 1;
+	box-shadow: none;
+	/* You may want to include this as bootstrap applies these styles too */
 }
+
 .form-control {
-		width: 100%;
+	width: 100%;
 }
+
 .form-control:focus {
-  border-color: #ccc;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 0, 0.6);
+	border-color: #ccc;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+		rgba(0, 0, 0, 0.6);
 }
 
 .table thead {
-
+	
 }
 
 td {
@@ -45,56 +50,60 @@ td {
 }
 
 .nome-arquivo {
-		font-size: 20px;
-		font-weight: bold;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .caminho {
-		font-size: 20px;
+	font-size: 20px;
 }
 
 .linhas {
-		font-size: 12px;
+	font-size: 12px;
 }
+
 .extensao {
-		font-size: 14px;
+	font-size: 14px;
 }
 
 body {
 	background-color: #eee;
 }
 
-
 .btn-primary {
-		background-color: #000;
-		border: 0;
-		box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
-		width: 100%;
+	background-color: #000;
+	border: 0;
+	box-shadow: none;
+	/* You may want to include this as bootstrap applies these styles too */
+	width: 100%;
 }
+
 .btn-primary:hover {
-    color: #CCC;
-		background-color: #444;
-		border: none;
-		box-shadow: none;
-		border-radius: 0;
+	color: #CCC;
+	background-color: #444;
+	border: none;
+	box-shadow: none;
+	border-radius: 0;
 }
+
 .btn-primary:focus {
-    color: #444;
-		background-color: #eee;
-		border: none;
-		box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
-		border-radius: 0;
+	color: #444;
+	background-color: #eee;
+	border: none;
+	box-shadow: none;
+	/* You may want to include this as bootstrap applies these styles too */
+	border-radius: 0;
 }
+
 .btn-primary:focus:hover {
-    color: #444;
-		background-color: #eee;
-		border: none;
-		box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
-		border-radius: 0;
-		font-style: italic;
+	color: #444;
+	background-color: #eee;
+	border: none;
+	box-shadow: none;
+	/* You may want to include this as bootstrap applies these styles too */
+	border-radius: 0;
+	font-style: italic;
 }
-
-
 
 /* --------------------------- */
 /* TEXTO */
@@ -105,31 +114,39 @@ body {
 }
 
 .cinza {
-	color: red;	
+	color: red;
 }
+
 .texto-pq {
-		font-size: 12px;
+	font-size: 14px;
+	color: #999;
+	font-style: italic;
 }
+
 .texto-md {
 	color: #999;
 	font-size: 20px;
 	font-style: italic;
 }
+
 .texto-gr {
 	color: #000;
 	font-size: 28px;
 }
+
 .texto-gr-cinza-italico {
 	color: #777;
 	font-size: 28px;
 	text-align: left;
 	font-style: italic;
 }
+
 .texto-gr-cinza {
 	color: #777;
 	font-size: 28px;
 	text-align: left;
 }
+
 .texto-gr-cinza-claro {
 	color: #ccc;
 	font-size: 28px;
@@ -143,6 +160,47 @@ body {
 }
 /* --------------------------- */
 
+/* --------------------------- */
+/* TEXTO */
+/* --------------------------- */
+.align-left {
+	text-align: left;
+}
+
+.badge {
+	display: inline-block;
+	min-width: 10px;
+	padding: 3px 7px;
+	font-size: 11px;
+	font-weight: bold;
+	color: #ddd;
+	vertical-align: middle;
+	white-space: nowrap;
+	background-color: #fff;
+	border-radius: 10px;
+	text-align: left;
+}
+
+.list-group-item {
+	background-color: rgb(f, f, f);
+	border: 1px solid;
+}
+
+.item {
+	display: block;
+}
+
+.btn {
+	text-align: left;
+	vertical-align: middle;
+}
+
+
+
+
+.lista-de-itens {
+	color: #666;
+}
 
 .borda-tabela {
 	border: 2px;
@@ -158,23 +216,24 @@ body {
 }
 
 .checkbox-gr {
-    width: 150%;
-    height: 150%;
+	width: 150%;
+	height: 150%;
 }
+
 .checkbox-pq {
-    width: 10%;
-    height: 10%;
+	width: 10%;
+	height: 10%;
 }
 
 .modal-header-meu {
-    padding: 5px;
-    border-bottom: 1px solid #e5e5e5;
+	padding: 5px;
+	border-bottom: 1px solid #e5e5e5;
 }
 
 .modal-footer-meu {
-    padding: 10px;
-    text-align: left;
-    border-top: 1px solid #e5e5e5;
+	padding: 10px;
+	text-align: left;
+	border-top: 1px solid #e5e5e5;
 }
 
 .input-meu {
@@ -182,4 +241,3 @@ body {
 	font-size: 14px;
 	width: 100%;
 }
-

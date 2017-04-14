@@ -1,46 +1,70 @@
 <html ng-app="versificacao">
 <head>
-	<meta charset="UTF-8">
-	<title>camus/versificação</title>
-	
-	<link rel="stylesheet" type="text/css" href="libs/css/bootstrap.min.css">	
-	
-	<script src="libs/js/angular.min.js"></script>
-	<script src="libs/js/jquery-2.1.4.min.js"></script>
-	
-	<script src="controllers/versificacao_ctrl.js"></script>
-	<script src="services/versificacao_srvc.js"></script>
-	
-	<link rel="stylesheet" type="text/css" href="libs/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="libs/css/app.css">
+<meta charset="UTF-8">
+<title>camus/versificação</title>
+
+<link rel="stylesheet" type="text/css" href="libs/css/bootstrap.min.css">
+
+<script src="libs/js/angular.min.js"></script>
+<script src="libs/js/jquery-2.1.4.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="controllers/versificacao_ctrl.js"></script>
+<script src="services/versificacao_srvc.js"></script>
+
+<link rel="stylesheet" type="text/css" href="libs/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="libs/css/app.css">
 
 </head>
 
 <body>
 	<nav class="navbar navbar-default" role="navigation">
-	
-		<div class="navbar-header col-md-3" >
-			<span class="texto-md-cinza-claro">camus</span>
-			<span class="texto-gr-cinza-claro">/versificação</span>
+
+		<div class="navbar-header col-md-3">
+			<span class="texto-md-cinza-claro">camus</span> <span
+				class="texto-gr-cinza-claro">/versificação</span>
 		</div>
 	</nav>
 
 
 	<div class="jumbotron_dois" ng-controller="versificacao_ctrl">
 
-		<div class="form-group col-md-6">
-		  <textarea class="form-control texto-gr" ng-model="poema.poema" rows="6"  id="comment"></textarea>
-		  <button class="btn btn-primary form-group texto-gr-cinza"
-		  		ng-click="versificacao(poema.poema)">Versificar</button>
+		<div class="form-group col-md-12">
+			<textarea class="form-control texto-gr" ng-model="poema.poema"
+				rows="6" id="comment"></textarea>
+			<button class="btn btn-primary form-group texto-gr-cinza"
+				ng-click="versificacao(poema.poema)">Versificar</button>
 		</div>
-		
+
 		<!-- VERSIFICADO -->
-		<div class="form-group col-md-6 texto-gr-cinza-italico " >
+		<div class="form-group col-md-12 texto-gr-cinza-italico ">
 			<span class="texto-gr-cinza">{{poema.poemaVersificado}}</span>
 		</div>
 
-	</div>
-	
-	
+			<div class="col-md-12 alig-center">
+			
+			<div class="col-md-4 alig-center">
+					<button type="button" class="btn left" data-toggle="collapse" data-target="#demo2">
+						<span class="texto-md">2.5 /informações sobre o camus</span>
+					</button>
+				
+					<div id="demo2" class="collapse">
+						<ul>
+							<li class="texto-pq align-left item">2.5 - visibilidade da versão <span
+								class="badge">14/07</span></li>
+							<li class="texto-pq align-left item">2.4 - hiatos<span class="badge">14/07</span></li>
+							<li class="texto-pq align-left item">2.3 - hiatos<span class="badge">14/07</span></li>
+							<li class="texto-pq align-left item">2.2 - regras das vogais tratadas</li>
+							<li class="texto-pq align-left item">2.1 - contagem das sílabas
+								gramaticais</li>
+						</ul>
+					</div>
+				</div>
+				
+			
+			</div>
+		</div>
+
 </body>
 </html>
