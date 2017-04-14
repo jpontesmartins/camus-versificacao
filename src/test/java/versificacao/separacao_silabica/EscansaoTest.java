@@ -28,9 +28,11 @@ public class EscansaoTest {
 
 	@Test
 	public void deveConter13SilabasGramaticaisNoVersoTest() {
+		String verso0 = "Silencioso e branco como a bruma";
 		String verso1 = "E das bocas unidas fez-se a espuma";
 		String verso2 = "E das mãos espalmadas fez-se o espanto";
 
+		Assert.assertEquals(13, escansao.quantidadeSilabasGramaticais(verso0));
 		Assert.assertEquals(13, escansao.quantidadeSilabasGramaticais(verso1));
 		Assert.assertEquals(13, escansao.quantidadeSilabasGramaticais(verso2));
 	}

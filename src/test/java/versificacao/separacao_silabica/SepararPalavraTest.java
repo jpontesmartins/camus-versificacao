@@ -14,14 +14,25 @@ public class SepararPalavraTest {
 		separarPalavra = new SepararPalavra();
 	}
 	
+	
+	@Test
+	public void separarOsHiatos() {
+		Assert.assertEquals("si len ci o so", separarPalavra.separar("silencioso"));
+		Assert.assertEquals("fe ri a do", separarPalavra.separar("feriado"));
+		Assert.assertEquals("fa ti a do", separarPalavra.separar("fatiado"));
+		Assert.assertEquals("vo o", separarPalavra.separar("voo"));
+//		Assert.assertEquals("si len ci o so", separarPalavra.separar("silencioso"));
+	}
+	
 	@Test
 	public void palavrasDaParede() {
+
 		Assert.assertEquals("as tu to", separarPalavra.separar("astuto"));
 		Assert.assertEquals("a li nha do", separarPalavra.separar("alinhado"));
 		Assert.assertEquals("es tre la", separarPalavra.separar("estrela"));
 		Assert.assertEquals("pers cru tar", separarPalavra.separar("perscrutar"));
 		Assert.assertEquals("pers pi caz", separarPalavra.separar("perspicaz"));
-		Assert.assertEquals("sols tí cio", separarPalavra.separar("solstício"));
+		Assert.assertEquals("sols tí ci o", separarPalavra.separar("solstício"));
 		Assert.assertEquals("ab di car", separarPalavra.separar("abdicar"));
 		Assert.assertEquals("plan ta", separarPalavra.separar("planta"));
 		Assert.assertEquals("mons tro", separarPalavra.separar("monstro"));
