@@ -74,7 +74,6 @@ public class SepararPalavra {
 	public String DIGRAFOS_INSEPARAVEIS[] = { GU, QU, LH, NH, CH, PR };
 	public String DIGRAFOS_VOGAIS_NASAIS[] = { AM, EM, IM, OM, UM, AN, EN, IN, ON, UN };
 	public String HIATOS[] = { AA, EE, II, OO, UU, EA, IA, IO, OA, UA, OE, AU_ACENTO, AE_ACENTO, AI_ACENTO, OI_ACENTO };
-
 	public String VOGAIS[] = { A, E, I, O, U, A_ACENTO, E_ACENTO, I_ACENTO, O_ACENTO, U_ACENTO, A_TIL, O_TIL };
 
 	public static void main(String[] args) {

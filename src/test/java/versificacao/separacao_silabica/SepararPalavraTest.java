@@ -14,7 +14,6 @@ public class SepararPalavraTest {
 		separarPalavra = new SepararPalavra();
 	}
 	
-	
 	@Test
 	public void separarOsHiatos() {
 		Assert.assertEquals("po e ma", separarPalavra.separar("poema"));
