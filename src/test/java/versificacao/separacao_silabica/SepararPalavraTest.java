@@ -14,6 +14,14 @@ public class SepararPalavraTest {
 		separarPalavra = new SepararPalavra();
 	}
 	
+	
+	@Test
+	public void separarComAcento() {
+		Assert.assertEquals("po é ti ca", separarPalavra.separar("poética"));
+		Assert.assertEquals("bê ba do", separarPalavra.separar("bêbado"));
+		Assert.assertEquals("ô ni bus", separarPalavra.separar("ônibus"));
+	}
+	
 	@Test
 	public void separarOsHiatos() {
 		Assert.assertEquals("po e ma", separarPalavra.separar("poema"));

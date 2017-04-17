@@ -123,6 +123,13 @@ body {
 	font-style: italic;
 }
 
+.texto-pq-n {
+	font-size: 14px;
+	color: #999;
+	font-style: italic;
+	font-weight: bold;
+}
+
 .texto-md {
 	color: #999;
 	font-size: 20px;
