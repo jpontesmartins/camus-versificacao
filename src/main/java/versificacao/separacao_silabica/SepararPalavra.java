@@ -66,15 +66,22 @@ public class SepararPalavra {
 	public String AE_ACENTO = "aé";
 	public String AI_ACENTO = "aí";
 	public String OI_ACENTO = "oí";
+	public String OE_ACENTO = "oé";
 
 	public String A_TIL = "ã";
 	public String O_TIL = "õ";
+	public String E_CIRC = "ê";
+	public String A_CIRC = "â";
+	public String O_CIRC = "ô";
+	
+	
 
 	public String DIGRAFOS_SEPARAVEIS[] = { RR, SS, SC, SCC, XC };
 	public String DIGRAFOS_INSEPARAVEIS[] = { GU, QU, LH, NH, CH, PR };
 	public String DIGRAFOS_VOGAIS_NASAIS[] = { AM, EM, IM, OM, UM, AN, EN, IN, ON, UN };
-	public String HIATOS[] = { AA, EE, II, OO, UU, EA, IA, IO, OA, UA, OE, AU_ACENTO, AE_ACENTO, AI_ACENTO, OI_ACENTO };
-	public String VOGAIS[] = { A, E, I, O, U, A_ACENTO, E_ACENTO, I_ACENTO, O_ACENTO, U_ACENTO, A_TIL, O_TIL };
+	public String HIATOS[] = { AA, EE, II, OO, UU, EA, IA, IO, OA, UA, OE, OE_ACENTO, AU_ACENTO, AE_ACENTO, AI_ACENTO, OI_ACENTO };
+
+	public String VOGAIS[] = { A, E, I, O, U, A_ACENTO, E_ACENTO, I_ACENTO, O_ACENTO, U_ACENTO, A_TIL, O_TIL, A_CIRC, E_CIRC, O_CIRC };
 
 	public static void main(String[] args) {
 		SepararPalavra separarPalavra = new SepararPalavra();
@@ -150,10 +157,12 @@ public class SepararPalavra {
 									|| isEncontroConsonantalTerminadoEmLOuR(letra, letraSeguinte)) {
 							} else {
 								if (isEncontroConsonantalSeparavel(letra, letraSeguinte)) {
-									String silabaAnterior = silabas.get(silabas.size() - 1);
-									silabaAnterior += letra;
-									silabas.set(silabas.size() - 1, silabaAnterior);
-									inicioSilaba = posicaoLetra + 1;
+									if (silabas.size() > 0) {
+										String silabaAnterior = silabas.get(silabas.size() - 1);
+										silabaAnterior += letra;
+										silabas.set(silabas.size() - 1, silabaAnterior);
+										inicioSilaba = posicaoLetra + 1;
+									}
 								}
 							}
 						}
