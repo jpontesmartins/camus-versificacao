@@ -221,7 +221,7 @@ public class SepararPalavra {
 
 		boolean regrasDoU = false;
 		if (letra == U.charAt(0)) {
-			if (I.equals("" + letraSeguinte)) {
+			if (I.equals("" + letraSeguinte) && posicaoLetra + 2 < palavra.length()) {
 				String ultimaLetra = "" + palavra.charAt(posicaoLetra + 2);
 				String consoantesFinais[] = { Z, R, M };
 				if (isUltimaLetra(palavra, posicaoLetra) && Arrays.asList(consoantesFinais).contains(ultimaLetra)) {
@@ -229,9 +229,7 @@ public class SepararPalavra {
 				}
 				// TODO: rU-Ir, (ultima silaba, penúltima letra)
 				// rU-Im
-
 			}
-
 		}
 		return hiatos.contains(hiato) || regrasDoU;
 	}
