@@ -35,7 +35,10 @@ public class Tonicidade {
 
 	public static void main(String[] args) {
 		Tonicidade t = new Tonicidade();
-		t.encontrarSilabaTonica("pródigo");
+		System.out.println(t.encontrarTonicidadeDaPalavra("peru"));
+//		System.out.println(t.encontrarTonicidadeDaPalavra("voz"));
+//		System.out.println(t.encontrarTonicidadeDaPalavra("juiz"));
+//		t.encontrarSilabaTonica("pródigo");
 	}
 
 	public String encontrarSilabaTonica(String palavra) {
@@ -101,7 +104,7 @@ public class Tonicidade {
 			}
 			contagem++;
 		}
-		return 0;
+		return contagem;
 	}
 
 }
