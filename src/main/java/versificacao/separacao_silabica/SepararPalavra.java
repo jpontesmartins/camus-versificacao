@@ -67,25 +67,45 @@ public class SepararPalavra {
 	public String AI_ACENTO = "aí";
 	public String OI_ACENTO = "oí";
 	public String OE_ACENTO = "oé";
+	public String UI_ACENTO = "uí";
 
 	public String A_TIL = "ã";
 	public String O_TIL = "õ";
 	public String E_CIRC = "ê";
 	public String A_CIRC = "â";
 	public String O_CIRC = "ô";
-	
-	
 
+	public String OUA = "oua";
+	public String IUA = "iua";
+
+	public String A_TIMBRE_ABERTO = "a";
+	public String E_TIMBRE_ABERTO = "é";
+	public String O_TIMBRE_ABERTO = "ó";
+
+	public String E_TIMBRE_FECHADO = "ê";
+	public String O_TIMBRE_FECHADO = "ô";
+	public String I_TIMBRE_FECHADO = "i";
+	public String U_TIMBRE_FECHADO = "u";
+
+	public String VOGAIS_TIMBRES_FECHADOS[] = { E_TIMBRE_FECHADO, O_TIMBRE_FECHADO, I_TIMBRE_FECHADO,
+			U_TIMBRE_FECHADO };
+
+	public String DITONGOS_[] = { OUA, IUA };
 	public String DIGRAFOS_SEPARAVEIS[] = { RR, SS, SC, SCC, XC };
 	public String DIGRAFOS_INSEPARAVEIS[] = { GU, QU, LH, NH, CH, PR };
 	public String DIGRAFOS_VOGAIS_NASAIS[] = { AM, EM, IM, OM, UM, AN, EN, IN, ON, UN };
-	public String HIATOS[] = { AA, EE, II, OO, UU, EA, IA, IO, OA, UA, OE, OE_ACENTO, AU_ACENTO, AE_ACENTO, AI_ACENTO, OI_ACENTO };
+	public String HIATOS[] = { AA, EE, II, OO, UU, EA, IA, IO, OA, UA, OE, OE_ACENTO, AU_ACENTO, AE_ACENTO, AI_ACENTO,
+			OI_ACENTO, UI_ACENTO };
 
-	public String VOGAIS[] = { A, E, I, O, U, A_ACENTO, E_ACENTO, I_ACENTO, O_ACENTO, U_ACENTO, A_TIL, O_TIL, A_CIRC, E_CIRC, O_CIRC };
+	public String VOGAIS[] = { A, E, I, O, U, A_ACENTO, E_ACENTO, I_ACENTO, O_ACENTO, U_ACENTO, A_TIL, O_TIL, A_CIRC,
+			E_CIRC, O_CIRC };
 
 	public static void main(String[] args) {
 		SepararPalavra separarPalavra = new SepararPalavra();
-		System.out.println(separarPalavra.separar("saída"));
+		System.out.println(separarPalavra.separar("juiz"));
+		// System.out.println(separarPalavra.separar("queira"));
+		// System.out.println(separarPalavra.separar("quatro"));
+		// System.out.println(separarPalavra.separar("ergueu"));
 	}
 
 	public String separarFrase(String frase) {
@@ -104,6 +124,7 @@ public class SepararPalavra {
 		String palavraSeparada = "";
 		List<String> silabas = new ArrayList<String>();
 		for (int posicaoLetra = 0; posicaoLetra <= palavra.length() - 1; posicaoLetra++) {
+			boolean finalComSemiVogal = false;
 			char letra = palavra.charAt(posicaoLetra);
 			if (isVogal(letra)) {
 
@@ -115,13 +136,13 @@ public class SepararPalavra {
 				if (posicaoLetra < palavra.length() - 1) {
 					char letraSeguinte = palavra.charAt(posicaoLetra + 1);
 
-					if (!isHiato(letra, letraSeguinte)) {
+					if (!isHiato(letra, letraSeguinte, palavra, posicaoLetra)) {
 
+						
 						if (isDitongo(letra, letraSeguinte)) {
 							silaba += letraSeguinte;
-//							System.out.println("aqui tem um ditongo: " + letra + letraSeguinte);
 							if (posicaoLetra < palavra.length() - 2) {
-								if (silaba.contains(QU)) {
+								if (silaba.contains(QU) || silaba.contains(GU)) {
 									char letraSeguinte2 = palavra.charAt(posicaoLetra + 2);
 									if (isVogal(letraSeguinte2)) {
 										silaba += letraSeguinte2;
@@ -131,12 +152,32 @@ public class SepararPalavra {
 							}
 							posicaoLetra++;
 						}
+					} else {
+						//se fo um hiato....
+						if (silaba.contains(QU) || silaba.contains(GU)) {
+							if (posicaoLetra + 1 < palavra.length() - 1)
+								silaba += palavra.charAt(posicaoLetra + 1);
+							posicaoLetra++;
+						}
 					}
-					
+
+				} else if (posicaoLetra == palavra.length() - 1) {
+
+					if (Arrays.asList(VOGAIS_TIMBRES_FECHADOS).contains("" + palavra.charAt(posicaoLetra))) {
+						String silabaAnterior = silabas.get(silabas.size() - 1);
+						silaba = silabaAnterior + "" + silaba;
+						finalComSemiVogal = true;
+					}
+
 				}
 
-				silabas.add(silaba);
-				inicioSilaba = posicaoLetra + 1;
+				if (posicaoLetra == palavra.length() - 1 && finalComSemiVogal) {
+					silabas.set(silabas.size() - 1, silaba);
+					finalComSemiVogal = false;
+				} else {
+					silabas.add(silaba);
+					inicioSilaba = posicaoLetra + 1;
+				}
 
 			} else {
 				if (isConsoante(letra) && posicaoLetra > 0) {
@@ -179,10 +220,31 @@ public class SepararPalavra {
 		return palavraSeparada.trim();
 	}
 
-	private boolean isHiato(char letra, char letraSeguinte) {
+	private boolean isHiato(char letra, char letraSeguinte, String palavra, int posicaoLetra) {
 		String hiato = letra + "" + letraSeguinte;
 		List<String> hiatos = Arrays.asList(HIATOS);
-		return hiatos.contains(hiato);
+		
+		boolean regrasDoU = false;
+		if (letra == U.charAt(0)) {
+//			System.out.println("regras do U");
+			if (letraSeguinte == 'i') {
+				if (posicaoLetra+2 == palavra.length()-1 && 
+						(palavra.charAt(posicaoLetra+2) == 'z' || palavra.charAt(posicaoLetra+2) == 'r'
+						|| palavra.charAt(posicaoLetra+2) == 'm')) {
+					System.out.println("regras do U+I+Z");
+					regrasDoU = true;
+				}
+				//TODO: rU-Ir, (ultima silaba, penúltima letra)
+				// rU-Im
+				
+				
+				
+				
+				
+			}
+			
+		}
+		return hiatos.contains(hiato) || regrasDoU;
 	}
 
 	private boolean isEncontroConsonantalTerminadoEmLOuR(char letra, char letraSeguinte) {
@@ -229,6 +291,15 @@ public class SepararPalavra {
 
 	public boolean isConsoante(char letra) {
 		return !isVogal(letra);
+	}
+
+	public boolean isDuasSilabasTonicas(String ultimaSilabaDaLista, String primeiraSilaba) {
+		String elisao = ultimaSilabaDaLista + "" + primeiraSilaba;
+		for (String ditongo : DITONGOS_) {
+			if (elisao.contains(ditongo))
+				return true;
+		}
+		return false;
 	}
 
 }
