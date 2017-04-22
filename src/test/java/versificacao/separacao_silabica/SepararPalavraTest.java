@@ -14,6 +14,10 @@ public class SepararPalavraTest {
 		separarPalavra = new SepararPalavra();
 	}
 	
+	@Test
+	public void separarPeru() {
+		Assert.assertEquals("pe ru", separarPalavra.separar("peru"));
+	}
 
 	@Test
 	public void naoSepararDitongoUI() {

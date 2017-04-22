@@ -6,6 +6,9 @@ import java.util.List;
 
 public class SepararPalavra {
 
+	public String Z = "z";
+	public String R = "r";
+	public String M = "m";
 	public String RR = "rr";
 	public String SS = "ss";
 	public String SC = "sc";
@@ -102,7 +105,8 @@ public class SepararPalavra {
 
 	public static void main(String[] args) {
 		SepararPalavra separarPalavra = new SepararPalavra();
-		System.out.println(separarPalavra.separar("juiz"));
+		System.out.println(separarPalavra.separar("peru"));
+		// System.out.println(separarPalavra.separar("juiz"));
 		// System.out.println(separarPalavra.separar("queira"));
 		// System.out.println(separarPalavra.separar("quatro"));
 		// System.out.println(separarPalavra.separar("ergueu"));
@@ -138,7 +142,6 @@ public class SepararPalavra {
 
 					if (!isHiato(letra, letraSeguinte, palavra, posicaoLetra)) {
 
-						
 						if (isDitongo(letra, letraSeguinte)) {
 							silaba += letraSeguinte;
 							if (posicaoLetra < palavra.length() - 2) {
@@ -153,20 +156,12 @@ public class SepararPalavra {
 							posicaoLetra++;
 						}
 					} else {
-						//se fo um hiato....
+						// se fo um hiato....
 						if (silaba.contains(QU) || silaba.contains(GU)) {
 							if (posicaoLetra + 1 < palavra.length() - 1)
 								silaba += palavra.charAt(posicaoLetra + 1);
 							posicaoLetra++;
 						}
-					}
-
-				} else if (posicaoLetra == palavra.length() - 1) {
-
-					if (Arrays.asList(VOGAIS_TIMBRES_FECHADOS).contains("" + palavra.charAt(posicaoLetra))) {
-						String silabaAnterior = silabas.get(silabas.size() - 1);
-						silaba = silabaAnterior + "" + silaba;
-						finalComSemiVogal = true;
 					}
 
 				}
@@ -223,28 +218,26 @@ public class SepararPalavra {
 	private boolean isHiato(char letra, char letraSeguinte, String palavra, int posicaoLetra) {
 		String hiato = letra + "" + letraSeguinte;
 		List<String> hiatos = Arrays.asList(HIATOS);
-		
+
 		boolean regrasDoU = false;
 		if (letra == U.charAt(0)) {
-//			System.out.println("regras do U");
-			if (letraSeguinte == 'i') {
-				if (posicaoLetra+2 == palavra.length()-1 && 
-						(palavra.charAt(posicaoLetra+2) == 'z' || palavra.charAt(posicaoLetra+2) == 'r'
-						|| palavra.charAt(posicaoLetra+2) == 'm')) {
-					System.out.println("regras do U+I+Z");
+			if (I.equals("" + letraSeguinte)) {
+				String ultimaLetra = "" + palavra.charAt(posicaoLetra + 2);
+				String consoantesFinais[] = { Z, R, M };
+				if (isUltimaLetra(palavra, posicaoLetra) && Arrays.asList(consoantesFinais).contains(ultimaLetra)) {
 					regrasDoU = true;
 				}
-				//TODO: rU-Ir, (ultima silaba, penúltima letra)
+				// TODO: rU-Ir, (ultima silaba, penúltima letra)
 				// rU-Im
-				
-				
-				
-				
-				
+
 			}
-			
+
 		}
 		return hiatos.contains(hiato) || regrasDoU;
+	}
+
+	private boolean isUltimaLetra(String palavra, int posicaoLetra) {
+		return posicaoLetra + 2 == palavra.length() - 1;
 	}
 
 	private boolean isEncontroConsonantalTerminadoEmLOuR(char letra, char letraSeguinte) {
