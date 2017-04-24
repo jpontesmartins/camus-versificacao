@@ -4,19 +4,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Assert;
-
 public class Escansao {
 
 	public static void main(String[] args) {
 		Escansao escansao = new Escansao();
-//		String verso4 = "E atravessou a rua com seu passo tímido"; // não juntar 3 vogais
-//		String verso5 = "Subiu a construção como se fosse máquina";  // não juntar 3 vogais
-//		String verso6 = "Ergueu no patamar quatro paredes sólidas";  // ergueu tá separando errado 
+//		String verso4 = "E atravessou a rua com seu passo tímido"; 
+//		String verso5 = "Subiu a construção como se fosse máquina"; 
+//		String verso6 = "Ergueu no patamar quatro paredes sólidas";  
 //		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso6));
 //		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso4));
 //		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso5));
-		
+//		
 	}
 
 	public int quantidadeSilabasGramaticais(String verso) {

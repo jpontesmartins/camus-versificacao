@@ -12,6 +12,19 @@ public class SepararPalavraTest {
 	public void setUp() {
 		separarPalavra = new SepararPalavra();
 	}
+	
+//	@Test
+//	public void separarHiatoUE() {
+//		Assert.assertEquals("tê nu e", separarPalavra.separar("tênue"));
+//	}
+//
+//	 @Test
+//	public void separarFluidezTest() {
+//		Assert.assertEquals("flu i dez", separarPalavra.separar("fluidez"));
+//	}
+	 
+	 
+	 
 
 	@Test
 	public void separarAquiTest() {
@@ -26,17 +39,6 @@ public class SepararPalavraTest {
 	@Test
 	public void naoSepararDitongoUI() {
 		Assert.assertEquals("gra tui to", separarPalavra.separar("gratuito"));
-	}
-
-	@Test
-	public void separarHiatoUE() {
-		Assert.assertEquals("tê nu e", separarPalavra.separar("tênue"));
-	}
-
-	// @Test
-	public void separarHiatoFluidez() {
-		// ...
-		Assert.assertEquals("flu i dez", separarPalavra.separar("fluidez"));
 	}
 
 	@Test
