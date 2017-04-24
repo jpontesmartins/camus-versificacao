@@ -18,9 +18,9 @@ public class EscansaoTest {
 		String verso1 = "Amou daquela vez como se fosse a última";
 		String verso2 = "Beijou sua mulher como se fosse a última";
 		String verso3 = "E cada filho seu como se fosse o único";
-//		String verso4 = "E atravessou a rua com seu passo tímido"; // não juntar 3 vogais
-//		String verso5 = "Subiu a construção como se fosse máquina";  // não juntar 3 vogais
-//		String verso6 = "Ergueu no patamar quatro paredes sólidas";  // ergueu tá separando errado 
+		String verso4 = "E atravessou a rua com seu passo tímido"; 
+		String verso5 = "Subiu a construção como se fosse máquina"; 
+		String verso6 = "Ergueu no patamar quatro paredes sólidas";  // ergueu tá separando errado 
 		String verso7 = "Tijolo com tijolo num desenho mágico";
 		String verso8 = "Seus olhos embotados de cimento e lágrima";
 		String verso9 = "Sentou pra descansar como se fosse sábado";
@@ -29,9 +29,9 @@ public class EscansaoTest {
 		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso1));
 		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso2));
 		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso3));
-//		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso4));
-//		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso5));
-//		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso6));
+		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso4));
+		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso5));
+		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso6));
 		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso7));
 		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso8));
 		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso9));

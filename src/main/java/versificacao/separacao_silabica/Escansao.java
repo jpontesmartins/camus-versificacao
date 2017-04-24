@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Assert;
+
 public class Escansao {
 
 	public static void main(String[] args) {
 		Escansao escansao = new Escansao();
-		String verso = "silencioso estava aqui";
-		escansao.quantidadeSilabasPoeticas(verso);
-
-		String verso1 = "Silencioso e branco como a bruma";
-		escansao.quantidadeSilabasPoeticas(verso1);
-
-		String verso2 = "E das bocas unidas fez-se a espuma";
-		escansao.quantidadeSilabasPoeticas(verso2);
-
+//		String verso4 = "E atravessou a rua com seu passo tímido"; // não juntar 3 vogais
+//		String verso5 = "Subiu a construção como se fosse máquina";  // não juntar 3 vogais
+//		String verso6 = "Ergueu no patamar quatro paredes sólidas";  // ergueu tá separando errado 
+//		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso6));
+//		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso4));
+//		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso5));
+		
 	}
 
 	public int quantidadeSilabasGramaticais(String verso) {
@@ -30,14 +30,14 @@ public class Escansao {
 		SepararPalavra separarPalavra = new SepararPalavra();
 		List<String> silabasPoeticas = new ArrayList<String>();
 		List<String> palavras = Arrays.asList(verso.split(" "));
-		boolean uniaoDeVogais = false;
+		boolean houveUniaoDeVogais = false;
 		List<String> silabasSemAPrimeira = new ArrayList<>();
 		boolean continuar = true;
 
 		for (int i = 0; i < palavras.size(); i++) {
 			continuar = true;
 			String palavraSeparada = separarPalavra.separar(palavras.get(i));
-			if (!uniaoDeVogais) {
+			if (!houveUniaoDeVogais) {
 				silabasPoeticas.addAll(Arrays.asList(palavraSeparada.split(" ")));
 			} else {
 				List<String> silabas = Arrays.asList(palavraSeparada.split(" "));
@@ -46,7 +46,7 @@ public class Escansao {
 					continuar = false;
 				}
 				silabasPoeticas.addAll(silabasSemAPrimeira);
-				uniaoDeVogais = false;
+				houveUniaoDeVogais = false;
 			}
 
 			if (continuar) {
@@ -55,7 +55,7 @@ public class Escansao {
 					palavraSeguinte = palavras.get(i + 1);
 				}
 				if (i != palavras.size() - 1) {
-					uniaoDeVogais = juntarVogais(separarPalavra, silabasPoeticas, palavraSeguinte);
+					houveUniaoDeVogais = juntarVogais(separarPalavra, silabasPoeticas, palavraSeguinte);
 				}
 			}
 		}
@@ -72,6 +72,10 @@ public class Escansao {
 		char primeiraLetra = primeiraSilaba.charAt(0);
 		String ultimaSilabaDaLista = silabasPoeticas.get(silabasPoeticas.size() - 1);
 		char ultimaLetra = ultimaSilabaDaLista.charAt(ultimaSilabaDaLista.length() - 1);
+		
+		if (separarPalavra.isDuasSilabasTonicas(ultimaSilabaDaLista,primeiraSilaba)) {
+			return false;
+		}
 		
 		if (separarPalavra.isVogal(primeiraLetra) && separarPalavra.isVogal(ultimaLetra)) {
 			String ultima = silabasPoeticas.get(silabasPoeticas.size() - 1);

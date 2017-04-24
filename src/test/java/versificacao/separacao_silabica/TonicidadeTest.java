@@ -13,6 +13,11 @@ Tonicidade tonicidade;
 		tonicidade = new Tonicidade();
 	}
 	
+	@Test
+	public void reconheceJuizComoOxitonaTest() {
+		Assert.assertEquals(Tonicidade.OXITONA,tonicidade.encontrarTonicidadeDaPalavra("juiz"));
+	}
+	
 	
 	@Test
 	public void reconheceOxitonaTest() {
