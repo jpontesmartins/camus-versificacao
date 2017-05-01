@@ -131,6 +131,9 @@ public class SepararPalavraTest {
 	@Test
 	public void palavrasDaParede() {
 
+
+		Assert.assertEquals("a ven tal", separarPalavra.separar("avental"));
+		Assert.assertEquals("a ten ção", separarPalavra.separar("atenção"));
 		Assert.assertEquals("as tu to", separarPalavra.separar("astuto"));
 		Assert.assertEquals("a li nha do", separarPalavra.separar("alinhado"));
 		Assert.assertEquals("es tre la", separarPalavra.separar("estrela"));

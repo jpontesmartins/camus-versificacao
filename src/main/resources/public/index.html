@@ -39,20 +39,42 @@
 
 		<!-- versificado -->
 		<div class="form-group col-md-12 texto-gr-cinza-italico ">
-			<span class="texto-gr-cinza">{{poema.poemaVersificado}}</span>
+			<span class="texto-gr-cinza">{{poema.poemaVersificado}}</span><br>
 		</div>
-
+		
+		<div class="col-md-12 align-left">
+			<button type="button" class="btn left col-md-12" data-toggle="collapse" data-target="#palavras-info">
+				<span class="texto-md">+ informações das palavras</span>
+			</button>
+		
+			<div id="palavras-info" class="collapse">
+				<ul ng-repeat= "palavra in poema.palavras">
+					<li class="texto-pq-n align-left item"> 
+						({{palavra.palavra}}: 
+							{{palavra.separacaoSilabica}}/{{palavra.silabaTonica}}/{{palavra.tonicidade2}})
+					</li>
+				</ul>
+				<ul>
+					<li class="texto-pq-n align-left item">. quantide de sílabas poéticas: {{poema.qtdeSilabasPoeticas}}/{{poema.classificacaoVerso2}}</li>
+					<li class="texto-pq-n align-left item">. quantide de sílabas gramaticais: {{poema.qtdeSilabasGramaticais}}</li>
+				</ul>
+				
+			</div>
+		</div>
+		
 		<!-- informações -->
 		<div class="col-md-12 align-left">
 			<button type="button" class="btn left col-md-12" data-toggle="collapse" data-target="#demo2">
-				<span class="texto-md">2.11 
-					<span class="texto-pq">(23042017)</span>
+				<span class="texto-md">2.13 
+					<span class="texto-pq">(01052017)</span>
 					<span class="texto-pq">camus {cã.mi} histórico das funcionalidades e correções</span>
 				</span><br>
 			</button>
 		
 			<div id="demo2" class="collapse">
 				<ul>
+					<li class="texto-pq align-left item">2.13 - mostrar classificação do verso quanto ao número de sílabas tônicas (01052017)</li>
+					<li class="texto-pq align-left item">2.12 - mostrar informações de cada palavra do verso: palavra separada, sílaba tônica, tonicidade da palavra (01052017)</li>
 					<li class="texto-pq align-left item">2.11 - separação silábica de 'juiz', 'juizo' (23042017)</li>
 					<li class="texto-pq align-left item">2.10 - ditongos e hiatos UI (23042017)</li>
 					<li class="texto-pq align-left item">2.9 - os versos 'E atravessou a rua com seu passo tímido' e 'Subiu a construção como se fosse máquina' estão juntando atravessOUA ea subIUA (23042017)</li>
@@ -69,6 +91,7 @@
 				
 				<ul>
 					<li class="texto-pq-n align-left item">erros conhecidos</li>
+					<li class="texto-pq align-left item">distinguir monossílabo tônico e átono</li>
 					<li class="texto-pq align-left item">palavras: tênue e fluidez (tê nu e, flu i dez)</li>
 					</ul>
 			</div>

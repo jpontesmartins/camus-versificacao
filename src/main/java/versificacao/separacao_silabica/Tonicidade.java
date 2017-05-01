@@ -29,21 +29,29 @@ public class Tonicidade {
 	public String FINAIS_PAROXITONAS[] = { A, O, E, AS, OS, ES };
 	public String VOGAIS_ACENTUADAS[] = { A_ACENTO, E_ACENTO, I_ACENTO, O_ACENTO, U_ACENTO, A_CIRC, E_CIRC, O_CIRC };
 	
-	public static int OXITONA = 1;
-	public static int PAROXITONA = 2;
-	public static int PROPAROXITONA = 3;
-
-	public static void main(String[] args) {
-		Tonicidade t = new Tonicidade();
-		System.out.println(t.encontrarTonicidadeDaPalavra("peru"));
-//		System.out.println(t.encontrarTonicidadeDaPalavra("voz"));
-//		System.out.println(t.encontrarTonicidadeDaPalavra("juiz"));
-//		t.encontrarSilabaTonica("pródigo");
+	public int encontrarTonicidadeDaPalavra(String palavra) {
+		String silabaTonica = encontrarSilabaTonica(palavra);
+		SepararPalavra separarPalavra = new SepararPalavra();
+		String silabas[] = separarPalavra.separar(palavra).split(" ");
+		
+		if (silabas.length == 1) return TonicidadeEnum.MONOSSILABO.getPosicao();
+		
+		int contagem = 0;
+		for (int i = silabas.length-1; i >= 0; i--) {
+			String silaba = silabas[i];
+			if (silabaTonica.equals(silaba)) {
+				return contagem + 1;
+			}
+			contagem++;
+		}
+		return contagem;
 	}
 
 	public String encontrarSilabaTonica(String palavra) {
 		SepararPalavra separarPalavra = new SepararPalavra();
 		String silabas[] = separarPalavra.separar(palavra).split(" ");
+		
+		
 		String silabaFinal = silabas[silabas.length - 1];
 		String ultimaLetra = "" + silabaFinal.charAt(silabaFinal.length() - 1);
 		int qtdeSilabas = silabas.length;
@@ -73,6 +81,11 @@ public class Tonicidade {
 				}
 			}
 		}
+		
+		if (silabas.length == 1) {
+			silabaTonica = silabas[0];
+		}
+		
 		return silabaTonica.trim();
 	}
 
@@ -91,20 +104,5 @@ public class Tonicidade {
 		return qtdeSilabas >= 2;
 	}
 
-	public int encontrarTonicidadeDaPalavra(String palavra) {
-		String silabaTonica = encontrarSilabaTonica(palavra);
-		SepararPalavra separarPalavra = new SepararPalavra();
-		String silabas[] = separarPalavra.separar(palavra).split(" ");
-		
-		int contagem = 0;
-		for (int i = silabas.length-1; i >= 0; i--) {
-			String silaba = silabas[i];
-			if (silabaTonica.equals(silaba)) {
-				return contagem + 1;
-			}
-			contagem++;
-		}
-		return contagem;
-	}
 
 }
