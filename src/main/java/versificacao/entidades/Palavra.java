@@ -1,7 +1,5 @@
 package versificacao.entidades;
 
-import org.junit.Assert;
-
 import versificacao.separacao_silabica.SepararPalavra;
 import versificacao.separacao_silabica.Tonicidade;
 import versificacao.separacao_silabica.TonicidadeEnum;
