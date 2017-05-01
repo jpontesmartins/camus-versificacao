@@ -4,27 +4,63 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Assert;
+
 public class Escansao {
 
 	public static void main(String[] args) {
 		Escansao escansao = new Escansao();
-//		String verso4 = "E atravessou a rua com seu passo tímido"; 
-//		String verso5 = "Subiu a construção como se fosse máquina"; 
-//		String verso6 = "Ergueu no patamar quatro paredes sólidas";  
-//		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso6));
-//		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso4));
-//		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso5));
-//		
+		// String verso4 = "E atravessou a rua com seu passo tímido";
+		// String verso5 = "Subiu a construção como se fosse máquina";
+		// String verso6 = "Ergueu no patamar quatro paredes sólidas";
+		// Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso6));
+		// Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso4));
+		System.out.println(escansao.contarSilabasPoeticas("Amou daquela vez como se fosse a última"));
+		Assert.assertEquals(12, escansao.contarSilabasPoeticas("Amou daquela vez como se fosse a última"));
+		//
 	}
 
-	public int quantidadeSilabasGramaticais(String verso) {
+	public ClassificacaoVersoEnum classificarVerso(String verso) {
+
+		int qtdeSilabasPoeticas = contarSilabasPoeticas(verso);
+		switch (qtdeSilabasPoeticas) {
+		case 1:
+			return ClassificacaoVersoEnum.MONOSSILABO;
+		case 2:
+			return ClassificacaoVersoEnum.DISSILABO;
+		case 3:
+			return ClassificacaoVersoEnum.TRISSILABO;
+		case 4:
+			return ClassificacaoVersoEnum.TETRASSILABO;
+		case 5:
+			return ClassificacaoVersoEnum.PENTASSILABO;
+		case 6:
+			return ClassificacaoVersoEnum.HEXASSILABO;
+		case 7:
+			return ClassificacaoVersoEnum.HEPTASSILABO;
+		case 8:
+			return ClassificacaoVersoEnum.OCTOSSILABO;
+		case 9:
+			return ClassificacaoVersoEnum.ENEASSILABO;
+		case 10:
+			return ClassificacaoVersoEnum.DECASSILABO;
+		case 11:
+			return ClassificacaoVersoEnum.HENDECASSILABO;
+		case 12:
+			return ClassificacaoVersoEnum.DODECASSILABO;
+		default:
+			return ClassificacaoVersoEnum.BARBARO;
+		}
+	}
+
+	public int contarSilabasGramaticais(String verso) {
 		SepararPalavra separarPalavra = new SepararPalavra();
 		String versoSeparado = separarPalavra.separarFrase(verso);
 		String versos[] = versoSeparado.split(" ");
 		return versos.length;
 	}
 
-	public int quantidadeSilabasPoeticas(String verso) {
+	public int contarSilabasPoeticas(String verso) {
 		SepararPalavra separarPalavra = new SepararPalavra();
 		List<String> silabasPoeticas = new ArrayList<String>();
 		List<String> palavras = Arrays.asList(verso.split(" "));
@@ -70,11 +106,11 @@ public class Escansao {
 		char primeiraLetra = primeiraSilaba.charAt(0);
 		String ultimaSilabaDaLista = silabasPoeticas.get(silabasPoeticas.size() - 1);
 		char ultimaLetra = ultimaSilabaDaLista.charAt(ultimaSilabaDaLista.length() - 1);
-		
-		if (separarPalavra.isDuasSilabasTonicas(ultimaSilabaDaLista,primeiraSilaba)) {
+
+		if (separarPalavra.isDuasSilabasTonicas(ultimaSilabaDaLista, primeiraSilaba)) {
 			return false;
 		}
-		
+
 		if (separarPalavra.isVogal(primeiraLetra) && separarPalavra.isVogal(ultimaLetra)) {
 			String ultima = silabasPoeticas.get(silabasPoeticas.size() - 1);
 			String seguinte = primeiraSilaba;
@@ -82,7 +118,7 @@ public class Escansao {
 			silabasPoeticas.set(silabasPoeticas.size() - 1, silabaSubstituta);
 			return true;
 		}
-		
+
 		return false;
 	}
 

@@ -26,15 +26,15 @@ public class EscansaoTest {
 		String verso9 = "Sentou pra descansar como se fosse sábado";
 //		String verso10 = "Comeu feijão com arroz como se fosse um príncipe"; //parece ser o unico verso com 13 silaas poeticas
 		
-		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso1));
-		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso2));
-		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso3));
-		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso4));
-		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso5));
-		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso6));
-		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso7));
-		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso8));
-		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso9));
+		Assert.assertEquals(12, escansao.contarSilabasPoeticas(verso1));
+		Assert.assertEquals(12, escansao.contarSilabasPoeticas(verso2));
+		Assert.assertEquals(12, escansao.contarSilabasPoeticas(verso3));
+		Assert.assertEquals(12, escansao.contarSilabasPoeticas(verso4));
+		Assert.assertEquals(12, escansao.contarSilabasPoeticas(verso5));
+		Assert.assertEquals(12, escansao.contarSilabasPoeticas(verso6));
+		Assert.assertEquals(12, escansao.contarSilabasPoeticas(verso7));
+		Assert.assertEquals(12, escansao.contarSilabasPoeticas(verso8));
+		Assert.assertEquals(12, escansao.contarSilabasPoeticas(verso9));
 //		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso10));
 		
 	}
@@ -43,38 +43,38 @@ public class EscansaoTest {
 	@Test
 	public void deveConter12SilabasPoeticasTest() {
 		String verso1 = "Amou daquela vez como se fosse a última";
-		Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso1));
+		Assert.assertEquals(12, escansao.contarSilabasPoeticas(verso1));
 	}
 	
 	@Test
 	public void deveConter15SilabasGramaticaisTest() {
 		String verso1 = "Amou daquela vez como se fosse a última";
-		Assert.assertEquals(15, escansao.quantidadeSilabasGramaticais(verso1));
+		Assert.assertEquals(15, escansao.contarSilabasGramaticais(verso1));
 	}
 	
 	@Test
 	public void deveConter11SilabasPoeticasTest() {
 		String verso1 = "E das bocas unidas fez-se a espuma";
-		Assert.assertEquals(11, escansao.quantidadeSilabasPoeticas(verso1));
+		Assert.assertEquals(11, escansao.contarSilabasPoeticas(verso1));
 	}
 	
 	@Test
 	public void deveConter10SilabasPoeticasTest() {
 		String verso = "Silencioso e branco como a bruma";
-		Assert.assertEquals(10, escansao.quantidadeSilabasPoeticas(verso));
+		Assert.assertEquals(10, escansao.contarSilabasPoeticas(verso));
 
 	}
 
 	@Test
 	public void deveConter8SilabasPoeticasTest() {
 		String verso = "silencioso estava aqui";
-		Assert.assertEquals(8, escansao.quantidadeSilabasPoeticas(verso));
+		Assert.assertEquals(8, escansao.contarSilabasPoeticas(verso));
 	}
 
 	@Test
 	public void deveConter10SilabasGramaticaisTest() {
 		String verso = "silencioso estava aqui";
-		Assert.assertEquals(10, escansao.quantidadeSilabasGramaticais(verso));
+		Assert.assertEquals(10, escansao.contarSilabasGramaticais(verso));
 	}
 
 	@Test
@@ -84,10 +84,10 @@ public class EscansaoTest {
 		String verso2 = "E das bocas unidas fez-se a espuma";
 		String verso3 = "E das mãos espalmadas fez-se o espanto";
 
-		Assert.assertEquals(10, escansao.quantidadeSilabasPoeticas(verso0));
-		Assert.assertEquals(10, escansao.quantidadeSilabasPoeticas(verso1));
-		Assert.assertEquals(11, escansao.quantidadeSilabasPoeticas(verso2));
-		Assert.assertEquals(11, escansao.quantidadeSilabasPoeticas(verso3));
+		Assert.assertEquals(10, escansao.contarSilabasPoeticas(verso0));
+		Assert.assertEquals(10, escansao.contarSilabasPoeticas(verso1));
+		Assert.assertEquals(11, escansao.contarSilabasPoeticas(verso2));
+		Assert.assertEquals(11, escansao.contarSilabasPoeticas(verso3));
 	}
 
 	@Test
@@ -97,10 +97,10 @@ public class EscansaoTest {
 		String verso2 = "E das bocas unidas fez-se a espuma";
 		String verso3 = "E das mãos espalmadas fez-se o espanto";
 
-		Assert.assertEquals(12, escansao.quantidadeSilabasGramaticais(verso0));
-		Assert.assertEquals(13, escansao.quantidadeSilabasGramaticais(verso1));
-		Assert.assertEquals(13, escansao.quantidadeSilabasGramaticais(verso2));
-		Assert.assertEquals(13, escansao.quantidadeSilabasGramaticais(verso3));
+		Assert.assertEquals(12, escansao.contarSilabasGramaticais(verso0));
+		Assert.assertEquals(13, escansao.contarSilabasGramaticais(verso1));
+		Assert.assertEquals(13, escansao.contarSilabasGramaticais(verso2));
+		Assert.assertEquals(13, escansao.contarSilabasGramaticais(verso3));
 	}
 
 }
