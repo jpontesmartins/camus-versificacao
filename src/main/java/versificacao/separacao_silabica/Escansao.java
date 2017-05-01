@@ -10,14 +10,6 @@ public class Escansao {
 
 	public static void main(String[] args) {
 		Escansao escansao = new Escansao();
-		// String verso4 = "E atravessou a rua com seu passo tímido";
-		// String verso5 = "Subiu a construção como se fosse máquina";
-		// String verso6 = "Ergueu no patamar quatro paredes sólidas";
-		// Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso6));
-		// Assert.assertEquals(12, escansao.quantidadeSilabasPoeticas(verso4));
-		System.out.println(escansao.contarSilabasPoeticas("Amou daquela vez como se fosse a última"));
-		Assert.assertEquals(12, escansao.contarSilabasPoeticas("Amou daquela vez como se fosse a última"));
-		//
 	}
 
 	public ClassificacaoVersoEnum classificarVerso(String verso) {
