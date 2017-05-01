@@ -64,11 +64,6 @@ public class Palavra {
 		return this.tonicidade.getTipo();
 	}
 	
-	public static void main(String[] args) {
-		Palavra palavra = new Palavra("modéstia");
-		Assert.assertEquals("PROPAROXÍTONA", palavra.getTonicidade());
-	}
-
 	public String getSeparacaoSilabica() {
 		return separacaoSilabica;
 	}
