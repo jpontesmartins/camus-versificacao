@@ -2,6 +2,24 @@ package versificacao.utils;
 
 public class Letras {
 
+	public static String B = "b";
+	public static String C = "c";
+	public static String D = "d";
+	public static String F = "f";
+	public static String G = "g";
+	public static String H = "h";
+	public static String J = "j";
+	public static String K = "k";
+	public static String L = "l";
+	public static String N = "m";
+	public static String P = "p";
+	public static String Q = "q";
+	public static String S = "s";
+	public static String T = "t";
+	public static String V = "v";
+	public static String W = "w";
+	public static String X = "x";
+	public static String Y = "y";
 	public static String Z = "z";
 	public static String R = "r";
 	public static String M = "m";
@@ -98,6 +116,7 @@ public class Letras {
 
 	public static String VOGAIS[] = { A, E, I, O, U, A_ACENTO, E_ACENTO, I_ACENTO, O_ACENTO, U_ACENTO, A_TIL, O_TIL,
 			A_CIRC, E_CIRC, O_CIRC };
-	
-	
+
+	public static String CONSOANTES[] = { B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Y, Z };
+
 }
