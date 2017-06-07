@@ -113,6 +113,11 @@ body {
 	font-size: 14px;
 }
 
+.riscado {
+	text-decoration: line-through;
+}
+
+
 .cinza {
 	color: red;
 }
@@ -157,6 +162,12 @@ body {
 .texto-gr-cinza-claro {
 	color: #ccc;
 	font-size: 28px;
+	text-align: left;
+}
+
+.texto-pq-cinza {
+	color: #777;
+	font-size: 14px;
 	text-align: left;
 }
 
