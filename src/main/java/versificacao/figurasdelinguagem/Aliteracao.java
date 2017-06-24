@@ -17,7 +17,7 @@ public class Aliteracao {
 		f.descobrirConsoantesMaisFrequentes(frase);
 
 	}
-	
+
 	public Map<String, Integer> descobrirConsoantesMaisFrequentes(String frase) {
 		String palavras[] = frase.toLowerCase().split(" ");
 		Map<String, Integer> mapaDeLetrasEFrequencia = new HashMap<>();
@@ -27,7 +27,8 @@ public class Aliteracao {
 				Integer valorAtual = mapaDeLetrasEFrequencia.get(chave);
 				if (valorAtual == null)
 					valorAtual = 0;
-				mapaDeLetrasEFrequencia.put(chave, valorAtual + 1);
+				int peso = atribuirPesoDaLetra(i, chave);
+				mapaDeLetrasEFrequencia.put(chave, valorAtual + peso);
 			}
 		}
 
@@ -41,6 +42,17 @@ public class Aliteracao {
 		}
 
 		return mapaFrequenciaConsoantes;
+	}
+
+	private int atribuirPesoDaLetra(int posicaoDaLetra, String palavra) {
+		if (isPrimeiraLetraDaPalavra(posicaoDaLetra, palavra))
+			return 2;
+		
+		return 1;
+	}
+
+	private boolean isPrimeiraLetraDaPalavra(int posicaoDaLetra, String chave) {
+		return posicaoDaLetra == 0 && Letras.isConsoante(chave);
 	}
 
 }

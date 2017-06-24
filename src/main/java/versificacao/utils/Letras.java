@@ -1,5 +1,7 @@
 package versificacao.utils;
 
+import java.util.Arrays;
+
 public class Letras {
 
 	public static String B = "b";
@@ -28,6 +30,7 @@ public class Letras {
 	public static String SC = "sc";
 	public static String SCC = "sç";
 	public static String XC = "xc";
+	public static String XS = "xs";
 	public static String CH = "ch";
 	public static String LH = "lh";
 	public static String NH = "nh";
@@ -111,6 +114,11 @@ public class Letras {
 	public static String DIGRAFOS_SEPARAVEIS[] = { RR, SS, SC, SCC, XC };
 	public static String DIGRAFOS_INSEPARAVEIS[] = { GU, QU, LH, NH, CH, PR };
 	public static String DIGRAFOS_VOGAIS_NASAIS[] = { AM, EM, IM, OM, UM, AN, EN, IN, ON, UN };
+	public static String DIGRAFOS[] = { RR, SS, SC, SCC, XC, XS, GU, QU, LH, NH, CH, PR, AM, EM, IM, OM, UM, AN, EN, IN, ON, UN }; 
+	
+	
+	
+	
 	public static String HIATOS[] = { AA, EE, II, OO, UU, EA, IA, IO, OA, UA, OE, OE_ACENTO, AU_ACENTO, AE_ACENTO,
 			AI_ACENTO, OI_ACENTO, UI_ACENTO };
 
@@ -118,5 +126,12 @@ public class Letras {
 			A_CIRC, E_CIRC, O_CIRC };
 
 	public static String CONSOANTES[] = { B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Y, Z };
+
+	public static boolean isConsoante(String chave) {
+		return Arrays.asList(CONSOANTES).contains(chave);
+	}
+	
+	
+	
 
 }
