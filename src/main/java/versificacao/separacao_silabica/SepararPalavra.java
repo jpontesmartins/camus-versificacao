@@ -8,10 +8,6 @@ import versificacao.utils.Letras;
 
 public class SepararPalavra {
 
-	public static void main(String[] args) {
-//		SepararPalavra separarPalavra = new SepararPalavra();
-	}
-
 	public String separarFrase(String frase) {
 		String palavas[] = frase.split(" ");
 		String fraseSeparada = "";
@@ -50,6 +46,7 @@ public class SepararPalavra {
 									if (isVogal(letraSeguinte2)) {
 										silaba += letraSeguinte2;
 										posicaoLetra++;
+										
 									}
 								}
 							}

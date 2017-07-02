@@ -13,7 +13,7 @@ public class Letras {
 	public static String J = "j";
 	public static String K = "k";
 	public static String L = "l";
-	public static String N = "m";
+	public static String N = "n";
 	public static String P = "p";
 	public static String Q = "q";
 	public static String S = "s";
@@ -113,11 +113,8 @@ public class Letras {
 	public static String DITONGOS_[] = { OUA, IUA };
 	public static String DIGRAFOS_SEPARAVEIS[] = { RR, SS, SC, SCC, XC };
 	public static String DIGRAFOS_INSEPARAVEIS[] = { GU, QU, LH, NH, CH, PR };
-	public static String DIGRAFOS_VOGAIS_NASAIS[] = { AM, EM, IM, OM, UM, AN, EN, IN, ON, UN };
-	public static String DIGRAFOS[] = { RR, SS, SC, SCC, XC, XS, GU, QU, LH, NH, CH, PR, AM, EM, IM, OM, UM, AN, EN, IN, ON, UN }; 
-	
-	
-	
+	public static String DIGRAFOS_VOGAIS_NASAIS[] = { AM, AN, EM, EN, IM, IN, OM, ON, UM, UN };
+	public static String DIGRAFOS[] = { RR, SS, SC, SCC, XC, XS, GU, QU, LH, NH, CH, AM, EM, IM, OM, UM, AN, EN, IN, ON, UN }; 
 	
 	public static String HIATOS[] = { AA, EE, II, OO, UU, EA, IA, IO, OA, UA, OE, OE_ACENTO, AU_ACENTO, AE_ACENTO,
 			AI_ACENTO, OI_ACENTO, UI_ACENTO };
