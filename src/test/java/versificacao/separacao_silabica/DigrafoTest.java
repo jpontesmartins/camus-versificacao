@@ -14,25 +14,25 @@ public class DigrafoTest {
 	}
 
 	@Test
-	public void ANNaoSendoDigrafo() {
+	public void anNaoSendoDigrafo() {
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("an", "anos"));
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("an", "anel"));
 	}
 
 	@Test
-	public void AMNaoSendoDigrafo() {
+	public void amNaoSendoDigrafo() {
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("am", "amar"));
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("amigo", "amigo"));
 	}
 
 	@Test
-	public void AMSendoDigrafo() {
+	public void amSendoDigrafo() {
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("am", "campo"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("am", "ambulância"));
 	}
 
 	@Test
-	public void ANSendoDigrafo() {
+	public void anSendoDigrafo() {
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("an", "anta"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("an", "canto"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("an", "granja"));
@@ -41,7 +41,7 @@ public class DigrafoTest {
 	}
 
 	@Test
-	public void temDigrafoRR() {
+	public void temDigrafoRr() {
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("rr", "guerra"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("gu", "guerra"));
 	}
@@ -59,7 +59,7 @@ public class DigrafoTest {
 	}
 
 	@Test
-	public void SCSendoDigrafo() {
+	public void scSendoDigrafo() {
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("sc", "desci"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("sc", "descer"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("sc", "nascer"));
@@ -67,19 +67,19 @@ public class DigrafoTest {
 	}
 
 	@Test
-	public void SCNaoSendoDigrafo() {
+	public void scNaoSendoDigrafo() {
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("sc", "pisca"));
 	}
 
 	@Test
-	public void XCSendoDigrafo() {
+	public void xcSendoDigrafo() {
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("xc", "exceção"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("xc", "excelente"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("xc", "excitação"));
 	}
 
 	@Test
-	public void XCNaoSendoDigrafo() {
+	public void xcNaoSendoDigrafo() {
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("xc", "excarcerar"));
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("xc", "excomungar"));
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("xc", "excursão"));
@@ -88,40 +88,34 @@ public class DigrafoTest {
 	}
 
 	@Test
-	public void XSSendoDigrafo() {
+	public void xsSendoDigrafo() {
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("xs", "exsuar"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("xs", "exsicação"));
 	}
 
 	@Test
-	public void XSNaoSendoDigrafo() {
-		Assert.assertFalse(digrafo.contemDigrafoEspecifico("xc", "exclamação"));
-		Assert.assertFalse(digrafo.contemDigrafoEspecifico("xc", "excremento"));
-	}
-
-	@Test
-	public void QUSendoDigrafo() {
+	public void quSendoDigrafo() {
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("qu", "queda"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("qu", "quinta"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("qu", "quero"));
 	}
 
 	@Test
-	public void QUNaoSendoDigrafo() {
+	public void quNaoSendoDigrafo() {
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("qu", "quadro"));
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("qu", "quanto"));
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("qu", "qual"));
 	}
 
 	@Test
-	public void GUSendoDigrafo() {
+	public void guSendoDigrafo() {
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("gu", "guerra"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("gu", "guilhotina"));
 		Assert.assertTrue(digrafo.contemDigrafoEspecifico("gu", "gueto"));
 	}
 
 	@Test
-	public void GUNaoSendoDigrafo() {
+	public void guNaoSendoDigrafo() {
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("gu", "guarda-roupa"));
 		Assert.assertFalse(digrafo.contemDigrafoEspecifico("gu", "guri"));
 	}

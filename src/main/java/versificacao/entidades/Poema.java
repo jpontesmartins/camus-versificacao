@@ -19,10 +19,6 @@ public class Poema {
 	
 	private List<Estrofe> estrofes;
 	
-	public Poema() {
-		
-	}
-
 	public void carregarInformacoes() {
 		this.qtdeSilabasGramaticais = new Escansao().contarSilabasGramaticais(this.poema);
 		this.qtdeSilabasPoeticas = new Escansao().contarSilabasPoeticas(this.poema);
