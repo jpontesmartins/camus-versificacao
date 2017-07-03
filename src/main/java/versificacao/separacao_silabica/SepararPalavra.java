@@ -18,8 +18,8 @@ public class SepararPalavra {
 		return fraseSeparada;
 	}
 
-	public String separar(String palavra) {
-		palavra = palavra.toLowerCase();
+	public String separar(String palavraParaSeparar) {
+		String palavra = palavraParaSeparar.toLowerCase();
 		int inicioSilaba = 0;
 		String palavraSeparada = "";
 		List<String> silabas = new ArrayList<String>();
@@ -41,13 +41,12 @@ public class SepararPalavra {
 						if (isDitongo(letra, letraSeguinte)) {
 							silaba += letraSeguinte;
 							if (posicaoLetra < palavra.length() - 2) {
-								if (silaba.contains(Letras.QU) || silaba.contains(Letras.GU)) {
-									char letraSeguinte2 = palavra.charAt(posicaoLetra + 2);
-									if (isVogal(letraSeguinte2)) {
-										silaba += letraSeguinte2;
-										posicaoLetra++;
-										
-									}
+								char letraSeguinte2 = palavra.charAt(posicaoLetra + 2);
+								if ((silaba.contains(Letras.QU) || silaba.contains(Letras.GU))
+										&& isVogal(letraSeguinte2)) {
+									silaba += letraSeguinte2;
+									posicaoLetra++;
+
 								}
 							}
 							posicaoLetra++;
@@ -86,18 +85,19 @@ public class SepararPalavra {
 							silabas.set(silabas.size() - 1, silabaAnterior);
 							inicioSilaba = posicaoLetra + 1;
 						} else {
-							if (isDigrafoInseparavel(letra, letraSeguinte)
-									|| isEncontroConsonantalTerminadoEmLOuR(letra, letraSeguinte)) {
-							} else {
-								if (isEncontroConsonantalSeparavel(letra, letraSeguinte)) {
-									if (silabas.size() > 0) {
-										String silabaAnterior = silabas.get(silabas.size() - 1);
-										silabaAnterior += letra;
-										silabas.set(silabas.size() - 1, silabaAnterior);
-										inicioSilaba = posicaoLetra + 1;
-									}
+
+							if (!isDigrafoInseparavel(letra, letraSeguinte)
+									&& !isEncontroConsonantalTerminadoEmLOuR(letra, letraSeguinte)) {
+
+								if (isEncontroConsonantalSeparavel(letra, letraSeguinte) && silabas.size() > 0) {
+									String silabaAnterior = silabas.get(silabas.size() - 1);
+									silabaAnterior += letra;
+									silabas.set(silabas.size() - 1, silabaAnterior);
+									inicioSilaba = posicaoLetra + 1;
 								}
+
 							}
+
 						}
 					}
 				}
@@ -117,8 +117,7 @@ public class SepararPalavra {
 		List<String> hiatos = Arrays.asList(Letras.HIATOS);
 
 		boolean regrasDoU = false;
-		if (letra == Letras.U.charAt(0)) {
-			if (Letras.I.equals("" + letraSeguinte) && posicaoLetra + 2 < palavra.length()) {
+		if (Letras.U.equals(letra + "") && Letras.I.equals(letraSeguinte + "") && posicaoLetra + 2 < palavra.length()) {
 				String ultimaLetra = "" + palavra.charAt(posicaoLetra + 2);
 				String consoantesFinais[] = { Letras.Z, Letras.R, Letras.M };
 				if (isUltimaLetra(palavra, posicaoLetra) && Arrays.asList(consoantesFinais).contains(ultimaLetra)) {
@@ -126,7 +125,6 @@ public class SepararPalavra {
 				}
 				// TODO: rU-Ir, (ultima silaba, penúltima letra)
 				// rU-Im
-			}
 		}
 		return hiatos.contains(hiato) || regrasDoU;
 	}
@@ -144,37 +142,25 @@ public class SepararPalavra {
 	}
 
 	private boolean isEncontroConsonantalSeparavel(char letra, char letraSeguinte) {
-		if (isConsoante(letra) && isVogal(letraSeguinte))
-			return false;
-		return true;
+		return !(isConsoante(letra) && isVogal(letraSeguinte));
 	}
 
 	private boolean isDigrafoInseparavel(char letra, char letraSeguinte) {
 		String digrafo = letra + "" + letraSeguinte;
 		List<String> digrafosInseparaveis = Arrays.asList(Letras.DIGRAFOS_INSEPARAVEIS);
-		if (digrafosInseparaveis.contains(digrafo)) {
-			return true;
-		}
-		return false;
+		return (digrafosInseparaveis.contains(digrafo));
 	}
 
 	private boolean isDigrafoSeparavel(char letra, char letraSeguinte) {
 		String encontroConsonantal = letra + "" + letraSeguinte;
 		List<String> digrafos = Arrays.asList(Letras.DIGRAFOS_SEPARAVEIS);
-		if (digrafos.contains(encontroConsonantal)) {
-			return true;
-		}
-		return false;
+		return (digrafos.contains(encontroConsonantal));
 	}
 
 	public boolean isVogal(char letra) {
 		String letraComoString = ("" + letra).toLowerCase();
-
 		List<String> vogais = Arrays.asList(Letras.VOGAIS);
-		if (vogais.contains(letraComoString))
-			return true;
-
-		return false;
+		return (vogais.contains(letraComoString));
 	}
 
 	public boolean isConsoante(char letra) {
