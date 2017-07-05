@@ -27,39 +27,29 @@ public class SepararPalavra {
 			boolean finalComSemiVogal = false;
 			char letra = palavra.charAt(posicaoLetra);
 			if (isVogal(letra)) {
-
 				String silaba = "";
 				for (int j = inicioSilaba; j <= posicaoLetra; j++) {
 					silaba += palavra.charAt(j);
 				}
-
 				if (posicaoLetra < palavra.length() - 1) {
 					char letraSeguinte = palavra.charAt(posicaoLetra + 1);
-
-					if (!isHiato(letra, letraSeguinte, palavra, posicaoLetra)) {
-
-						if (isDitongo(letra, letraSeguinte)) {
-							silaba += letraSeguinte;
-							if (posicaoLetra < palavra.length() - 2) {
-								char letraSeguinte2 = palavra.charAt(posicaoLetra + 2);
-								if ((silaba.contains(Letras.QU) || silaba.contains(Letras.GU))
-										&& isVogal(letraSeguinte2)) {
-									silaba += letraSeguinte2;
-									posicaoLetra++;
-
-								}
-							}
-							posicaoLetra++;
-						}
-					} else {
-						// se fo um hiato....
+					if (isHiato(letra, letraSeguinte, palavra, posicaoLetra)) {
 						if (silaba.contains(Letras.QU) || silaba.contains(Letras.GU)) {
 							if (posicaoLetra + 1 < palavra.length() - 1)
 								silaba += palavra.charAt(posicaoLetra + 1);
 							posicaoLetra++;
 						}
+					} else if (isDitongo(letra, letraSeguinte)) {
+						silaba += letraSeguinte;
+						if (posicaoLetra < palavra.length() - 2) {
+							char letraSeguinte2 = palavra.charAt(posicaoLetra + 2);
+							if ((silaba.contains(Letras.QU) || silaba.contains(Letras.GU)) && isVogal(letraSeguinte2)) {
+								silaba += letraSeguinte2;
+								posicaoLetra++;
+							}
+						}
+						posicaoLetra++;
 					}
-
 				}
 
 				if (posicaoLetra == palavra.length() - 1 && finalComSemiVogal) {
@@ -95,13 +85,10 @@ public class SepararPalavra {
 									silabas.set(silabas.size() - 1, silabaAnterior);
 									inicioSilaba = posicaoLetra + 1;
 								}
-
 							}
-
 						}
 					}
 				}
-
 			}
 		}
 
@@ -118,13 +105,11 @@ public class SepararPalavra {
 
 		boolean regrasDoU = false;
 		if (Letras.U.equals(letra + "") && Letras.I.equals(letraSeguinte + "") && posicaoLetra + 2 < palavra.length()) {
-				String ultimaLetra = "" + palavra.charAt(posicaoLetra + 2);
-				String consoantesFinais[] = { Letras.Z, Letras.R, Letras.M };
-				if (isUltimaLetra(palavra, posicaoLetra) && Arrays.asList(consoantesFinais).contains(ultimaLetra)) {
-					regrasDoU = true;
-				}
-				// TODO: rU-Ir, (ultima silaba, penúltima letra)
-				// rU-Im
+			String ultimaLetra = "" + palavra.charAt(posicaoLetra + 2);
+			String consoantesFinais[] = { Letras.Z, Letras.R, Letras.M };
+			if (isUltimaLetra(palavra, posicaoLetra) && Arrays.asList(consoantesFinais).contains(ultimaLetra)) {
+				regrasDoU = true;
+			}
 		}
 		return hiatos.contains(hiato) || regrasDoU;
 	}
