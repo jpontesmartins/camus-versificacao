@@ -9,7 +9,7 @@ public class DitongoTest {
 	Ditongo ditongo;
 
 	@Before
-	public void setup() {
+	public void setUp() {
 		ditongo = new Ditongo();
 	}
 
