@@ -73,6 +73,11 @@ public class FonemaTest {
 		Assert.assertEquals("/k/ /w/ /ã/ /t/ /o/", fonema.transcreverPalavra("quanto"));
 	}
 	
+	@Test
+	public void reconhecerFonemaM() {
+		Assert.assertEquals("/m/",fonema.descobrirFonemasDaPalavra("ma").get(0));
+	}
+	
 	
 	@Test
 	public void desconsiderarALetraH() {

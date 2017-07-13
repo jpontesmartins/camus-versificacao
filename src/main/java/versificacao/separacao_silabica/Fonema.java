@@ -61,11 +61,11 @@ public class Fonema {
 	}
 
 	private String regrasDoM(String palavra, int posicao, String letraSeguinte) {
-		if (posicao > 0) {
-			String letraAnterior = palavra.charAt(posicao - 1) + "";
-			if (Letras.isVogal(letraAnterior) && Letras.isVogal(letraSeguinte)) {
-				return Fonemas.M;
-			}
+		if (posicao == 0)
+			return Fonemas.M;
+		String letraAnterior = palavra.charAt(posicao - 1) + "";
+		if (Letras.isVogal(letraAnterior) && Letras.isVogal(letraSeguinte)) {
+			return Fonemas.M;
 		}
 		return "";
 	}
