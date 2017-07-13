@@ -34,46 +34,27 @@ public class Fonema {
 			}
 
 			if (isDigrafo(letra, letraSeguinte)) {
-				fonemas.add(fonemaDigrafos(letra, letraSeguinte));
-			}
-
-			if (isConsoanteSimples(letra)) {
-				fonemas.add(fonemaConsoanteSimples(letra, letraSeguinte));
-			}
-
-			if (Letras.C.equalsIgnoreCase(letra)) {
+				fonemas.add(pegarFonemaDigrafo(letra, letraSeguinte));
+			} else if (isConsoanteSimples(letra)) {
+				fonemas.add(pegarFonemaDaConsoanteSimples(letra, letraSeguinte));
+			} else if (Letras.C.equalsIgnoreCase(letra)) {
 				fonemas.add(regrasDoC(letraSeguinte));
-			}
-
-			if (Letras.S.equals(letra)) {
+			} else if (Letras.S.equals(letra)) {
 				fonemas.add(regrasDoS(posicao, letraSeguinte, palavra));
-			}
-
-			if (Letras.G.equals(letra)) {
+			} else if (Letras.G.equals(letra)) {
 				fonemas.add(regrasDoG(letraSeguinte));
-			}
-
-			if (Letras.R.equals(letra)) {
+			} else if (Letras.R.equals(letra)) {
 				fonemas.add(regrasDoR(posicao, letraSeguinte, palavra));
-			}
-
-			if (Letras.N.equals(letra) && !isDigrafo(letra, letraSeguinte)) {
+			} else if (Letras.N.equals(letra) && !isDigrafo(letra, letraSeguinte)) {
 				fonemas.set(fonemas.size() - 1, regrasDoN(palavra, posicao, letraSeguinte));
-			}
-
-			if (Letras.M.equals(letra)) {
+			} else if (Letras.M.equals(letra)) {
 				fonemas.add(regrasDoM(palavra, posicao, letraSeguinte));
-			}
-
-			if (Letras.isVogal(letra)) {
-				fonemas.add(fonemaDaVogal(letra, palavra, posicao));
-			}
-
-			if (Letras.X.equals(letra)) {
+			} else if (Letras.isVogal(letra)) {
+				fonemas.add(pegarFonemaDaVogal(letra, palavra, posicao));
+			} else if (Letras.X.equals(letra)) {
 				// TODO: a implementar ainda
 				// fonemas.add(regrasDoX(palavra, posicao, letraSeguinte));
 			}
-
 		}
 
 		return fonemas;
@@ -120,15 +101,9 @@ public class Fonema {
 		return Fonemas.S;
 	}
 
-	public String converterEmFonema(String palavra) {
-		return descobrirFonemasDaPalavra(palavra).get(0);
-
-	}
-
-	public String converterEmFonema2(String palavra) {
-		return descobrirFonemasDaPalavra(palavra).get(1);
-
-	}
+	// public List<String> converterEmFonema(String palavra) {
+	// return descobrirFonemasDaPalavra(palavra);
+	// }
 
 	private String regrasDoX(String palavra, int posicao, String letraSeguinte) {
 		if (posicao == 0)
@@ -158,23 +133,18 @@ public class Fonema {
 		return "retorno";
 	}
 
-	private String fonemaDigrafos(String letra, String letraSeguinte) {
+	private String pegarFonemaDigrafo(String letra, String letraSeguinte) {
 		if (Letras.QU.equals(letra + "" + letraSeguinte)) {
 			return Fonemas.K;
-		}
-		if (Letras.CH.equals(letra + "" + letraSeguinte)) {
+		} else if (Letras.CH.equals(letra + "" + letraSeguinte)) {
 			return Fonemas.X;
-		}
-		if (Letras.NH.equals(letra + "" + letraSeguinte)) {
+		} else if (Letras.NH.equals(letra + "" + letraSeguinte)) {
 			return Fonemas.NH;
-		}
-		if (Letras.LH.equals(letra + "" + letraSeguinte)) {
+		} else if (Letras.LH.equals(letra + "" + letraSeguinte)) {
 			return Fonemas.LH;
-		}
-		if (Letras.SS.equals(letra + "" + letraSeguinte)) {
+		} else if (Letras.SS.equals(letra + "" + letraSeguinte)) {
 			return Fonemas.S;
-		}
-		if (Letras.XC.equals(letra + "" + letraSeguinte)) {
+		} else if (Letras.XC.equals(letra + "" + letraSeguinte)) {
 			return Fonemas.S;
 		}
 		return "";
@@ -193,7 +163,7 @@ public class Fonema {
 				|| Letras.Z.equals(letra) || Letras.L.equals(letra) || Letras.J.equals(letra) || Letras.T.equals(letra);
 	}
 
-	private String fonemaConsoanteSimples(String letra, String letraSeguinte) {
+	private String pegarFonemaDaConsoanteSimples(String letra, String letraSeguinte) {
 		if (Letras.B.equals(letra)) {
 			return Fonemas.B;
 		} else if (Letras.D.equals(letra)) {
@@ -215,13 +185,13 @@ public class Fonema {
 		return "";
 	}
 
-	private String fonemaDaVogal(String letra, String palavra, int posicao) {
+	private String pegarFonemaDaVogal(String letra, String palavra, int posicao) {
 		if (Letras.A.equals(letra))
-			return fonemasDoA(palavra, posicao);
+			return pegarFonemaDeA(palavra, posicao);
 		if (Letras.E.equals(letra))
-			return fonemasDoE(palavra, posicao);
+			return pegarFonemaDeE(palavra, posicao);
 		if (Letras.O.equals(letra))
-			return Fonemas.O;
+			return Fonemas.O; // TODO
 		if (Letras.I.equals(letra))
 			return Fonemas.I;
 		if (Letras.U.equals(letra)) {
@@ -230,7 +200,7 @@ public class Fonema {
 		return "";
 	}
 
-	private String fonemasDoA(String palavra, int posicao) {
+	private String pegarFonemaDeA(String palavra, int posicao) {
 		if (posicao < palavra.length() - 2) {
 			String letraSeguinte = palavra.charAt(posicao + 1) + "";
 			String letraAposM = palavra.charAt(posicao + 2) + "";
@@ -241,7 +211,7 @@ public class Fonema {
 		return Fonemas.A;
 	}
 
-	private String fonemasDoE(String palavra, int posicao) {
+	private String pegarFonemaDeE(String palavra, int posicao) {
 		if (posicao < palavra.length() - 2) {
 			String letraSeguinte = palavra.charAt(posicao + 1) + "";
 			if (Letras.M.equals(letraSeguinte)) {

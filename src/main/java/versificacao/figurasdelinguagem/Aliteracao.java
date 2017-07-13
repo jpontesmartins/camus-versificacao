@@ -14,11 +14,11 @@ public class Aliteracao {
 
 		Aliteracao f = new Aliteracao();
 		String frase = "o rato roeu a roupa do rei de roma";
-		f.descobrirConsoantesMaisFrequentes(frase);
+		f.descobrirFonemasMaisFrequentes(frase);
 
 	}
 
-	public Map<String, Integer> descobrirConsoantesMaisFrequentes(String frase) {
+	public Map<String, Integer> descobrirFonemasMaisFrequentes(String frase) {
 		String palavras[] = frase.toLowerCase().split(" ");
 		Map<String, Integer> mapaDeLetrasEFrequencia = new HashMap<>();
 		for (String palavra : palavras) {

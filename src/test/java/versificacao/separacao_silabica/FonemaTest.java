@@ -76,89 +76,89 @@ public class FonemaTest {
 	
 	@Test
 	public void desconsiderarALetraH() {
-		Assert.assertEquals("/a/", fonema.converterEmFonema("ha"));
-		Assert.assertEquals("/o/", fonema.converterEmFonema("ho"));
-		Assert.assertEquals("/e/", fonema.converterEmFonema("he"));
-		Assert.assertEquals("/u/", fonema.converterEmFonema("hu"));
+		Assert.assertEquals("/a/", fonema.descobrirFonemasDaPalavra("ha").get(0));
+		Assert.assertEquals("/o/", fonema.descobrirFonemasDaPalavra("ho").get(0));
+		Assert.assertEquals("/e/", fonema.descobrirFonemasDaPalavra("he").get(0));
+		Assert.assertEquals("/u/", fonema.descobrirFonemasDaPalavra("hu").get(0));
 	}
 	
 	@Test
 	public void naoReconhecerNComoFonemaN() {
-		Assert.assertEquals("/ã/", fonema.converterEmFonema("an"));
-		Assert.assertEquals("/~e/", fonema.converterEmFonema("en"));
-		Assert.assertEquals("/~i/", fonema.converterEmFonema("in"));
-		Assert.assertEquals("/õ/", fonema.converterEmFonema("on"));
-		Assert.assertEquals("/~u/", fonema.converterEmFonema("un"));
+		Assert.assertEquals("/ã/", fonema.descobrirFonemasDaPalavra("an").get(0));
+		Assert.assertEquals("/~e/", fonema.descobrirFonemasDaPalavra("en").get(0));
+		Assert.assertEquals("/~i/", fonema.descobrirFonemasDaPalavra("in").get(0));
+		Assert.assertEquals("/õ/", fonema.descobrirFonemasDaPalavra("on").get(0));
+		Assert.assertEquals("/~u/", fonema.descobrirFonemasDaPalavra("un").get(0));
 	}
 	
 	
 	@Test
 	public void reconhecerFonemaP() {
-		Assert.assertEquals("/p/", fonema.converterEmFonema("pa"));
-		Assert.assertEquals("/p/", fonema.converterEmFonema("pe"));
-		Assert.assertEquals("/p/", fonema.converterEmFonema("pi"));
-		Assert.assertEquals("/p/", fonema.converterEmFonema("po"));
-		Assert.assertEquals("/p/", fonema.converterEmFonema("pu"));
+		Assert.assertEquals("/p/", fonema.descobrirFonemasDaPalavra("pa").get(0));
+		Assert.assertEquals("/p/", fonema.descobrirFonemasDaPalavra("pe").get(0));
+		Assert.assertEquals("/p/", fonema.descobrirFonemasDaPalavra("pi").get(0));
+		Assert.assertEquals("/p/", fonema.descobrirFonemasDaPalavra("po").get(0));
+		Assert.assertEquals("/p/", fonema.descobrirFonemasDaPalavra("pu").get(0));
 	}
 	
 	@Test
 	public void reconhecerFonemaF() {
-		Assert.assertEquals("/f/", fonema.converterEmFonema("fa"));
-		Assert.assertEquals("/f/", fonema.converterEmFonema("fe"));
-		Assert.assertEquals("/f/", fonema.converterEmFonema("fi"));
-		Assert.assertEquals("/f/", fonema.converterEmFonema("fo"));
-		Assert.assertEquals("/f/", fonema.converterEmFonema("fu"));
+		Assert.assertEquals("/f/", fonema.descobrirFonemasDaPalavra("fa").get(0));
+		Assert.assertEquals("/f/", fonema.descobrirFonemasDaPalavra("fe").get(0));
+		Assert.assertEquals("/f/", fonema.descobrirFonemasDaPalavra("fi").get(0));
+		Assert.assertEquals("/f/", fonema.descobrirFonemasDaPalavra("fo").get(0));
+		Assert.assertEquals("/f/", fonema.descobrirFonemasDaPalavra("fu").get(0));
 	}
 	
 	
 	@Test
 	public void reconhecerFonemaD() {
-		Assert.assertEquals("/d/", fonema.converterEmFonema("da"));
-		Assert.assertEquals("/d/", fonema.converterEmFonema("de"));
-		Assert.assertEquals("/d/", fonema.converterEmFonema("di"));
-		Assert.assertEquals("/d/", fonema.converterEmFonema("do"));
-		Assert.assertEquals("/d/", fonema.converterEmFonema("du"));
+		Assert.assertEquals("/d/", fonema.descobrirFonemasDaPalavra("da").get(0));
+		Assert.assertEquals("/d/", fonema.descobrirFonemasDaPalavra("de").get(0));
+		Assert.assertEquals("/d/", fonema.descobrirFonemasDaPalavra("di").get(0));
+		Assert.assertEquals("/d/", fonema.descobrirFonemasDaPalavra("do").get(0));
+		Assert.assertEquals("/d/", fonema.descobrirFonemasDaPalavra("du").get(0));
 	}
 	
 	@Test
 	public void reconhecerFonemaB() {
-		Assert.assertEquals("/b/", fonema.converterEmFonema("ba"));
-		Assert.assertEquals("/b/", fonema.converterEmFonema("be"));
-		Assert.assertEquals("/b/", fonema.converterEmFonema("bi"));
-		Assert.assertEquals("/b/", fonema.converterEmFonema("bo"));
-		Assert.assertEquals("/b/", fonema.converterEmFonema("bu"));
+		Assert.assertEquals("/b/", fonema.descobrirFonemasDaPalavra("ba").get(0));
+		Assert.assertEquals("/b/", fonema.descobrirFonemasDaPalavra("be").get(0));
+		Assert.assertEquals("/b/", fonema.descobrirFonemasDaPalavra("bi").get(0));
+		Assert.assertEquals("/b/", fonema.descobrirFonemasDaPalavra("bo").get(0));
+		Assert.assertEquals("/b/", fonema.descobrirFonemasDaPalavra("bu").get(0));
 	}
 	
 	
 	@Test
 	@Ignore
 	public void reconhecerFonemaXComX() {
-		Assert.assertEquals("/x/", fonema.converterEmFonema("xa")); //xarope
-		Assert.assertEquals("/x/", fonema.converterEmFonema("xe")); //xerox, 
-		Assert.assertEquals("/x/", fonema.converterEmFonema("xi")); //xingar
-		Assert.assertEquals("/x/", fonema.converterEmFonema("xo"));
-		Assert.assertEquals("/x/", fonema.converterEmFonema("xu"));
-		Assert.assertEquals("/x/", fonema.converterEmFonema("aixa"));
-		Assert.assertEquals("/x/", fonema.converterEmFonema("eixa"));
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("xa").get(0)); //xarope
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("xe").get(0)); //xerox, 
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("xi").get(0)); //xingar
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("xo").get(0));
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("xu").get(0));
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("aixa").get(0));
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("eixa").get(0));
 	}
 
 	@Test
 	public void reconhecerFonemaZComS() {
 		//casa, coisa, cesária
-		Assert.assertEquals("/z/", fonema.converterEmFonema2("asa"));
-		Assert.assertEquals("/z/", fonema.converterEmFonema2("esa"));
-		Assert.assertEquals("/z/", fonema.converterEmFonema2("isa"));
-		Assert.assertEquals("/z/", fonema.converterEmFonema2("osa"));
-		Assert.assertEquals("/z/", fonema.converterEmFonema2("usa"));
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("asa").get(1));
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("esa").get(1));
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("isa").get(1));
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("osa").get(1));
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("usa").get(1));
 	}
 	
 	@Test
 	public void reconhecerFonemaSNoFimDeUmaPalavra() {
-		Assert.assertEquals("/s/", fonema.converterEmFonema2("as"));
-		Assert.assertEquals("/s/", fonema.converterEmFonema2("es"));
-		Assert.assertEquals("/s/", fonema.converterEmFonema2("is"));
-		Assert.assertEquals("/s/", fonema.converterEmFonema2("os"));
-		Assert.assertEquals("/s/", fonema.converterEmFonema2("us"));
+		Assert.assertEquals("/s/", fonema.descobrirFonemasDaPalavra("as").get(1));
+		Assert.assertEquals("/s/", fonema.descobrirFonemasDaPalavra("es").get(1));
+		Assert.assertEquals("/s/", fonema.descobrirFonemasDaPalavra("is").get(1));
+		Assert.assertEquals("/s/", fonema.descobrirFonemasDaPalavra("os").get(1));
+		Assert.assertEquals("/s/", fonema.descobrirFonemasDaPalavra("us").get(1));
 	}
 	
 	@Test
@@ -167,9 +167,9 @@ public class FonemaTest {
 		//exato, existir
 		//casa, coisa, cesária
 //		Assert.assertEquals("/z/", fonema.converterEmFonema("axa"));
-		Assert.assertEquals("/z/", fonema.converterEmFonema("exa")); //exame, exemplar, exigência
-		Assert.assertEquals("/z/", fonema.converterEmFonema("exe")); //exemplar, exemplar
-		Assert.assertEquals("/z/", fonema.converterEmFonema("exi")); //existente, exigência
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("exa")); //exame, exemplar, exigência
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("exe")); //exemplar, exemplar
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("exi")); //existente, exigência
 		
 		
 //		Assert.assertEquals("/z/", fonema.converterEmFonema("oxa"));
@@ -179,134 +179,129 @@ public class FonemaTest {
 	@Test
 	public void reconhecerFonemaZComZ() {
 		//zinco, zebra
-		Assert.assertEquals("/z/", fonema.converterEmFonema("za"));
-		Assert.assertEquals("/z/", fonema.converterEmFonema("ze"));
-		Assert.assertEquals("/z/", fonema.converterEmFonema("zi"));
-		Assert.assertEquals("/z/", fonema.converterEmFonema("zo"));
-		Assert.assertEquals("/z/", fonema.converterEmFonema("zu"));
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("za").get(0));
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("ze").get(0));
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("zi").get(0));
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("zo").get(0));
+		Assert.assertEquals("/z/", fonema.descobrirFonemasDaPalavra("zu").get(0));
 	}
 
 	@Test
 	public void reconhecerFonemaNh() {
-		Assert.assertEquals("/nh/", fonema.converterEmFonema("nha"));
-		Assert.assertEquals("/nh/", fonema.converterEmFonema("nhe"));
-		Assert.assertEquals("/nh/", fonema.converterEmFonema("nhi"));
-		Assert.assertEquals("/nh/", fonema.converterEmFonema("nho"));
-		Assert.assertEquals("/nh/", fonema.converterEmFonema("nhu"));
+		Assert.assertEquals("/nh/", fonema.descobrirFonemasDaPalavra("nha").get(0));
+		Assert.assertEquals("/nh/", fonema.descobrirFonemasDaPalavra("nhe").get(0));
+		Assert.assertEquals("/nh/", fonema.descobrirFonemasDaPalavra("nhi").get(0));
+		Assert.assertEquals("/nh/", fonema.descobrirFonemasDaPalavra("nho").get(0));
+		Assert.assertEquals("/nh/", fonema.descobrirFonemasDaPalavra("nhu").get(0));
 	}
 
 	@Test
 	public void reconhecerFonemaXComCh() {
-		Assert.assertEquals("/x/", fonema.converterEmFonema("cha")); // chalé
-		Assert.assertEquals("/x/", fonema.converterEmFonema("che")); // checagem
-		Assert.assertEquals("/x/", fonema.converterEmFonema("chi")); // chicote
-		Assert.assertEquals("/x/", fonema.converterEmFonema("cho")); // chocolate
-		Assert.assertEquals("/x/", fonema.converterEmFonema("chu")); // chuva
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("cha").get(0)); // chalé
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("che").get(0)); // checagem
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("chi").get(0)); // chicote
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("cho").get(0)); // chocolate
+		Assert.assertEquals("/x/", fonema.descobrirFonemasDaPalavra("chu").get(0)); // chuva
 	}
 
 	@Test
 	public void reconhecerFonemaLh() {
-		Assert.assertEquals("/lh/", fonema.converterEmFonema("lha"));
-		Assert.assertEquals("/lh/", fonema.converterEmFonema("lhe"));
-		Assert.assertEquals("/lh/", fonema.converterEmFonema("lhi"));
-		Assert.assertEquals("/lh/", fonema.converterEmFonema("lho"));
-		Assert.assertEquals("/lh/", fonema.converterEmFonema("lhu"));
+		Assert.assertEquals("/lh/", fonema.descobrirFonemasDaPalavra("lha").get(0));
+		Assert.assertEquals("/lh/", fonema.descobrirFonemasDaPalavra("lhe").get(0));
+		Assert.assertEquals("/lh/", fonema.descobrirFonemasDaPalavra("lhi").get(0));
+		Assert.assertEquals("/lh/", fonema.descobrirFonemasDaPalavra("lho").get(0));
+		Assert.assertEquals("/lh/", fonema.descobrirFonemasDaPalavra("lhu").get(0));
 	}
 	
 	@Test
 	public void reconhecerFonemaL() {
-		Assert.assertEquals("/l/", fonema.converterEmFonema("la"));
-		Assert.assertEquals("/l/", fonema.converterEmFonema("le"));
-		Assert.assertEquals("/l/", fonema.converterEmFonema("li"));
-		Assert.assertEquals("/l/", fonema.converterEmFonema("lo"));
-		Assert.assertEquals("/l/", fonema.converterEmFonema("lu"));
+		Assert.assertEquals("/l/", fonema.descobrirFonemasDaPalavra("la").get(0));
+		Assert.assertEquals("/l/", fonema.descobrirFonemasDaPalavra("le").get(0));
+		Assert.assertEquals("/l/", fonema.descobrirFonemasDaPalavra("li").get(0));
+		Assert.assertEquals("/l/", fonema.descobrirFonemasDaPalavra("lo").get(0));
+		Assert.assertEquals("/l/", fonema.descobrirFonemasDaPalavra("lu").get(0));
 	}
 
 	@Test
 	@Ignore
 	public void desconsiderarHComoFonema() {
-		Assert.assertEquals("", fonema.converterEmFonema("ha"));
-		Assert.assertEquals("", fonema.converterEmFonema("he"));
-		Assert.assertEquals("", fonema.converterEmFonema("hi"));
-		Assert.assertEquals("", fonema.converterEmFonema("ho"));
-		Assert.assertEquals("", fonema.converterEmFonema("hu"));
+		Assert.assertEquals("", fonema.descobrirFonemasDaPalavra("ha").get(0));
+		Assert.assertEquals("", fonema.descobrirFonemasDaPalavra("he").get(0));
+		Assert.assertEquals("", fonema.descobrirFonemasDaPalavra("hi").get(0));
+		Assert.assertEquals("", fonema.descobrirFonemasDaPalavra("ho").get(0));
+		Assert.assertEquals("", fonema.descobrirFonemasDaPalavra("hu").get(0));
 	}
 
 	@Test
-	@Ignore
 	public void reconhecerFonemasRr() {
 		// TODO: nao tem nenhum metodo validando se começa com vogal, por isso
 		// não deu problema,
 		// mas se pôr palavras com encontro consonantal como prato, braço e
 		// grotesco ainda não passa
-		Assert.assertEquals("/R/", fonema.converterEmFonema("arra"));
-		Assert.assertEquals("/R/", fonema.converterEmFonema("erre"));
-		Assert.assertEquals("/R/", fonema.converterEmFonema("irri"));
-		Assert.assertEquals("/R/", fonema.converterEmFonema("orro"));
-		Assert.assertEquals("/R/", fonema.converterEmFonema("urru"));
+		Assert.assertEquals("/R/", fonema.descobrirFonemasDaPalavra("arra").get(1));
+		Assert.assertEquals("/R/", fonema.descobrirFonemasDaPalavra("erre").get(1));
+		Assert.assertEquals("/R/", fonema.descobrirFonemasDaPalavra("irri").get(1));
+		Assert.assertEquals("/R/", fonema.descobrirFonemasDaPalavra("orro").get(1));
+		Assert.assertEquals("/R/", fonema.descobrirFonemasDaPalavra("urru").get(1));
 	}
 
 	@Test
 	public void reconhecerFonemasRMaiusculo() {
-		Assert.assertEquals("/R/", fonema.converterEmFonema("ra"));
-		Assert.assertEquals("/R/", fonema.converterEmFonema("re"));
-		Assert.assertEquals("/R/", fonema.converterEmFonema("ri"));
-		Assert.assertEquals("/R/", fonema.converterEmFonema("ro"));
-		Assert.assertEquals("/R/", fonema.converterEmFonema("ru"));
+		Assert.assertEquals("/R/", fonema.descobrirFonemasDaPalavra("ra").get(0));
+		Assert.assertEquals("/R/", fonema.descobrirFonemasDaPalavra("re").get(0));
+		Assert.assertEquals("/R/", fonema.descobrirFonemasDaPalavra("ri").get(0));
+		Assert.assertEquals("/R/", fonema.descobrirFonemasDaPalavra("ro").get(0));
+		Assert.assertEquals("/R/", fonema.descobrirFonemasDaPalavra("ru").get(0));
 	}
 
 	@Test
 	@Ignore
 	public void reconhecerFonemasRMinusculo() {
-		Assert.assertEquals("/r/", fonema.converterEmFonema("ara"));
-		Assert.assertEquals("/r/", fonema.converterEmFonema("era"));
-		Assert.assertEquals("/r/", fonema.converterEmFonema("ira"));
-		Assert.assertEquals("/r/", fonema.converterEmFonema("ora"));
-		Assert.assertEquals("/r/", fonema.converterEmFonema("ura"));
-		// Assert.assertEquals("/r/", fonema.converterEmFonema("bra"));
-		// Assert.assertEquals("/r/", fonema.converterEmFonema("cra"));
-		// Assert.assertEquals("/r/", fonema.converterEmFonema("tro"));
-		// Assert.assertEquals("/r/", fonema.converterEmFonema("per"));
+		Assert.assertEquals("/r/", fonema.descobrirFonemasDaPalavra("ara"));
+		Assert.assertEquals("/r/", fonema.descobrirFonemasDaPalavra("era"));
+		Assert.assertEquals("/r/", fonema.descobrirFonemasDaPalavra("ira"));
+		Assert.assertEquals("/r/", fonema.descobrirFonemasDaPalavra("ora"));
+		Assert.assertEquals("/r/", fonema.descobrirFonemasDaPalavra("ura"));
 	}
 
 	@Test
 	public void reconhecerFonemasGComG() {
-		Assert.assertEquals("/g/", fonema.converterEmFonema("ga"));
-		Assert.assertEquals("/g/", fonema.converterEmFonema("gue"));
-		Assert.assertEquals("/g/", fonema.converterEmFonema("gui"));
-		Assert.assertEquals("/g/", fonema.converterEmFonema("go"));
-		Assert.assertEquals("/g/", fonema.converterEmFonema("gu"));
+		Assert.assertEquals("/g/", fonema.descobrirFonemasDaPalavra("ga").get(0));
+		Assert.assertEquals("/g/", fonema.descobrirFonemasDaPalavra("gue").get(0));
+		Assert.assertEquals("/g/", fonema.descobrirFonemasDaPalavra("gui").get(0));
+		Assert.assertEquals("/g/", fonema.descobrirFonemasDaPalavra("go").get(0));
+		Assert.assertEquals("/g/", fonema.descobrirFonemasDaPalavra("gu").get(0));
 	}
 
 	@Test
 	public void reconhecerFonemasJComG() {
-		Assert.assertEquals("/j/", fonema.converterEmFonema("ge"));
-		Assert.assertEquals("/j/", fonema.converterEmFonema("gi"));
+		Assert.assertEquals("/j/", fonema.descobrirFonemasDaPalavra("ge").get(0));
+		Assert.assertEquals("/j/", fonema.descobrirFonemasDaPalavra("gi").get(0));
 	}
 
 	@Test
 	public void reconhecerFonemasJComJ() {
-		Assert.assertEquals("/j/", fonema.converterEmFonema("ja"));
-		Assert.assertEquals("/j/", fonema.converterEmFonema("je"));
-		Assert.assertEquals("/j/", fonema.converterEmFonema("ji"));
-		Assert.assertEquals("/j/", fonema.converterEmFonema("jo"));
-		Assert.assertEquals("/j/", fonema.converterEmFonema("ju"));
+		Assert.assertEquals("/j/", fonema.descobrirFonemasDaPalavra("ja").get(0));
+		Assert.assertEquals("/j/", fonema.descobrirFonemasDaPalavra("je").get(0));
+		Assert.assertEquals("/j/", fonema.descobrirFonemasDaPalavra("ji").get(0));
+		Assert.assertEquals("/j/", fonema.descobrirFonemasDaPalavra("jo").get(0));
+		Assert.assertEquals("/j/", fonema.descobrirFonemasDaPalavra("ju").get(0));
 	}
 
 	@Test
 	public void reconhecerFonemasSComSs() {
-		Assert.assertEquals("/s/", fonema.converterEmFonema("ss"));
+		Assert.assertEquals("/s/", fonema.descobrirFonemasDaPalavra("ss").get(0));
 	}
 
 	@Test
 	public void reconhecerFonemasSComXc() {
-		Assert.assertEquals("/s/", fonema.converterEmFonema("xc"));
+		Assert.assertEquals("/s/", fonema.descobrirFonemasDaPalavra("xc").get(0));
 	}
 
 	@Test
 	public void reconhecerFonemasSComC() {
-		Assert.assertEquals("/s/", fonema.converterEmFonema("ce"));
-		Assert.assertEquals("/s/", fonema.converterEmFonema("ci"));
+		Assert.assertEquals("/s/", fonema.descobrirFonemasDaPalavra("ce").get(0));
+		Assert.assertEquals("/s/", fonema.descobrirFonemasDaPalavra("ci").get(0));
 	}
 //	@Test()
 //	public void reconhecerFonemasSComX() {
@@ -317,19 +312,19 @@ public class FonemaTest {
 
 	@Test
 	public void reconhecerFonemasKComC() {
-		Assert.assertEquals("/k/", fonema.converterEmFonema("ca"));
-		Assert.assertEquals("/k/", fonema.converterEmFonema("co"));
-		Assert.assertEquals("/k/", fonema.converterEmFonema("cu"));
-		Assert.assertEquals("/k/", fonema.converterEmFonema("qui"));
-		Assert.assertEquals("/k/", fonema.converterEmFonema("quo"));
-		Assert.assertEquals("/k/", fonema.converterEmFonema("co"));
-		Assert.assertEquals("/k/", fonema.converterEmFonema("cu"));
+		Assert.assertEquals("/k/", fonema.descobrirFonemasDaPalavra("ca").get(0));
+		Assert.assertEquals("/k/", fonema.descobrirFonemasDaPalavra("co").get(0));
+		Assert.assertEquals("/k/", fonema.descobrirFonemasDaPalavra("cu").get(0));
+		Assert.assertEquals("/k/", fonema.descobrirFonemasDaPalavra("qui").get(0));
+		Assert.assertEquals("/k/", fonema.descobrirFonemasDaPalavra("quo").get(0));
+		Assert.assertEquals("/k/", fonema.descobrirFonemasDaPalavra("co").get(0));
+		Assert.assertEquals("/k/", fonema.descobrirFonemasDaPalavra("cu").get(0));
 	}
 
 	@Test
 	public void reconhecerFonemasKComQu() {
-		Assert.assertEquals("/k/", fonema.converterEmFonema("qui"));
-		Assert.assertEquals("/k/", fonema.converterEmFonema("quo"));
+		Assert.assertEquals("/k/", fonema.descobrirFonemasDaPalavra("qui").get(0));
+		Assert.assertEquals("/k/", fonema.descobrirFonemasDaPalavra("quo").get(0));
 	}
 
 	// @Test
