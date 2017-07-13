@@ -1,5 +1,6 @@
 package versificacao.entidades;
 
+import versificacao.separacao_silabica.Fonema;
 import versificacao.separacao_silabica.SepararPalavra;
 import versificacao.separacao_silabica.Tonicidade;
 import versificacao.separacao_silabica.TonicidadeEnum;
@@ -11,6 +12,7 @@ public class Palavra {
 	private String separacaoSilabica;
 	private TonicidadeEnum tonicidade;
 	private String tonicidade2;
+	private String formaFonetica;
 
 	public Palavra(String palavra) {
 		this.palavra = palavra;
@@ -21,6 +23,7 @@ public class Palavra {
 		this.separacaoSilabica = new SepararPalavra().separar(palavra).replaceAll(" ",".");
 		this.silabaTonica = new Tonicidade().encontrarSilabaTonica(palavra);
 		int posicaoDaSilabaTonica = new Tonicidade().encontrarTonicidadeDaPalavra(palavra);
+		this.formaFonetica = new Fonema().transcreverPalavra(palavra);
 
 		switch (posicaoDaSilabaTonica) {
 		case 0:
@@ -77,6 +80,9 @@ public class Palavra {
 	public void setTonicidade2(String tonicidade2) {
 		this.tonicidade2 = tonicidade2;
 	}
-	
-	
+
+	public String getFormaFonetica() {
+		return formaFonetica;
+	}
+
 }

@@ -50,8 +50,8 @@
 				<ul ng-repeat= "palavra in poema.palavras">
 					<li class="texto-pq-n align-left item"> 
 						({{palavra.palavra}}: 
-							{{palavra.separacaoSilabica}}/{{palavra.silabaTonica}}/{{palavra.tonicidade2}})
-					</li>
+							{{palavra.separacaoSilabica}}/{{palavra.silabaTonica}}/{{palavra.tonicidade2}}/ {{palavra.formaFonetica}})
+					</li> 
 				</ul>
 				<ul>
 					<li class="texto-pq-n align-left item">. quantidade de sílabas poéticas: {{poema.qtdeSilabasPoeticas}}/{{poema.classificacaoVerso2}}</li>
@@ -81,14 +81,16 @@
 		<!-- informações -->
 		<div class="col-md-12 align-left">
 			<button type="button" class="btn left col-md-12" data-toggle="collapse" data-target="#versoes">
-				<span class="texto-md">2.16
-					<span class="texto-pq">(02072017)</span>
+				<span class="texto-md">2.17
+					<span class="texto-pq">(13072017)</span>
 					<span class="texto-pq">camus {cã.mi} histórico das funcionalidades e correções</span>
 				</span><br>
 			</button>
 			
 			<div id="versoes" class="collapse">
 				<ul>
+				
+					<li class="texto-pq align-left item">2.17 - identificar os sons fonéticos das letras e dígrafos nas palavras (1372017)</li>
 					<li class="texto-pq align-left item">2.16 - encontrar dígrafos nas palavras (02072017)</li>
 					<li class="texto-pq align-left item">2.15 - reconhecimento de dígrafos (24062017)</li>
 					<li class="texto-pq align-left item">2.14 - aliteração (06062017)</li>
