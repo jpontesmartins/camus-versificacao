@@ -62,6 +62,7 @@ public class Letras {
 	public static final String ON = "on";
 	public static final String UN = "un";
 	public static final String PR = "pr";
+	public static final String CC = "ç";
 
 	public static final String AA = "aa";
 	public static final String EE = "ee";
@@ -119,6 +120,7 @@ public class Letras {
 	public static final String VOGAIS_TIMBRES_FECHADOS[] = { E_TIMBRE_FECHADO, O_TIMBRE_FECHADO, I_TIMBRE_FECHADO,
 			U_TIMBRE_FECHADO };
 
+	//o iua eh do 'subiu a constr...' subIU A (IU 
 	public static final String DITONGOS_[] = { OUA, IUA };
 	public static final String DITONGOS[] = { AI, EI, OI, UI, AU, A_TIL + O, EU, IU, OU, UA, U + A_ACENTO, U + E };
 
@@ -131,10 +133,13 @@ public class Letras {
 	public static final String HIATOS[] = { AA, EE, II, OO, UU, EA, IA, IO, OA, UA, OE, OE_ACENTO, AU_ACENTO, AE_ACENTO,
 			AI_ACENTO, OI_ACENTO, UI_ACENTO };
 
-	public static final String VOGAIS[] = { A, E, I, O, U, A_ACENTO, E_ACENTO, I_ACENTO, O_ACENTO, U_ACENTO, A_TIL, O_TIL,
+	public static final String VOGAIS[] = { A, E, I, O, U, A_ACENTO, E_ACENTO, E_CIRC, I_ACENTO, O_ACENTO, U_ACENTO, A_TIL, O_TIL,
 			A_CIRC, E_CIRC, O_CIRC };
 
-	public static final String CONSOANTES[] = { B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Y, Z };
+	public static final String CONSOANTES[] = { B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Y, Z, CC };
+	
+	public static final String VOGAIS_NASALISADAS[] = { AM, EM, IM, OM, UM, AN, EN, E_CIRC + N, IN, ON, UN };
+
 
 	public static boolean isConsoante(String letra) {
 		return Arrays.asList(CONSOANTES).contains(letra);
@@ -143,9 +148,4 @@ public class Letras {
 	public static boolean isVogal(String letra) {
 		return Arrays.asList(VOGAIS).contains(letra);
 	}
-
-	public static boolean isDitongo(String possivelDitongo) {
-		return false;
-	}
-
 }

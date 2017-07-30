@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import versificacao.utils.Letras;
+
 public class Escansao {
 
 	public static void main(String[] args) {
 		Escansao escansao = new Escansao();
+		System.out.println(escansao.listarSilabasPoeticas("Antes e com tal zelo e sempre e tanto"));
 	}
 
 	public ClassificacaoVersoEnum classificarVerso(String verso) {
@@ -50,10 +53,10 @@ public class Escansao {
 		return versos.length;
 	}
 
-	public int contarSilabasPoeticas(String verso) {
+	public List<String> listarSilabasPoeticas(String verso) {
 		SepararPalavra separarPalavra = new SepararPalavra();
 		List<String> silabasPoeticas = new ArrayList<String>();
-		List<String> palavras = Arrays.asList(verso.split(" "));
+		List<String> palavras = Arrays.asList(verso.replace(",", "").split(" "));
 		boolean houveUniaoDeVogais = false;
 		List<String> silabasSemAPrimeira = new ArrayList<>();
 		boolean continuar = true;
@@ -77,28 +80,34 @@ public class Escansao {
 				String palavraSeguinte = "";
 				if (i < palavras.size() - 1) {
 					palavraSeguinte = palavras.get(i + 1);
-				}
-				if (i != palavras.size() - 1) {
-					houveUniaoDeVogais = juntarVogais(separarPalavra, silabasPoeticas, palavraSeguinte);
+					houveUniaoDeVogais = juntarVogais(palavras.get(i), separarPalavra, silabasPoeticas,
+							palavraSeguinte);
 				}
 			}
 		}
 
-		Tonicidade tonica = new Tonicidade();
-		int tonicidade = tonica.encontrarTonicidadeDaPalavra(palavras.get(palavras.size() - 1));
-
-		return silabasPoeticas.size() - (tonicidade - 1);
+		return silabasPoeticas;
 	}
 
-	private boolean juntarVogais(SepararPalavra separarPalavra, List<String> silabasPoeticas, String palavraSeguinte) {
+	public int contarSilabasPoeticas(String verso) {
+		List<String> palavras = Arrays.asList(verso.split(" "));
+		Tonicidade tonica = new Tonicidade();
+		int tonicidade = tonica.encontrarTonicidadeDaPalavra(palavras.get(palavras.size() - 1));
+		return listarSilabasPoeticas(verso).size() - (tonicidade - 1);
+	}
+
+	private boolean juntarVogais(String palavra, SepararPalavra separarPalavra, List<String> silabasPoeticas,
+			String palavraSeguinte) {
 		String palavraSeguinteSeparada = separarPalavra.separar(palavraSeguinte);
 		String primeiraSilaba = palavraSeguinteSeparada.split(" ")[0];
 		char primeiraLetra = primeiraSilaba.charAt(0);
 		String ultimaSilabaDaLista = silabasPoeticas.get(silabasPoeticas.size() - 1);
 		char ultimaLetra = ultimaSilabaDaLista.charAt(ultimaSilabaDaLista.length() - 1);
 
-		if (separarPalavra.isDuasSilabasTonicas(ultimaSilabaDaLista, primeiraSilaba)) {
-			return false;
+		for (String ditongo : Arrays.asList(Letras.DITONGOS)) {
+			if (ultimaSilabaDaLista.contains(ditongo)) {
+				return false;
+			}
 		}
 
 		if (separarPalavra.isVogal(primeiraLetra) && separarPalavra.isVogal(ultimaLetra)) {
