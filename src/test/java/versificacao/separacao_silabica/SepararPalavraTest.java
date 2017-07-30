@@ -22,8 +22,7 @@ public class SepararPalavraTest {
 //	public void separarFluidezTest() {
 //		Assert.assertEquals("flu i dez", separarPalavra.separar("fluidez"));
 //	}
-	 
-	 
+
 	 
 
 	@Test
