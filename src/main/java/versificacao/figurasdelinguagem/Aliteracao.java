@@ -14,7 +14,8 @@ public class Aliteracao {
 	public static void main(String[] args) {
 
 		Aliteracao f = new Aliteracao();
-		String frase = "o rato roeu a roupa do rei de roma";
+//		String frase = "o rato roeu a roupa do rei de roma";
+		String frase = "vozes veladas, veludosas vozes";
 		Map<String, Integer> fonemasMaisFrequentes = f.descobrirFonemasMaisFrequentes(frase);
 
 		String fonemasFrequentes = "";
