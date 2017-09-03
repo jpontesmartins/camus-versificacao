@@ -13,6 +13,15 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+	
+	@Bean
+	public Docket escansaoApi() {
+		return new Docket(DocumentationType.SWAGGER_2).groupName("escansao-api").select()
+				.apis(RequestHandlerSelectors.basePackage("camus.lacan.controllers")).paths(regex("/escansao.*"))
+				.build().apiInfo(metaData());
+	}
+	
+	
 	@Bean
 	public Docket separacaoApi() {
 		return new Docket(DocumentationType.SWAGGER_2).groupName("separacao-api").select()

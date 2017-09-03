@@ -43,6 +43,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+
+
 		<dependency>
 			<groupId>com.jayway.jsonpath</groupId>
 			<artifactId>json-path</artifactId>
@@ -60,7 +67,7 @@
 			<version>2.6.1</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!--WebJars -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -72,7 +79,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -81,5 +88,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 </project>

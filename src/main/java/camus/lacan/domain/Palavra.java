@@ -9,6 +9,13 @@ public class Palavra {
 	private List<String> silabas;
 	private String silabaTonica;
 
+	public Palavra(String palavraStr) {
+		this.grafia = palavraStr;
+	}
+
+	public Palavra() {
+	}
+	
 	public String getGrafia() {
 		return grafia;
 	}
