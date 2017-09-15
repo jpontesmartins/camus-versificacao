@@ -11,11 +11,6 @@ import camus.lacan.utils.Letras;
 
 public class Escansao {
 
-	public static void main(String[] args) {
-		Escansao escansao = new Escansao();
-		System.out.println(escansao.listarSilabasPoeticas("Antes e com tal zelo e sempre e tanto"));
-	}
-
 	public ClassificacaoVersoEnum classificarVerso(String verso) {
 
 		int qtdeSilabasPoeticas = contarSilabasPoeticas(verso);

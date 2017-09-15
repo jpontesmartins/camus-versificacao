@@ -8,10 +8,6 @@ import camus.lacan.domain.Palavra;
 
 public class EscansaoService {
 
-	public static void main(String[] args) {
-		System.out.println(new EscansaoService().fazerSeparacaoSilabicaDoVerso("de repente"));
-	}
-
 	public String fazerSeparacaoSilabicaDoVerso(String frase) {
 		SepararPalavra separarPalavra = new SepararPalavra();
 		String fraseSeparada = separarPalavra.separar(frase);
