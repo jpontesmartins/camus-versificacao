@@ -1,4 +1,4 @@
-package camus.lacan.services;
+package camus.lacan.enums;
 
 public enum ClassificacaoVersoEnum {
 

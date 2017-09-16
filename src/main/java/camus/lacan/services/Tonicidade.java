@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+import camus.lacan.enums.TonicidadeEnum;
+
 public class Tonicidade {
 
 	public String A = "a";

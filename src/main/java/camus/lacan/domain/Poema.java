@@ -3,7 +3,7 @@ package camus.lacan.domain;
 import java.util.List;
 
 import camus.lacan.controllers.Escansao;
-import camus.lacan.services.ClassificacaoVersoEnum;
+import camus.lacan.enums.ClassificacaoVersoEnum;
 
 public class Poema {
 

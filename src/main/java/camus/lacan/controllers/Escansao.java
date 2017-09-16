@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import camus.lacan.services.ClassificacaoVersoEnum;
+import camus.lacan.enums.ClassificacaoVersoEnum;
 import camus.lacan.services.SepararPalavra;
 import camus.lacan.services.Tonicidade;
 import camus.lacan.utils.Letras;
