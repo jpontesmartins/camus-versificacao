@@ -28,8 +28,7 @@ public class TonicidadeController {
 	@RequestMapping(value = "/{palavra}", method = RequestMethod.GET, produces = "application/json")
 	public Palavra encontrarSilabaTonica(@PathVariable String palavra) {
 		Palavra vocabulo = new Palavra();
-		Tonicidade tonicidade = new Tonicidade();
-		vocabulo.setSilabaTonica(tonicidade.encontrarSilabaTonica(palavra));
+		vocabulo = tonicidadeService.encontrarSilabaTonica(palavra);
 		return vocabulo;
 	}
 
