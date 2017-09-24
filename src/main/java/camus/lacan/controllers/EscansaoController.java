@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.google.gson.Gson;
-
 import camus.lacan.domain.Palavra;
 import camus.lacan.domain.Poema;
 import camus.lacan.services.EscansaoService;
@@ -20,24 +18,15 @@ public class EscansaoController {
 	
 	
 	@ApiOperation(value = "Realiza a escansão de um verso", response = Palavra.class)
-	@RequestMapping(value = "/{verso}", method = RequestMethod.GET, produces = "application/json")
-	public Poema escandir(@PathVariable String verso) {
+	@RequestMapping(value = "/{poema}", method = RequestMethod.GET, produces = "application/json")
+	public Poema escandir(@PathVariable String poema) {
 		
-		if (verso.contains("§")) {
-			System.out.println("tem quebra de linha");
-		} else {
-			System.out.println("nao tem");
-		}
+		// 1. separar em versos (identificarVersos);
+		// 2. tratar cada verso
 		
 		EscansaoService escansaoService = new EscansaoService();
-		String versoSeparado = escansaoService.fazerSeparacaoSilabicaDoVerso(verso);
-		Poema poema = new Poema();
-		poema.setPoema(verso);
-		poema.setPoemaVersificado(versoSeparado);
-		poema.setPalavras(escansaoService.pegarInformacoesDasPalavras(verso));
-//		Gson gson = new Gson();
-//		return gson.toJson(poema);
-		return poema;
+		Poema poemaEscandido = escansaoService.escandir(poema);
+		return poemaEscandido;
 		
 	}
 }

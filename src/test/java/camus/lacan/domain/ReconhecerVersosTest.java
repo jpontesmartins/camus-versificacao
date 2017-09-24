@@ -14,7 +14,16 @@ public class ReconhecerVersosTest {
 	public void setUp() {
 		escansaoService = new EscansaoService();
 	}
+	
+	@Test
+	public void reconhecerVersos() {
+		String poema = "um§dois§três";
+		Assert.assertEquals("um", escansaoService.identificarVersos(poema).get(0).getVerso());
+		Assert.assertEquals("dois", escansaoService.identificarVersos(poema).get(1).getVerso());
+		Assert.assertEquals("três", escansaoService.identificarVersos(poema).get(2).getVerso());
 
+	}
+	
 	@Test
 	public void poemaCom2EstrofesDe3VersosCada() {
 		String poema = "v1§v2§v3§§v4§v5§v6";
@@ -29,13 +38,6 @@ public class ReconhecerVersosTest {
 		String verso = "Eu possa lhe dizer do amor (que tive):§Que não seja imortal, posto que é chama§Mas que seja infinito enquanto dure";
 		int numeroDeVersos = escansaoService.contarVersos(verso);
 		Assert.assertEquals(3, numeroDeVersos);
-	}
-
-	@Test
-	public void encontrarESubstituirQuebrasDeLinhaTest() {
-		String frase = "uma frase§outra frase";
-		String fraseTratada = escansaoService.substituirQuebraDeLinha(frase);
-		Assert.assertEquals("uma frase\noutra frase", fraseTratada);
 	}
 
 }

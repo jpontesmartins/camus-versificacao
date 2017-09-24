@@ -113,7 +113,7 @@ public class EscansaoTest {
 	}
 
 	@Test
-	public void versosSeparadosPorSilabasPoeticasTest() {
+	public void quantidadeDeSilabasPoeticasPorVersoTest() {
 		String verso0 = "De repente do riso fez-se o pranto";
 		String verso1 = "Silencioso e branco como a bruma";
 		String verso2 = "E das bocas unidas fez-se a espuma";
@@ -126,7 +126,7 @@ public class EscansaoTest {
 	}
 
 	@Test
-	public void versosSeparadosPorSilabasGramaticasisTest() {
+	public void quantidadeDeSilabasGramaticaisPorVersoTest() {
 		String verso0 = "De repente do riso fez-se o pranto";
 		String verso1 = "Silencioso e branco como a bruma";
 		String verso2 = "E das bocas unidas fez-se a espuma";

@@ -4,24 +4,19 @@ import java.util.List;
 
 import camus.lacan.controllers.Escansao;
 import camus.lacan.enums.ClassificacaoVersoEnum;
+import camus.lacan.services.EscansaoService;
 
 public class Poema {
 
 	private String poema;
-	private String poemaVersificado;
-	private List<Palavra> palavras;
-	
-	private int qtdeSilabasPoeticas;
-	private int qtdeSilabasGramaticais;
-	
-	private ClassificacaoVersoEnum classificacaoVerso;
+	private ClassificacaoVersoEnum classificacaoPorVerso; 
 	private String classificacaoVerso2;
+	private List<Verso> versos;
 	
 	public void carregarInformacoes() {
-		this.qtdeSilabasGramaticais = new Escansao().contarSilabasGramaticais(this.poema);
-		this.qtdeSilabasPoeticas = new Escansao().contarSilabasPoeticas(this.poema);
-		this.classificacaoVerso = new Escansao().classificarVerso(this.poema);
-		this.classificacaoVerso2 = this.getClassificacaoVerso().getNome();
+		this.poema = this.poema.replaceAll("§", "\n");
+//		this.classificacaoPorVerso = new Escansao().classificarVerso(this.poema);
+//		this.classificacaoVerso2 = this.getClassificacaoVerso().getNome();
 	}
 	
 	
@@ -34,44 +29,12 @@ public class Poema {
 		carregarInformacoes();
 	}
 
-	public String getPoemaVersificado() {
-		return poemaVersificado;
-	}
-
-	public void setPoemaVersificado(String poemaVersificado) {
-		this.poemaVersificado = poemaVersificado;
-	}
-
-	public int getQtdeSilabasPoeticas() {
-		return qtdeSilabasPoeticas;
-	}
-
-	public void setQtdeSilabasPoeticas(int qtdeSilabas) {
-		this.qtdeSilabasPoeticas = qtdeSilabas;
-	}
-
-	public List<Palavra> getPalavras() {
-		return palavras;
-	}
-
-	public void setPalavras(List<Palavra> palavras) {
-		this.palavras = palavras;
-	}
-
-	public int getQtdeSilabasGramaticais() {
-		return qtdeSilabasGramaticais;
-	}
-
-	public void setQtdeSilabasGramaticais(int qtdeSilabasGramaticais) {
-		this.qtdeSilabasGramaticais = qtdeSilabasGramaticais;
-	}
-
 	public ClassificacaoVersoEnum getClassificacaoVerso() {
-		return classificacaoVerso;
+		return classificacaoPorVerso;
 	}
 
 	public void setClassificacaoVerso(ClassificacaoVersoEnum classificacaoVerso) {
-		this.classificacaoVerso = classificacaoVerso;
+		this.classificacaoPorVerso = classificacaoVerso;
 	}
 
 	public String getClassificacaoVerso2() {
@@ -80,6 +43,16 @@ public class Poema {
 
 	public void setClassificacaoVerso2(String classificacaoVerso2) {
 		this.classificacaoVerso2 = classificacaoVerso2;
+	}
+
+
+	public List<Verso> getVersos() {
+		return versos;
+	}
+
+
+	public void setVersos(List<Verso> versos) {
+		this.versos = versos;
 	}
 
 }

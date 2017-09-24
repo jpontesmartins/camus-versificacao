@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import camus.lacan.domain.Palavra;
 import camus.lacan.enums.ClassificacaoVersoEnum;
 import camus.lacan.services.SepararPalavra;
 import camus.lacan.services.Tonicidade;
@@ -45,10 +46,8 @@ public class Escansao {
 	}
 
 	public int contarSilabasGramaticais(String verso) {
-		SepararPalavra separarPalavra = new SepararPalavra();
-		String versoSeparado = separarPalavra.separarFrase(verso);
-		String versos[] = versoSeparado.split(" ");
-		return versos.length;
+		String palavras[] =  new SepararPalavra().separarFrase(verso).split(" ");
+		return palavras.length;
 	}
 
 	public List<String> listarSilabasPoeticas(String verso) {
