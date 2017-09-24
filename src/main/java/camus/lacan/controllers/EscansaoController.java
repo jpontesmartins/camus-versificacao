@@ -22,6 +22,13 @@ public class EscansaoController {
 	@ApiOperation(value = "Realiza a escansão de um verso", response = Palavra.class)
 	@RequestMapping(value = "/{verso}", method = RequestMethod.GET, produces = "application/json")
 	public Poema escandir(@PathVariable String verso) {
+		
+		if (verso.contains("§")) {
+			System.out.println("tem quebra de linha");
+		} else {
+			System.out.println("nao tem");
+		}
+		
 		EscansaoService escansaoService = new EscansaoService();
 		String versoSeparado = escansaoService.fazerSeparacaoSilabicaDoVerso(verso);
 		Poema poema = new Poema();

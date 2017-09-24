@@ -9,6 +9,7 @@ import camus.lacan.controllers.Escansao;
 public class EscansaoTest {
 
 	Escansao escansao;
+	
 
 	@Before
 	public void setUp() {

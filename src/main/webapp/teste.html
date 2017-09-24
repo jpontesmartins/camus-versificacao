@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script>
+
+<script>
+
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.split(search).join(replacement);
+};
+
+
+function substituirQuebrasDeLinha() {
+	var texto = $('#div2').val();
+	console.log('texto: ' + texto);
+
+	var res = texto.replaceAll('\n','§');
+
+	console.log('res: ' + res);
+
+	if (/[\n|\n\r]/.test(texto)) {
+		alert("Existee");
+	} else {
+		alert("Não existe");
+	}
+
+	var endereco = "http://localhost:8080/escansao/" + res;
+	window.open(endereco, '_blank','location=yes,height=570,width=520,scrollbars=yes,status=yes');
+	
+}
+
+</script>
+
+</head>
+
+<body>
+
+
+
+<textarea cols='60' rows='8' id="div2">verso 1&#13;&#10;verso 2&#13;&#10;verso 3&#13;&#10;verso 4&#13;&#10;&#13;&#10;verso 1&#13;&#10;verso 2&#13;&#10;verso 3&#13;&#10;verso 4</textarea><br/>
+<button type="button" onclick="substituirQuebrasDeLinha()">existe quebra de linha?</button>
+</body>
+</html> 
