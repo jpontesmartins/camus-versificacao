@@ -11,10 +11,8 @@ public class SeparacaoService {
 
 	public Palavra separarPalavra(String palavra) {
 		Palavra vocabulo = new Palavra();
-		SepararPalavra separarPalavra = new SepararPalavra();
 		vocabulo.setGrafia(palavra);
-//		vocabulo.setGrafiaSeparada(separarPalavra.separar(palavra));
-//		vocabulo.setSilabas(Arrays.asList(vocabulo.getGrafiaSeparada().split(" ")));
+		vocabulo.setSilabas(Arrays.asList(new SepararPalavra().separar(palavra).split(" ")));
 		return vocabulo;
 	}
 }
