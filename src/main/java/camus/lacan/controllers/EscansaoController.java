@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiOperation;
 public class EscansaoController {
 	
 	
-	@ApiOperation(value = "Realiza a escansão de um verso", response = Palavra.class)
+	@ApiOperation(value = "Realiza a escansão de um verso", response = Poema.class)
 	@RequestMapping(value = "/{poema:.+}", method = RequestMethod.GET, produces = "application/json")
 	public Poema escandir(@PathVariable String poema) {
 		
