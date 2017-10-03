@@ -15,6 +15,13 @@ public class EscansaoService {
 		Poema poemaEscandido = new Poema();
 		poemaEscandido.setPoema(poema);
 		poemaEscandido.setVersos(identificarVersos(poema));
+		
+		for (Verso verso : poemaEscandido.getVersos()) {
+			verso.setPalavras(new SepararPalavra().preencherInformacoesDasPalavras(verso.getVerso()));
+		}
+		
+		
+		
 		return poemaEscandido;
 	}
 	

@@ -5,7 +5,6 @@ import java.util.List;
 public class Palavra {
 
 	private String grafia;
-	private String grafiaSeparada;
 	private List<String> silabas;
 	private String silabaTonica;
 	private String tonicidade;
@@ -23,14 +22,6 @@ public class Palavra {
 
 	public void setGrafia(String grafia) {
 		this.grafia = grafia;
-	}
-
-	public String getGrafiaSeparada() {
-		return grafiaSeparada;
-	}
-
-	public void setGrafiaSeparada(String grafiaSeparada) {
-		this.grafiaSeparada = grafiaSeparada;
 	}
 
 	public List<String> getSilabas() {

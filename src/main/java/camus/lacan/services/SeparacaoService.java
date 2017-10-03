@@ -13,8 +13,8 @@ public class SeparacaoService {
 		Palavra vocabulo = new Palavra();
 		SepararPalavra separarPalavra = new SepararPalavra();
 		vocabulo.setGrafia(palavra);
-		vocabulo.setGrafiaSeparada(separarPalavra.separar(palavra));
-		vocabulo.setSilabas(Arrays.asList(vocabulo.getGrafiaSeparada().split(" ")));
+//		vocabulo.setGrafiaSeparada(separarPalavra.separar(palavra));
+//		vocabulo.setSilabas(Arrays.asList(vocabulo.getGrafiaSeparada().split(" ")));
 		return vocabulo;
 	}
 }

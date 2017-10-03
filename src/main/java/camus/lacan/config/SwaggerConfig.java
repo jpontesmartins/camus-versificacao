@@ -13,15 +13,17 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
-	
+
+	// After the Docket bean is defined, its select() method returns an instance of
+	// ApiSelectorBuilder, which provides a way to control the endpoints exposed by
+	// Swagger.
 	@Bean
 	public Docket escansaoApi() {
 		return new Docket(DocumentationType.SWAGGER_2).groupName("escansao-api").select()
 				.apis(RequestHandlerSelectors.basePackage("camus.lacan.controllers")).paths(regex("/escansao.*"))
 				.build().apiInfo(metaData());
 	}
-	
-	
+
 	@Bean
 	public Docket separacaoApi() {
 		return new Docket(DocumentationType.SWAGGER_2).groupName("separacao-api").select()
@@ -35,9 +37,6 @@ public class SwaggerConfig {
 				.apis(RequestHandlerSelectors.basePackage("camus.lacan.controllers")).paths(regex("/tonicidade.*"))
 				.build().apiInfo(metaData());
 	}
-	
-	
-	
 
 	private ApiInfo metaData() {
 		ApiInfo apiInfo = new ApiInfo("{camus - cã.mí}", "REST API para algoritmos que sirvam à lingua portuguesa",

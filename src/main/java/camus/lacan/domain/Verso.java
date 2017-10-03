@@ -16,6 +16,8 @@ public class Verso {
 	
 	public Verso(String verso) {
 		this.verso = verso;
+		removerEspacosDesnessarios();
+		
 		
 		this.palavras = new ArrayList<Palavra>();
 		List<String> palavrasStr = new ArrayList<String>(Arrays.asList(this.verso.split(" ")));
@@ -24,6 +26,12 @@ public class Verso {
 		this.tamanho = calcularSeparacaoPoetica();
 		
 		if ("".equals(verso)) this.verso = NOVA_ESTROFE;
+	}
+
+	private void removerEspacosDesnessarios() {
+		if (this.verso.charAt(0) == ' ') {
+			this.verso = this.verso.substring(1);
+		}
 	}
 
 	public int calcularSeparacaoPoetica() {

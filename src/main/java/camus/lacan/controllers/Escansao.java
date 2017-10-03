@@ -6,6 +6,7 @@ import java.util.List;
 
 import camus.lacan.domain.Palavra;
 import camus.lacan.enums.ClassificacaoVersoEnum;
+import camus.lacan.exceptions.EscansaoException;
 import camus.lacan.services.SepararPalavra;
 import camus.lacan.services.Tonicidade;
 import camus.lacan.utils.Letras;
@@ -46,7 +47,7 @@ public class Escansao {
 	}
 
 	public int contarSilabasGramaticais(String verso) {
-		String palavras[] =  new SepararPalavra().separarFrase(verso).split(" ");
+		String palavras[] = new SepararPalavra().separarFrase(verso).split(" ");
 		return palavras.length;
 	}
 
@@ -95,6 +96,10 @@ public class Escansao {
 
 	private boolean juntarVogais(String palavra, SepararPalavra separarPalavra, List<String> silabasPoeticas,
 			String palavraSeguinte) {
+		if ("".equals(palavra)) {
+			throw new EscansaoException();
+		}
+
 		String palavraSeguinteSeparada = separarPalavra.separar(palavraSeguinte);
 		String primeiraSilaba = palavraSeguinteSeparada.split(" ")[0];
 		char primeiraLetra = primeiraSilaba.charAt(0);

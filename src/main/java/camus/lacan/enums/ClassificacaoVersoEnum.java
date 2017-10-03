@@ -9,7 +9,8 @@ public enum ClassificacaoVersoEnum {
 	OCTOSSILABO(8,"octossílabo"), ENEASSILABO(9, "eneassílabo"), 
 	DECASSILABO(10,"decassílabo"), HENDECASSILABO(11, "hendecassílabo"),
 	DODECASSILABO(12,"dodecassílabo, alexandrino"), 
-	BARBARO(13,"bárbaro, mais de 12 sílabas poéticas");
+	BARBARO(13,"bárbaro, mais de 12 sílabas poéticas"),
+	LIVRE(-1,"livre");
 
 	private int qtdeSilabas;
 	private String nome;

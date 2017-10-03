@@ -55,6 +55,7 @@ public class Tonicidade {
 		
 		
 		String silabaFinal = silabas[silabas.length - 1];
+		if (silabaFinal.length() == 0) return "";
 		String ultimaLetra = "" + silabaFinal.charAt(silabaFinal.length() - 1);
 		int qtdeSilabas = silabas.length;
 		String silabaTonica = "";
