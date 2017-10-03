@@ -13,15 +13,15 @@ public enum ClassificacaoVersoEnum {
 	LIVRE(-1,"livre");
 
 	private int qtdeSilabas;
-	private String nome;
+	private String descricao;
 
-	private ClassificacaoVersoEnum(int qtdeSilabas, String nome) {
+	private ClassificacaoVersoEnum(int qtdeSilabas, String descricao) {
 		this.qtdeSilabas = qtdeSilabas;
-		this.nome = nome;
+		this.descricao = descricao;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getDescricao() {
+		return descricao;
 	}
 
 	public int getQtdeSilabas() {

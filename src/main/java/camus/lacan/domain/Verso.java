@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import camus.lacan.controllers.Escansao;
+import camus.lacan.enums.ClassificacaoVersoEnum;
 
 public class Verso {
 	
@@ -12,6 +13,7 @@ public class Verso {
 	
 	private String verso;
 	private int tamanho;
+	private String classificacao;
 	private List<Palavra> palavras;
 	
 	public Verso(String verso) {
@@ -23,7 +25,9 @@ public class Verso {
 		List<String> palavrasStr = new ArrayList<String>(Arrays.asList(this.verso.split(" ")));
 		palavrasStr.forEach(p -> this.palavras.add(new Palavra(p)));
 		
-		this.tamanho = calcularSeparacaoPoetica();
+		ClassificacaoVersoEnum classificacao = new Escansao().classificarVerso(this.verso);
+		this.tamanho = classificacao.getQtdeSilabas();
+		this.classificacao = classificacao.getDescricao();
 		
 		if ("".equals(verso)) this.verso = NOVA_ESTROFE;
 	}
@@ -63,5 +67,13 @@ public class Verso {
 
 	public void setPalavras(List<Palavra> palavras) {
 		this.palavras = palavras;
+	}
+
+	public String getClassificacao() {
+		return classificacao;
+	}
+
+	public void setClassificacao(String classificacao) {
+		this.classificacao = classificacao;
 	}
 }
