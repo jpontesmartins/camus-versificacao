@@ -102,8 +102,10 @@ public class Escansao {
 
 		String palavraSeguinteSeparada = separarPalavra.separar(palavraSeguinte);
 		String primeiraSilaba = palavraSeguinteSeparada.split(" ")[0];
+		if (primeiraSilaba.isEmpty()) return false; 
 		char primeiraLetra = primeiraSilaba.charAt(0);
 		String ultimaSilabaDaLista = silabasPoeticas.get(silabasPoeticas.size() - 1);
+		if(ultimaSilabaDaLista.isEmpty()) return false;
 		char ultimaLetra = ultimaSilabaDaLista.charAt(ultimaSilabaDaLista.length() - 1);
 
 		for (String ditongo : Arrays.asList(Letras.DITONGOS)) {
