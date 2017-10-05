@@ -16,6 +16,7 @@ public class EscansaoService {
 		poemaEscandido.setPoema(poema);
 		poemaEscandido.setVersos(identificarVersos(poema));
 		
+		//TODO: passar para expressão lamba
 		for (Verso verso : poemaEscandido.getVersos()) {
 			verso.setPalavras(new SepararPalavra().preencherInformacoesDasPalavras(verso.getVerso()));
 		}
