@@ -6,6 +6,7 @@ public class Poema {
 
 	private String poema;
 	private List<Verso> versos;
+	private List<Estrofe> estrofes;
 	
 	public void substituirMarcadorDeVerso() {
 		this.poema = this.poema.replaceAll("§", "\n");
@@ -28,6 +29,16 @@ public class Poema {
 
 	public void setVersos(List<Verso> versos) {
 		this.versos = versos;
+	}
+
+
+	public List<Estrofe> getEstrofes() {
+		return estrofes;
+	}
+
+
+	public void setEstrofes(List<Estrofe> estrofes) {
+		this.estrofes = estrofes;
 	}
 
 }

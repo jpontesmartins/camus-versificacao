@@ -99,6 +99,7 @@ public class Letras {
 	public static final String OE_ACENTO = "oé";
 	public static final String UI_ACENTO = "uí";
 
+	public static final String A_CRASE = "à";
 	public static final String A_TIL = "ã";
 	public static final String O_TIL = "õ";
 	public static final String E_CIRC = "ê";
@@ -133,7 +134,7 @@ public class Letras {
 	public static final String HIATOS[] = { AA, EE, II, OO, UU, EA, IA, IO, OA, UA, OE, OE_ACENTO, AU_ACENTO, AE_ACENTO,
 			AI_ACENTO, OI_ACENTO, UI_ACENTO };
 
-	public static final String VOGAIS[] = { A, E, I, O, U, A_ACENTO, E_ACENTO, E_CIRC, I_ACENTO, O_ACENTO, U_ACENTO, A_TIL, O_TIL,
+	public static final String VOGAIS[] = { A, E, I, O, U, A_ACENTO, A_CRASE, E_ACENTO, E_CIRC, I_ACENTO, O_ACENTO, U_ACENTO, A_TIL, O_TIL,
 			A_CIRC, E_CIRC, O_CIRC };
 
 	public static final String CONSOANTES[] = { B, C, D, F, G, H, J, K, L, M, N, P, Q, R, S, T, V, W, X, Y, Z, CC };

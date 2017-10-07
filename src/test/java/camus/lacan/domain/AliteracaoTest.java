@@ -1,9 +1,36 @@
 package camus.lacan.domain;
 
+import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 public class AliteracaoTest {
+	
+	
+	@Test
+	public void temAliteracao() {
+		Aliteracao figuras = new Aliteracao();
+		String frase = "o peito do pé de Pedro é preto";
+		figuras.temAliteracao(frase);
+	}
+	
+	
+	
+	@Test
+	public void oPeitoDoPeDePedroEPreto2Test() {
+		Aliteracao figuras = new Aliteracao();
+		String frase = "o peito do pé de Pedro é preto";
+		Map<String, Integer> fonemasDaFrase = figuras.descobrirFonemasMaisFrequentes(frase);
+		fonemasDaFrase.forEach((a,b) -> System.out.println(String.format("(fonema,frequência): (%s,%s)", a,b)));
+		SortedSet<Integer> values = new TreeSet<Integer>(fonemasDaFrase.values());
+		values.forEach(a -> System.out.println("-> " + a));
+		
+		Assert.assertEquals(8, figuras.descobrirFonemasMaisFrequentes(frase).get("/p/").intValue());
+	}
+	
 	
 	
 
@@ -14,51 +41,48 @@ public class AliteracaoTest {
 		Assert.assertEquals(8, figuras.descobrirFonemasMaisFrequentes(frase).get("/p/").intValue());
 	}
 
-	
 	@Test
 	public void quemComFerroFereComFerroSeraFeridoTest() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "quem com ferro fere, com ferro será ferido";
 		Assert.assertEquals(8, figuras.descobrirFonemasMaisFrequentes(frase).get("/f/").intValue());
 	}
-	
-	
+
 	@Test
 	public void quemJaViuUmDoceTaoDoceComoODoceDeBatataDoceTest() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "quem já viu um doce tão doce, como o doce de batata doce";
 		Assert.assertEquals(10, figuras.descobrirFonemasMaisFrequentes(frase).get("/d/").intValue());
 	}
-	
+
 	@Test
 	public void oPatoPatetaPintouOCanecoTest() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "O pato pateta pintou o caneco";
 		Assert.assertEquals(6, figuras.descobrirFonemasMaisFrequentes(frase).get("/p/").intValue());
 	}
+
 	@Test
 	public void chegamosDeUmaTerraFeiaFriaFetidaFutilTest() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "Chegamos de uma terra feia, fria, fétida, fútil";
 		Assert.assertEquals(8, figuras.descobrirFonemasMaisFrequentes(frase).get("/f/").intValue());
 	}
-	
-	
+
 	@Test
 	public void todaGenteHomenageiaJanuariaDaJanelaTest() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "Toda gente homenageia Januária na janela";
 		Assert.assertEquals(7, figuras.descobrirFonemasMaisFrequentes(frase).get("/j/").intValue());
 	}
-	
+
 	@Test
 	public void esperandoParadaPregadaNaPedraDoPortoTest() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "Esperando, parada, pregada na pedra do porto";
 		Assert.assertEquals(9, figuras.descobrirFonemasMaisFrequentes(frase).get("/p/").intValue());
 	}
-	
-	
+
 	@Test
 	public void fraseComRMaisFrequenteTest() {
 		Aliteracao figuras = new Aliteracao();
@@ -66,7 +90,7 @@ public class AliteracaoTest {
 		Assert.assertEquals(10, figuras.descobrirFonemasMaisFrequentes(frase).get("/R/").intValue());
 
 	}
-	
+
 	@Test
 	public void fraseComVEZMaisFrequentesTest() {
 		Aliteracao figuras = new Aliteracao();
@@ -76,7 +100,7 @@ public class AliteracaoTest {
 		Assert.assertEquals(3, figuras.descobrirFonemasMaisFrequentes(frase).get("/z/").intValue());
 
 	}
-	
+
 	@Test
 	public void fraseComVEDMaisFrequentesTest() {
 		Aliteracao figuras = new Aliteracao();
