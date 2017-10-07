@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,14 +17,52 @@ import camus.lacan.utils.Fonemas;
 
 public class Aliteracao {
 
-//	private Map<String, Integer> mapaDeFonemasEFrequencia;
+	public static void main(String[] args) {
+		new Aliteracao().descobrirFonemasMaisFrequentes_NEW("o peito do pé do pedro é preto");
+	}
+
+	//TODO: falta
+	public List<Fonema> descobrirFonemasMaisFrequentes_NEW(String frase) {
+		String palavras[] = frase.split(" ");
+		List<Fonema> todosOsFonemas = new ArrayList<>();
+		for (String palavra : palavras) {
+			todosOsFonemas.addAll(new ConversaoEmFonema().descobrirFonemasDaPalavra(palavra));
+		}
+
+		Map<String, Integer> mapaDeFonemasEFrequencia = new HashMap<>();
+		for (int i = 0; i < todosOsFonemas.size(); i++) {
+			String chave = todosOsFonemas.get(i).getFonema();
+			Integer valorAtual = mapaDeFonemasEFrequencia.get(chave);
+			if (valorAtual == null)
+				valorAtual = 0;
+			int peso = 1;
+			mapaDeFonemasEFrequencia.put(chave, valorAtual + peso);
+		}
+
+		List<Fonema> emOrdem = new ArrayList<>();
+
+		todosOsFonemas.forEach(f -> f.setFrequencia(mapaDeFonemasEFrequencia.get(f.getFonema())));
+		todosOsFonemas.sort(new Comparator<Fonema>() {
+			@Override
+			public int compare(Fonema o1, Fonema o2) {
+				return new Integer(o2.getFrequencia()).compareTo(o1.getFrequencia());
+			}
+		});
+
+		todosOsFonemas.forEach(f -> System.out.println(
+				f.getFonema() + "," + 
+				f.getGrafia() + "," + 
+				f.getFrequencia()));
+
+		return todosOsFonemas;
+
+	}
 
 	public Map<String, Integer> descobrirFonemasMaisFrequentes(String frase) {
 		ConversaoEmFonema fonema = new ConversaoEmFonema();
 		List<String> palavrasTranscritas = fonema.transcreverFrase(frase);
 
-//		mapaDeFonemasEFrequencia = new TreeMap<>();
-		 Map<String, Integer> mapaDeFonemasEFrequencia = new TreeMap<>();
+		Map<String, Integer> mapaDeFonemasEFrequencia = new TreeMap<>();
 
 		for (String palavra : palavrasTranscritas) {
 			String fonemasDaPalavra[] = palavra.split(" ");
@@ -65,14 +104,15 @@ public class Aliteracao {
 		return posicaoDaLetra == 0 && Fonemas.isFonemaConsonantal(chave);
 	}
 
+	
 	public void temAliteracao(String frase) {
-//		String palavras[] = frase.split(" ");
-//		int quantidadeDePalavras = palavras.length;
-		
+		int qtdePalavras = frase.split(" ").length;
+		Fonema fonemaDeMaiorFrequencia = pegarFonemaMaisFrequente(frase);
+
 	}
 
-//	private Map<String, Integer> fonemasEmOrdemDeFrequencia(String frase) {
-//		
-//	}
+	public Fonema pegarFonemaMaisFrequente(String frase) {
+		return descobrirFonemasMaisFrequentes_NEW(frase).get(0);
+	}
 
 }

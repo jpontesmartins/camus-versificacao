@@ -17,14 +17,7 @@ public class ConversaoEmFonema {
 	}
 
 	public List<Fonema> pegarFonemas(String palavra) {
-//		String palavraTranscrita = "";
-//		for (String fonema : descobrirFonemasDaPalavra(palavra)) {
-//			if (!"".equals(fonema)) {
-//				palavraTranscrita += fonema + " ";
-//			}
-//		}
 		return null;
-		// return palavraTranscrita.trim();
 	}
 
 	public String transcreverPalavra(String palavra) {

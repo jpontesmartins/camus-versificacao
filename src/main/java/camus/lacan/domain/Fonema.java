@@ -10,6 +10,11 @@ public class Fonema {
 		this.grafia = grafia;
 		this.fonema = fonema;
 	}
+	public Fonema(String grafia, String fonema, int frequencia) {
+		this.grafia = grafia;
+		this.fonema = fonema;
+		this.frequencia = frequencia;
+	}
 	
 	public String getGrafia() {
 		return grafia;

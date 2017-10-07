@@ -11,24 +11,23 @@ public class AliteracaoTest {
 	
 	
 	@Test
-	public void temAliteracao() {
-		Aliteracao figuras = new Aliteracao();
-		String frase = "o peito do pé de Pedro é preto";
-		figuras.temAliteracao(frase);
+	public void 
+	fonema_e_mais_frequente() {
+		String frase = "o peito do pé do pedro é preto";
+		Assert.assertEquals("/e/", new Aliteracao().pegarFonemaMaisFrequente(frase).getFonema());
 	}
 	
 	
 	
 	@Test
 	public void oPeitoDoPeDePedroEPreto2Test() {
-		Aliteracao figuras = new Aliteracao();
 		String frase = "o peito do pé de Pedro é preto";
-		Map<String, Integer> fonemasDaFrase = figuras.descobrirFonemasMaisFrequentes(frase);
+		Map<String, Integer> fonemasDaFrase = new Aliteracao().descobrirFonemasMaisFrequentes(frase);
 		fonemasDaFrase.forEach((a,b) -> System.out.println(String.format("(fonema,frequência): (%s,%s)", a,b)));
 		SortedSet<Integer> values = new TreeSet<Integer>(fonemasDaFrase.values());
 		values.forEach(a -> System.out.println("-> " + a));
 		
-		Assert.assertEquals(8, figuras.descobrirFonemasMaisFrequentes(frase).get("/p/").intValue());
+		Assert.assertEquals(8, new Aliteracao().descobrirFonemasMaisFrequentes(frase).get("/p/").intValue());
 	}
 	
 	
