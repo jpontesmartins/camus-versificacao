@@ -18,101 +18,106 @@ import camus.lacan.utils.Fonemas;
 public class Aliteracao {
 
 	public static void main(String[] args) {
-		new Aliteracao().descobrirFonemasMaisFrequentes_NEW("o peito do pé do pedro é preto");
+		String frase = "o peito do pé do pedro é preto";
+		List<Fonema> fonemas = new Aliteracao().descobrirFonemasMaisFrequentes(frase);
+		new Aliteracao().descobrirFonemasMaisFrequentes("o peito do pé do pedro é preto");
+		fonemas.forEach(f -> System.out.println(f.getFonema() + "," + f.getGrafia() + "," + f.getFrequencia()));
+		System.out.println("-------------");
+		new Aliteracao().temAliteracao(frase);
 	}
 
-	//TODO: falta
-	public List<Fonema> descobrirFonemasMaisFrequentes_NEW(String frase) {
-		String palavras[] = frase.split(" ");
+	public List<Fonema> descobrirFonemasMaisFrequentes(String frase) {
+
+		String palavras[] = frase.toLowerCase().split(" ");
 		List<Fonema> todosOsFonemas = new ArrayList<>();
+		List<Palavra> vocabulos = new ArrayList<>();
+
 		for (String palavra : palavras) {
-			todosOsFonemas.addAll(new ConversaoEmFonema().descobrirFonemasDaPalavra(palavra));
+			List<Fonema> descobrirFonemasDaPalavra = new ConversaoEmFonema().descobrirFonemasDaPalavra(palavra);
+			Palavra vocabulo = new Palavra();
+			vocabulo.setGrafia(palavra);
+			vocabulo.setFonemas(descobrirFonemasDaPalavra);
+			vocabulos.add(vocabulo);
+			todosOsFonemas.addAll(descobrirFonemasDaPalavra);
 		}
 
-		Map<String, Integer> mapaDeFonemasEFrequencia = new HashMap<>();
-		for (int i = 0; i < todosOsFonemas.size(); i++) {
-			String chave = todosOsFonemas.get(i).getFonema();
-			Integer valorAtual = mapaDeFonemasEFrequencia.get(chave);
-			if (valorAtual == null)
-				valorAtual = 0;
-			int peso = 1;
-			mapaDeFonemasEFrequencia.put(chave, valorAtual + peso);
-		}
-
-		List<Fonema> emOrdem = new ArrayList<>();
-
-		todosOsFonemas.forEach(f -> f.setFrequencia(mapaDeFonemasEFrequencia.get(f.getFonema())));
+		todosOsFonemas.forEach(f -> f.setFrequencia(contarFrequenciaDosFonemas(vocabulos).get(f.getFonema())));
 		todosOsFonemas.sort(new Comparator<Fonema>() {
 			@Override
 			public int compare(Fonema o1, Fonema o2) {
 				return new Integer(o2.getFrequencia()).compareTo(o1.getFrequencia());
 			}
 		});
-
-		todosOsFonemas.forEach(f -> System.out.println(
-				f.getFonema() + "," + 
-				f.getGrafia() + "," + 
-				f.getFrequencia()));
-
-		return todosOsFonemas;
+		List<Fonema> fonemasNaoRepetidos = removerFonemasRepetidos(todosOsFonemas);
+		return fonemasNaoRepetidos;
 
 	}
 
-	public Map<String, Integer> descobrirFonemasMaisFrequentes(String frase) {
-		ConversaoEmFonema fonema = new ConversaoEmFonema();
-		List<String> palavrasTranscritas = fonema.transcreverFrase(frase);
+	public List<Fonema> removerFonemasRepetidos(List<Fonema> todosOsFonemas) {
+		List<Fonema> fonemasNaoRepetidos = new ArrayList<>();
+		todosOsFonemas.forEach(fonema -> {
+			if (!isFonemaNaLista(fonema, fonemasNaoRepetidos)) {
+				fonemasNaoRepetidos.add(fonema);
+			}
+		});
+		return fonemasNaoRepetidos;
+	}
 
-		Map<String, Integer> mapaDeFonemasEFrequencia = new TreeMap<>();
+	private boolean isFonemaNaLista(Fonema fonema, List<Fonema> fonemasNaoRepetidos) {
+		for (Fonema fonemaDaLista : fonemasNaoRepetidos) {
+			if (fonemaDaLista.getFonema().equals(fonema.getFonema())) {
+				return true;
+			}
+		}
+		return false;
+	}
 
-		for (String palavra : palavrasTranscritas) {
-			String fonemasDaPalavra[] = palavra.split(" ");
-			for (int i = 0; i < fonemasDaPalavra.length; i++) {
-				String chave = "" + fonemasDaPalavra[i];
+	private Map<String, Integer> contarFrequenciaDosFonemas(List<Palavra> palavras) {
+		Map<String, Integer> mapaDeFonemasEFrequencia = new TreeMap<String, Integer>();
+		for (Palavra vocabulo : palavras) {
+			List<Fonema> fonemas = vocabulo.getFonemas();
+
+			for (int i = 0; i < fonemas.size(); i++) {
+				String chave = fonemas.get(i).getFonema();
 				Integer valorAtual = mapaDeFonemasEFrequencia.get(chave);
 				if (valorAtual == null)
 					valorAtual = 0;
-				int peso = atribuirPesoDaLetra(i, chave);
+				int peso = 1;
+				if ((vocabulo.getGrafia().charAt(0) + "").equals(fonemas.get(i).getGrafia())) {
+					peso = 2;
+				}
+
 				mapaDeFonemasEFrequencia.put(chave, valorAtual + peso);
 			}
-
 		}
-
-		List<String> fonemasConsonantais = new ArrayList<>();
-		Map<String, Integer> mapaFrequenciaFonemasConsonantais = new HashMap<>();
-		for (String chave : mapaDeFonemasEFrequencia.keySet()) {
-			if (isFonemaConsonantal(chave)) {
-				fonemasConsonantais.add(chave);
-				mapaFrequenciaFonemasConsonantais.put(chave, mapaDeFonemasEFrequencia.get(chave));
-			}
-		}
-
-		return mapaFrequenciaFonemasConsonantais;
+		return mapaDeFonemasEFrequencia;
 	}
 
-	private boolean isFonemaConsonantal(String chave) {
-		return Arrays.asList(Fonemas.FONEMAS_CONSONANTAIS).contains(chave);
+	public boolean temAliteracao(String frase) {
+		int qtdePalavras = frase.toLowerCase().split(" ").length;
+		Fonema fonemaDeMaiorFrequencia = pegarFonemaConsonantalMaisFrequente(frase);
+		if (calcularRegraDaAliteracao(qtdePalavras, fonemaDeMaiorFrequencia))
+			return true;
+		return false;
 	}
 
-	private int atribuirPesoDaLetra(int posicaoDaLetra, String palavra) {
-		if (isPrimeiraLetraDaPalavra(posicaoDaLetra, palavra))
-			return 2;
-
-		return 1;
-	}
-
-	private boolean isPrimeiraLetraDaPalavra(int posicaoDaLetra, String chave) {
-		return posicaoDaLetra == 0 && Fonemas.isFonemaConsonantal(chave);
-	}
-
-	
-	public void temAliteracao(String frase) {
-		int qtdePalavras = frase.split(" ").length;
-		Fonema fonemaDeMaiorFrequencia = pegarFonemaMaisFrequente(frase);
-
+	private boolean calcularRegraDaAliteracao(int qtdePalavras, Fonema fonemaDeMaiorFrequencia) {
+		return fonemaDeMaiorFrequencia.getFrequencia() >= qtdePalavras / 2;
 	}
 
 	public Fonema pegarFonemaMaisFrequente(String frase) {
-		return descobrirFonemasMaisFrequentes_NEW(frase).get(0);
+		return descobrirFonemasMaisFrequentes(frase).get(0);
+	}
+
+	public Fonema pegarFonemaConsonantalMaisFrequente(String frase) {
+		List<Fonema> fonemas = descobrirFonemasMaisFrequentes(frase);
+		List<Fonema> fonemasConsonantais = new ArrayList<>();
+		fonemas.forEach(fonema -> {
+			if (Fonemas.isFonemaConsonantal(fonema.getFonema())) {
+				fonemasConsonantais.add(fonema);
+			}
+		});
+		return fonemasConsonantais.get(0);
 	}
 
 }

@@ -1,111 +1,89 @@
 package camus.lacan.domain;
 
-import java.util.Map;
-import java.util.SortedSet;
-import java.util.TreeSet;
-
 import org.junit.Assert;
 import org.junit.Test;
 
 public class AliteracaoTest {
-	
-	
+
 	@Test
-	public void 
-	fonema_e_mais_frequente() {
+	public void o_peito_do_pe_do_pedro_e_preto_com_letras_maiusculas() {
+		String frase = "O PEITO DO PÉ DE PEDRO É PRETO";
+		Assert.assertEquals(8, new Aliteracao().descobrirFonemasMaisFrequentes(frase).get(0).getFrequencia());
+		Assert.assertTrue(new Aliteracao().temAliteracao(frase));
+	}
+
+	@Test
+	public void tem_aliteracao_na_frase() {
 		String frase = "o peito do pé do pedro é preto";
-		Assert.assertEquals("/e/", new Aliteracao().pegarFonemaMaisFrequente(frase).getFonema());
-	}
-	
-	
-	
-	@Test
-	public void oPeitoDoPeDePedroEPreto2Test() {
-		String frase = "o peito do pé de Pedro é preto";
-		Map<String, Integer> fonemasDaFrase = new Aliteracao().descobrirFonemasMaisFrequentes(frase);
-		fonemasDaFrase.forEach((a,b) -> System.out.println(String.format("(fonema,frequência): (%s,%s)", a,b)));
-		SortedSet<Integer> values = new TreeSet<Integer>(fonemasDaFrase.values());
-		values.forEach(a -> System.out.println("-> " + a));
-		
-		Assert.assertEquals(8, new Aliteracao().descobrirFonemasMaisFrequentes(frase).get("/p/").intValue());
-	}
-	
-	
-	
-
-	@Test
-	public void oPeitoDoPeDePedroEPretoTest() {
-		Aliteracao figuras = new Aliteracao();
-		String frase = "o peito do pé de Pedro é preto";
-		Assert.assertEquals(8, figuras.descobrirFonemasMaisFrequentes(frase).get("/p/").intValue());
+		Assert.assertTrue(new Aliteracao().temAliteracao(frase));
 	}
 
 	@Test
-	public void quemComFerroFereComFerroSeraFeridoTest() {
+	public void fonema_consonantal_p_mais_frequente_() {
+		String frase = "o peito do pé do pedro é preto";
+		Assert.assertEquals("/p/", new Aliteracao().pegarFonemaConsonantalMaisFrequente(frase).getFonema());
+	}
+
+	@Test
+	public void o_peito_do_pe_do_pedro_e_preto() {
+		String frase = "o peito do pé de Pedro é preto";
+		Assert.assertEquals(8, new Aliteracao().pegarFonemaMaisFrequente(frase).getFrequencia());
+		Assert.assertTrue(new Aliteracao().temAliteracao(frase));
+	}
+
+	@Test
+	public void quem_com_ferro_fere_com_ferro_sera_ferido() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "quem com ferro fere, com ferro será ferido";
-		Assert.assertEquals(8, figuras.descobrirFonemasMaisFrequentes(frase).get("/f/").intValue());
+		Assert.assertEquals(8, figuras.pegarFonemaMaisFrequente(frase).getFrequencia());
+		Assert.assertTrue(new Aliteracao().temAliteracao(frase));
 	}
 
 	@Test
-	public void quemJaViuUmDoceTaoDoceComoODoceDeBatataDoceTest() {
+	public void quem_ja_viu_um_doce_tao_doce_como_o_doce_de_batata_doce_Test() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "quem já viu um doce tão doce, como o doce de batata doce";
-		Assert.assertEquals(10, figuras.descobrirFonemasMaisFrequentes(frase).get("/d/").intValue());
+		Assert.assertEquals(10, figuras.pegarFonemaMaisFrequente(frase).getFrequencia());
+		Assert.assertTrue(new Aliteracao().temAliteracao(frase));
 	}
 
 	@Test
-	public void oPatoPatetaPintouOCanecoTest() {
+	public void o_pato_pateta_pintou_o_caneco() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "O pato pateta pintou o caneco";
-		Assert.assertEquals(6, figuras.descobrirFonemasMaisFrequentes(frase).get("/p/").intValue());
+		Assert.assertEquals(6, figuras.pegarFonemaMaisFrequente(frase).getFrequencia());
+		Assert.assertTrue(new Aliteracao().temAliteracao(frase));
 	}
 
 	@Test
-	public void chegamosDeUmaTerraFeiaFriaFetidaFutilTest() {
+	public void chegamos_de_uma_terra_feia_fria_fetida_futil() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "Chegamos de uma terra feia, fria, fétida, fútil";
-		Assert.assertEquals(8, figuras.descobrirFonemasMaisFrequentes(frase).get("/f/").intValue());
+		Assert.assertEquals(8, figuras.pegarFonemaMaisFrequente(frase).getFrequencia());
+		Assert.assertTrue(new Aliteracao().temAliteracao(frase));
 	}
 
 	@Test
-	public void todaGenteHomenageiaJanuariaDaJanelaTest() {
+	public void toda_gente_homenageia_januaria_da_janela() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "Toda gente homenageia Januária na janela";
-		Assert.assertEquals(7, figuras.descobrirFonemasMaisFrequentes(frase).get("/j/").intValue());
+		Assert.assertEquals(7, figuras.pegarFonemaConsonantalMaisFrequente(frase).getFrequencia());
+		Assert.assertTrue(new Aliteracao().temAliteracao(frase));
 	}
 
 	@Test
-	public void esperandoParadaPregadaNaPedraDoPortoTest() {
+	public void esperando_parada_pregada_na_pedra_do_portoTest() {
 		Aliteracao figuras = new Aliteracao();
 		String frase = "Esperando, parada, pregada na pedra do porto";
-		Assert.assertEquals(9, figuras.descobrirFonemasMaisFrequentes(frase).get("/p/").intValue());
+		Assert.assertEquals(9, figuras.pegarFonemaMaisFrequente(frase).getFrequencia());
+		Assert.assertTrue(new Aliteracao().temAliteracao(frase));
 	}
 
 	@Test
-	public void fraseComRMaisFrequenteTest() {
-		Aliteracao figuras = new Aliteracao();
+	public void frase_com_R_mais_frequente() {
 		String frase = "o rato roeu a roupa do rei de roma";
-		Assert.assertEquals(10, figuras.descobrirFonemasMaisFrequentes(frase).get("/R/").intValue());
-
-	}
-
-	@Test
-	public void fraseComVEZMaisFrequentesTest() {
-		Aliteracao figuras = new Aliteracao();
-		String frase = "vozes veladas, veludosas vozes";
-		Assert.assertEquals(8, figuras.descobrirFonemasMaisFrequentes(frase).get("/v/").intValue());
-		Assert.assertEquals(4, figuras.descobrirFonemasMaisFrequentes(frase).get("/s/").intValue());
-		Assert.assertEquals(3, figuras.descobrirFonemasMaisFrequentes(frase).get("/z/").intValue());
-
-	}
-
-	@Test
-	public void fraseComVEDMaisFrequentesTest() {
-		Aliteracao figuras = new Aliteracao();
-		String frase = "quem me vê apanhando da vida duvida que eu vá revidar";
-		Assert.assertEquals(8, figuras.descobrirFonemasMaisFrequentes(frase).get("/d/").intValue());
-		Assert.assertEquals(8, figuras.descobrirFonemasMaisFrequentes(frase).get("/v/").intValue());
+		Assert.assertEquals(10, new Aliteracao().pegarFonemaMaisFrequente(frase).getFrequencia());
+		Assert.assertTrue(new Aliteracao().temAliteracao(frase));
 	}
 
 }

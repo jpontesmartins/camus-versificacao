@@ -8,6 +8,7 @@ public class Palavra {
 	private List<String> silabas;
 	private String silabaTonica;
 	private String tonicidade;
+	private List<Fonema> fonemas;
 
 	public Palavra(String palavraStr) {
 		this.grafia = palavraStr;
@@ -46,6 +47,14 @@ public class Palavra {
 
 	public void setTonicidade(String tonicidade) {
 		this.tonicidade = tonicidade;
+	}
+
+	public List<Fonema> getFonemas() {
+		return fonemas;
+	}
+
+	public void setFonemas(List<Fonema> fonemas) {
+		this.fonemas = fonemas;
 	}
 
 }
