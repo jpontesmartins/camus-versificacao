@@ -13,6 +13,13 @@ import static springfox.documentation.builders.PathSelectors.regex;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+	
+	@Bean
+	public Docket aliteracaoApi() {
+		return new Docket(DocumentationType.SWAGGER_2).groupName("aliteracao-api").select()
+				.apis(RequestHandlerSelectors.basePackage("camus.lacan.controllers")).paths(regex("/aliteracao.*"))
+				.build().apiInfo(metaData());
+	}
 
 	// After the Docket bean is defined, its select() method returns an instance of
 	// ApiSelectorBuilder, which provides a way to control the endpoints exposed by

@@ -7,6 +7,7 @@ public class Poema {
 	private String poema;
 	private List<Verso> versos;
 	private List<Estrofe> estrofes;
+	private List<FiguraDeLinguagem> figuras;
 	
 	public void substituirMarcadorDeVerso() {
 		this.poema = this.poema.replaceAll("§", "\n");
@@ -39,6 +40,16 @@ public class Poema {
 
 	public void setEstrofes(List<Estrofe> estrofes) {
 		this.estrofes = estrofes;
+	}
+
+
+	public List<FiguraDeLinguagem> getFiguras() {
+		return figuras;
+	}
+
+
+	public void setFiguras(List<FiguraDeLinguagem> figuras) {
+		this.figuras = figuras;
 	}
 
 }

@@ -15,9 +15,11 @@ public class Verso {
 	private int tamanho;
 	private String classificacao;
 	private List<Palavra> palavras;
+	private List<FiguraDeLinguagem> figuras;
 	
 	public Verso(String verso) {
 		this.verso = verso;
+		this.setFiguras(new ArrayList<>());
 		removerEspacosDesnessarios();
 		
 		
@@ -75,5 +77,13 @@ public class Verso {
 
 	public void setClassificacao(String classificacao) {
 		this.classificacao = classificacao;
+	}
+
+	public List<FiguraDeLinguagem> getFiguras() {
+		return figuras;
+	}
+
+	public void setFiguras(List<FiguraDeLinguagem> figuras) {
+		this.figuras = figuras;
 	}
 }
