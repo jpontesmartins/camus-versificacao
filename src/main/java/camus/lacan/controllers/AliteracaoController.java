@@ -6,11 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import camus.lacan.domain.Estrofe;
-import camus.lacan.domain.Palavra;
-import camus.lacan.domain.Poema;
 import camus.lacan.domain.Verso;
 import camus.lacan.services.AliteracaoService;
-import camus.lacan.services.EscansaoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
