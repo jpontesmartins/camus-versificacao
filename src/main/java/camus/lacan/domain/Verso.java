@@ -19,7 +19,6 @@ public class Verso {
 	
 	public Verso(String verso) {
 		this.verso = verso;
-		this.setFiguras(new ArrayList<>());
 		removerEspacosDesnessarios();
 		
 		
@@ -32,6 +31,8 @@ public class Verso {
 		this.classificacao = classificacao.getDescricao();
 		
 		if ("".equals(verso)) this.verso = NOVA_ESTROFE;
+		
+		this.figuras = new ArrayList<>();
 	}
 
 	private void removerEspacosDesnessarios() {

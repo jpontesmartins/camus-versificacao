@@ -9,6 +9,7 @@ import camus.lacan.domain.Estrofe;
 import camus.lacan.domain.Palavra;
 import camus.lacan.domain.Poema;
 import camus.lacan.domain.Verso;
+import camus.lacan.services.AliteracaoService;
 import camus.lacan.services.EscansaoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,16 +21,22 @@ public class AliteracaoController {
 	
 	
 	@ApiOperation(value = "Procura por aliteração no verso", response = Verso.class)
-	@RequestMapping(value = "/verso/{verso:.+}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/verso/{texto:.+}", method = RequestMethod.GET, produces = "application/json")
 	public Verso analisarVerso(@PathVariable String texto) {
-		System.out.println("Aliteração no verso" + texto);
-		return new Verso("a");
+		AliteracaoService aliterecaoService = new AliteracaoService();
+		Verso versoAnalisado = aliterecaoService.analisarVerso(texto);
+		return versoAnalisado;
 	}
 	
 	@ApiOperation(value = "Procura por aliteração na estrofe", response = Verso.class)
-	@RequestMapping(value = "/estrofe/{verso:.+}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/estrofe/{texto:.+}", method = RequestMethod.GET, produces = "application/json")
 	public Estrofe analisarEstrofe(@PathVariable String texto) {
-		System.out.println("Aliteração na estrofe " + texto);
-		return new Estrofe();
+//		System.out.println("Aliteração na estrofe " + texto);
+		Estrofe estrofe = new Estrofe();
+//		estrofe.setVersos(new EscansaoService().identificarVersos(texto));
+//		AliteracaoService aliterecaoService = new AliteracaoService();
+//		Verso versoAnalisado = aliterecaoService.analisarVerso(texto);
+		
+		return estrofe;
 	}
 }

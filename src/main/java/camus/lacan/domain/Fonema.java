@@ -4,7 +4,7 @@ public class Fonema {
 
 	private String grafia;
 	private String fonema;
-	private int frequencia;
+	private double frequencia;
 	// TODO: dá para extrair o frquencia daqui, e botar numa classe que extenda
 	// Fonema, pois ele só é utilizado junto com uma frase
 
@@ -35,11 +35,11 @@ public class Fonema {
 		this.fonema = fonema;
 	}
 
-	public int getFrequencia() {
+	public double getFrequencia() {
 		return frequencia;
 	}
 
-	public void setFrequencia(int frequencia) {
+	public void setFrequencia(double frequencia) {
 		this.frequencia = frequencia;
 	}
 
