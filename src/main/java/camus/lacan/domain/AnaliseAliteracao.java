@@ -1,13 +1,9 @@
 package camus.lacan.domain;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 import camus.lacan.domain.fonemas.FrequenciaDeFonemas;
-import camus.lacan.utils.Fonemas;
 
 public class AnaliseAliteracao {
 
