@@ -149,4 +149,17 @@ public class Letras {
 	public static boolean isVogal(String letra) {
 		return Arrays.asList(VOGAIS).contains(letra);
 	}
+	
+	
+	//TODO
+	public static boolean isLetraE(String letra) {
+		return Letras.E.equals(letra) || Letras.E_CIRC.equals(letra) || Letras.E_ACENTO.equals(letra);
+	}
+	
+	public static boolean isLetraA(String letra) {
+		return Letras.A.equals(letra) || Letras.A_TIL.equals(letra) || Letras.A_ACENTO.equals(letra)
+				|| Letras.A_CIRC.equals(letra) || Letras.A_CRASE.equals(letra);
+	}
+	
+	
 }

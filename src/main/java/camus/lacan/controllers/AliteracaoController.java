@@ -28,12 +28,8 @@ public class AliteracaoController {
 	@ApiOperation(value = "Procura por aliteração na estrofe", response = Verso.class)
 	@RequestMapping(value = "/estrofe/{texto:.+}", method = RequestMethod.GET, produces = "application/json")
 	public Estrofe analisarEstrofe(@PathVariable String texto) {
-//		System.out.println("Aliteração na estrofe " + texto);
-		Estrofe estrofe = new Estrofe();
-//		estrofe.setVersos(new EscansaoService().identificarVersos(texto));
-//		AliteracaoService aliterecaoService = new AliteracaoService();
-//		Verso versoAnalisado = aliterecaoService.analisarVerso(texto);
-		
+		AliteracaoService aliteracaoService = new AliteracaoService();
+		Estrofe estrofe = aliteracaoService.analisarEstrofe(texto);
 		return estrofe;
 	}
 }
