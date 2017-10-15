@@ -1,5 +1,6 @@
 package camus.lacan.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Estrofe {
@@ -7,6 +8,11 @@ public class Estrofe {
 	private String classificacao;
 	private List<Verso> versos;
 	private List<FiguraDeLinguagem> figuras;
+	
+	public Estrofe() {
+		this.versos = new ArrayList<>();
+		this.figuras = new ArrayList<>();
+	}
 
 	public String getClassificacao() {
 		return classificacao;
