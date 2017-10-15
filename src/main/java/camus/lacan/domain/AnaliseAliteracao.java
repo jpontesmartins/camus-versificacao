@@ -21,7 +21,7 @@ public class AnaliseAliteracao {
 		List<Palavra> vocabulos = new ArrayList<>();
 
 		for (String palavra : palavras) {
-			List<Fonema> descobrirFonemasDaPalavra = new ConversaoEmFonema().descobrirFonemasDaPalavra(palavra);
+			List<Fonema> descobrirFonemasDaPalavra = new ConversaoEmFonema().listarFonemasDaPalavra(palavra);
 			Palavra vocabulo = new Palavra();
 			vocabulo.setGrafia(palavra);
 			vocabulo.setFonemas(descobrirFonemasDaPalavra);

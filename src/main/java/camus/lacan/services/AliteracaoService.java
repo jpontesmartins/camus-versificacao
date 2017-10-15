@@ -11,7 +11,6 @@ import camus.lacan.domain.Verso;
 public class AliteracaoService {
 	
 	
-	//Tem samba de sobra, quem sabe sambar
 	public Verso analisarVerso(String texto) {
 		Verso verso = new Verso(texto);
 		AnaliseAliteracao analiseAliteracao = new AnaliseAliteracao();

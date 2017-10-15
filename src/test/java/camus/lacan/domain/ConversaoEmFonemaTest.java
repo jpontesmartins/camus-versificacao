@@ -36,10 +36,45 @@ public class ConversaoEmFonemaTest {
 		Assert.assertEquals("/f/ /u/ /t/ /i/ /l/", conversaoEmFonema.transcreverPalavra("fútil"));
 	}
 	
-//	@Test
+	@Test
 	public void quem() {
 		ConversaoEmFonema conversaoEmFonema = new ConversaoEmFonema();
 		Assert.assertEquals("/k/ /~e/", conversaoEmFonema.transcreverPalavra("quem"));
 	}
+	@Test
+	public void tambem() {
+		ConversaoEmFonema conversaoEmFonema = new ConversaoEmFonema();
+		Assert.assertEquals("/t/ /ã/ /b/ /~é/", conversaoEmFonema.transcreverPalavra("também"));
+	}
+	
+	@Test
+	public void grafia_m_em_fim_de_palavra() {
+		ConversaoEmFonema conversaoEmFonema = new ConversaoEmFonema();
+		Assert.assertEquals("/t/ /ã/ /b/ /~é/", conversaoEmFonema.transcreverPalavra("também"));
+		Assert.assertEquals("/a/ /m/ /~é/", conversaoEmFonema.transcreverPalavra("amém"));
+		
+	}
+	@Test
+	public void grafia_m_no_inicio_da_palavra() {
+		ConversaoEmFonema conversaoEmFonema = new ConversaoEmFonema();
+		Assert.assertEquals("/m/ /u/ /z/ /i/ /k/ /a/", conversaoEmFonema.transcreverPalavra("música"));
+		Assert.assertEquals("/m/ /i/ /t/ /u/", conversaoEmFonema.transcreverPalavra("mito"));
+	}
+	
+	@Test
+	public void grafia_n_no_inicio_da_palavra() {
+		ConversaoEmFonema conversaoEmFonema = new ConversaoEmFonema();
+		Assert.assertEquals("/n/ /a/ /t/ /u/", conversaoEmFonema.transcreverPalavra("nato"));
+		Assert.assertEquals("/n/ /o/ /t/ /u/ /R/ /n/ /u/", conversaoEmFonema.transcreverPalavra("noturno"));
+	}
+	
+	@Test
+	public void grafia_n_no_meio_da_palavra() {
+		ConversaoEmFonema conversaoEmFonema = new ConversaoEmFonema();
+		Assert.assertEquals("/a/ /n/ /e/ /l/", conversaoEmFonema.transcreverPalavra("anél"));
+		Assert.assertEquals("/g/ /r/ /a/ /n/ /i/ /t/ /u/", conversaoEmFonema.transcreverPalavra("granito"));
+//		Assert.assertEquals("/ã/ /t/ /a/", conversaoEmFonema.transcreverPalavra("anta"));
+	}
+	
 
 }

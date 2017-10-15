@@ -75,7 +75,7 @@ public class FrequenciaDeFonemas {
 		String palavras[] = texto.toLowerCase().split(" ");
 		int retorno = 0;
 		for (String palavra : palavras) {
-			List<Fonema> fonemasDaPalavra = new ConversaoEmFonema().descobrirFonemasDaPalavra(palavra);
+			List<Fonema> fonemasDaPalavra = new ConversaoEmFonema().listarFonemasDaPalavra(palavra);
 			if (fonemasDaPalavra.get(0).getFonema().equals(pegarFonemaMaisFrequente.getFonema())) {
 				retorno++;
 			}
