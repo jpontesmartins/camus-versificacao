@@ -20,8 +20,6 @@ public class AliteracaoService {
 			Aliteracao aliteracao = new Aliteracao();
 			aliteracao.setFonemaMaisFrequente(fonemaMaisFrequente);
 			aliteracao.setTrecho(texto);
-			aliteracao.getFonemaMaisFrequente().setFrequencia(analiseAliteracao.pegarFrequenciaDoFonemaEmPercentual(texto));
-			
 			verso.getFiguras().add(aliteracao);
 		}
 		
