@@ -67,11 +67,8 @@ public class FrequenciaDeFonemas {
 	public double pegarFrequenciaDoFonemaMaisFrequenteEmPercentual(String texto) {
 		int totalDePalavras = texto.split(" ").length;
 		int qtdeConsoanteInicialMaisFrequente = totalPalavrasIniciamConsoanteMaisFrequente(texto,pegarFonemaConsonantalMaisFrequente(texto));
-		
 		double resultado = (100 * qtdeConsoanteInicialMaisFrequente)/totalDePalavras;
 		return resultado;
-		
-//		return (100 * pegarFonemaMaisFrequente(texto).getFrequencia()) / new AnaliseAliteracao().pegarFonemasDaFrase(texto).size();
 	}
 
 	private int totalPalavrasIniciamConsoanteMaisFrequente(String texto, Fonema pegarFonemaMaisFrequente) {
@@ -84,10 +81,6 @@ public class FrequenciaDeFonemas {
 			}
 		}
 		return retorno;
-	}
-
-	private Fonema pegarFonemaMaisFrequente(String frase) {
-		return new FrequenciaDeFonemas().listarFonemasDecrescente(frase).get(0);
 	}
 
 	private int calcularPesoDoFonema(Palavra vocabulo, List<Fonema> fonemas, Fonema fonema) {

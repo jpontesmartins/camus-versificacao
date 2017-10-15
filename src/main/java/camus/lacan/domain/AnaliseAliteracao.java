@@ -34,18 +34,10 @@ public class AnaliseAliteracao {
 		return todosOsFonemas;
 	}
 
-	public Fonema pegarFonemaMaisFrequente(String frase) {
-		return new FrequenciaDeFonemas().listarFonemasDecrescente(frase).get(0);
-	}
-
 	public Fonema pegarFonemaConsonantalMaisFrequente(String frase) {
 		List<Fonema> fonemasConsonantais = new AnaliseFonemas()
 				.pegarApenasFonemasConsonantais(new FrequenciaDeFonemas().listarFonemasDecrescente(frase));
 		return fonemasConsonantais.get(0);
-	}
-
-	public double pegarFrequenciaDoFonemaEmPercentual(String texto) {
-		return new FrequenciaDeFonemas().pegarFrequenciaDoFonemaMaisFrequenteEmPercentual(texto);
 	}
 
 	private boolean calcularRegraDaAliteracao(int qtdePalavras, Fonema fonemaDeMaiorFrequencia) {
