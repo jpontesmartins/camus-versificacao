@@ -8,12 +8,14 @@ import java.util.TreeMap;
 
 import camus.lacan.domain.AnaliseAliteracao;
 import camus.lacan.domain.AnaliseFonemas;
+import camus.lacan.domain.ConversaoEmFonema;
 import camus.lacan.domain.Fonema;
 import camus.lacan.domain.Palavra;
 
 public class FrequenciaDeFonemas {
 
 	public Fonema pegarFonemaConsonantalMaisFrequente(String frase) {
+		frase = frase.toLowerCase();
 		List<Fonema> fonemasConsonantais = new AnaliseFonemas()
 				.pegarApenasFonemasConsonantais(new FrequenciaDeFonemas().listarFonemasDecrescente(frase));
 		return fonemasConsonantais.get(0);
@@ -62,8 +64,26 @@ public class FrequenciaDeFonemas {
 		return mapaDeFonemasEFrequencia;
 	}
 
-	public double pegarFrequenciaDoFonemaEmPercentual(String texto) {
-		return (100 * pegarFonemaMaisFrequente(texto).getFrequencia()) / listarFonemasDecrescente(texto).size();
+	public double pegarFrequenciaDoFonemaMaisFrequenteEmPercentual(String texto) {
+		int totalDePalavras = texto.split(" ").length;
+		int qtdeConsoanteInicialMaisFrequente = totalPalavrasIniciamConsoanteMaisFrequente(texto,pegarFonemaConsonantalMaisFrequente(texto));
+		
+		double resultado = (100 * qtdeConsoanteInicialMaisFrequente)/totalDePalavras;
+		return resultado;
+		
+//		return (100 * pegarFonemaMaisFrequente(texto).getFrequencia()) / new AnaliseAliteracao().pegarFonemasDaFrase(texto).size();
+	}
+
+	private int totalPalavrasIniciamConsoanteMaisFrequente(String texto, Fonema pegarFonemaMaisFrequente) {
+		String palavras[] = texto.toLowerCase().split(" ");
+		int retorno = 0;
+		for (String palavra : palavras) {
+			List<Fonema> fonemasDaPalavra = new ConversaoEmFonema().descobrirFonemasDaPalavra(palavra);
+			if (fonemasDaPalavra.get(0).getFonema().equals(pegarFonemaMaisFrequente.getFonema())) {
+				retorno++;
+			}
+		}
+		return retorno;
 	}
 
 	private Fonema pegarFonemaMaisFrequente(String frase) {

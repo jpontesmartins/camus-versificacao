@@ -45,7 +45,7 @@ public class AnaliseAliteracao {
 	}
 
 	public double pegarFrequenciaDoFonemaEmPercentual(String texto) {
-		return new FrequenciaDeFonemas().pegarFrequenciaDoFonemaEmPercentual(texto);
+		return new FrequenciaDeFonemas().pegarFrequenciaDoFonemaMaisFrequenteEmPercentual(texto);
 	}
 
 	private boolean calcularRegraDaAliteracao(int qtdePalavras, Fonema fonemaDeMaiorFrequencia) {

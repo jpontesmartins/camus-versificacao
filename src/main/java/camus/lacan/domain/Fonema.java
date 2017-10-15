@@ -1,9 +1,12 @@
 package camus.lacan.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Fonema {
 
 	private String grafia;
 	private String fonema;
+	@JsonIgnore
 	private double frequencia;
 	// TODO: dá para extrair o frquencia daqui, e botar numa classe que extenda
 	// Fonema, pois ele só é utilizado junto com uma frase
