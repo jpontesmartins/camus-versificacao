@@ -52,7 +52,6 @@ public class AnaliseAliteracaoTest {
 
 	@Test
 	public void chegamos_de_uma_terra_feia_fria_fetida_futil() {
-		AnaliseAliteracao figuras = new AnaliseAliteracao();
 		String frase = "Chegamos de uma terra feia, fria, fétida, fútil";
 		Assert.assertTrue(new AnaliseAliteracao().temAliteracao(frase));
 	}
@@ -65,7 +64,6 @@ public class AnaliseAliteracaoTest {
 
 	@Test
 	public void esperando_parada_pregada_na_pedra_do_porto() {
-		AnaliseAliteracao figuras = new AnaliseAliteracao();
 		String frase = "Esperando, parada, pregada na pedra do porto";
 		Assert.assertTrue(new AnaliseAliteracao().temAliteracao(frase));
 	}
