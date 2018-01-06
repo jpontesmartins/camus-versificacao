@@ -4,22 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-//import camus.lacan.domain.fonemas.RegrasDoA;
-import camus.lacan.domain.fonemas.RegrasDoC;
-import camus.lacan.domain.fonemas.RegrasDoE;
-import camus.lacan.domain.fonemas.RegrasDoG;
-import camus.lacan.domain.fonemas.RegrasDoI;
-import camus.lacan.domain.fonemas.RegrasDoM;
-import camus.lacan.domain.fonemas.RegrasDoN;
-import camus.lacan.domain.fonemas.RegrasDoO;
-import camus.lacan.domain.fonemas.RegrasDoR;
-import camus.lacan.domain.fonemas.RegrasDoS;
-import camus.lacan.domain.fonemas.RegrasDoU;
-import camus.lacan.domain.fonemas.RegrasDoX;
 import camus.lacan.domain.fonemas.RegrasDosFonemas;
 import camus.lacan.utils.Fonemas;
 import camus.lacan.utils.Letras;
 
+//TODO: essa classe deve ser refatorada
 public class ConversaoEmFonema {
 
 	public String transcreverPalavra(String palavra) {

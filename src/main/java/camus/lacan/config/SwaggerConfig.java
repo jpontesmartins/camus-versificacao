@@ -15,6 +15,14 @@ import static springfox.documentation.builders.PathSelectors.regex;
 public class SwaggerConfig {
 	
 	@Bean
+	public Docket anaforaApi() {
+		return new Docket(DocumentationType.SWAGGER_2).groupName("anafora-api").select()
+				.apis(RequestHandlerSelectors.basePackage("camus.lacan.controllers")).paths(regex("/anafora.*"))
+				.build().apiInfo(metaData());
+	}
+	
+	
+	@Bean
 	public Docket aliteracaoApi() {
 		return new Docket(DocumentationType.SWAGGER_2).groupName("aliteracao-api").select()
 				.apis(RequestHandlerSelectors.basePackage("camus.lacan.controllers")).paths(regex("/aliteracao.*"))
