@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import camus.lacan.comum.Letras;
 import camus.lacan.domain.Palavra;
+import camus.lacan.domain.separacao.SepararPalavra;
+import camus.lacan.domain.tonicidade.Tonicidade;
 import camus.lacan.enums.ClassificacaoVersoEnum;
 import camus.lacan.exceptions.EscansaoException;
-import camus.lacan.services.SepararPalavra;
-import camus.lacan.services.Tonicidade;
-import camus.lacan.utils.Letras;
 
 public class Escansao {
 

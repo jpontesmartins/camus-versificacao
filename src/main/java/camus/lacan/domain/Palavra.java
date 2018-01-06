@@ -2,6 +2,8 @@ package camus.lacan.domain;
 
 import java.util.List;
 
+import camus.lacan.domain.fonema.Fonema;
+
 public class Palavra {
 
 	private String grafia;

@@ -1,6 +1,6 @@
 package camus.lacan.domain.anafora;
 
-import camus.lacan.domain.Estrofe;
+import camus.lacan.domain.poema.Estrofe;
 
 public class AnaforaService {
 

@@ -3,7 +3,8 @@ package camus.lacan.domain;
 import org.junit.Assert;
 import org.junit.Test;
 
-import camus.lacan.domain.fonemas.FrequenciaDeFonemas;
+import camus.lacan.domain.aliteracao.AnaliseAliteracao;
+import camus.lacan.domain.fonema.FrequenciaDeFonemas;
 
 public class FrequenciaDeFonemaTest {
 	
