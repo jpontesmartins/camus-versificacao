@@ -1,4 +1,4 @@
-package camus.lacan.domain;
+package camus.lacan.domain.anafora;
 
 import java.util.ArrayList;
 import java.util.List;

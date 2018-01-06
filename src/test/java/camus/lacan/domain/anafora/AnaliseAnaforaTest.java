@@ -1,10 +1,12 @@
-package camus.lacan.domain;
+package camus.lacan.domain.anafora;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import camus.lacan.domain.anafora.AnaliseAnafora;
 
 public class AnaliseAnaforaTest {
 

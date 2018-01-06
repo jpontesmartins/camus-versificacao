@@ -1,4 +1,4 @@
-package camus.lacan.services;
+package camus.lacan.domain.anafora;
 
 import camus.lacan.domain.Estrofe;
 
