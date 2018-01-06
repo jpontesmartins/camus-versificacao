@@ -14,8 +14,7 @@ public class AnaliseAnafora {
 			compararComVersoSeguinte(posicaoVersoAtual);
 		}
 		mostrarRepeticoes();
-		if (repeticoes.isEmpty()) return false;
-		return true;
+		return !repeticoes.isEmpty();
 	}
 
 	private void mostrarRepeticoes() {

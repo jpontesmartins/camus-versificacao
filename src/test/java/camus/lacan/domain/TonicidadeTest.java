@@ -4,8 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import camus.lacan.enums.TonicidadeEnum;
-import camus.lacan.services.Tonicidade;
+import camus.lacan.domain.tonicidade.Tonicidade;
+import camus.lacan.domain.tonicidade.TonicidadeEnum;
 
 public class TonicidadeTest {
 
