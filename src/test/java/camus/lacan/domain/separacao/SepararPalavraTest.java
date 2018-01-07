@@ -187,14 +187,14 @@ public class SepararPalavraTest {
 		Assert.assertEquals("cha péu", separarPalavra.separar("chapéu"));
 	}
 
-	@Test
-	public void identificarQueEhVogal() {
-		Assert.assertTrue(separarPalavra.isVogal('á'));
-		Assert.assertTrue(separarPalavra.isVogal('a'));
-		Assert.assertTrue(separarPalavra.isVogal('A'));
-		Assert.assertTrue(separarPalavra.isVogal('e'));
-		Assert.assertTrue(separarPalavra.isVogal('I'));
-		Assert.assertFalse(separarPalavra.isVogal('b'));
-	}
+//	@Test
+//	public void identificarQueEhVogal() {
+//		Assert.assertTrue(separarPalavra.isVogal('á'));
+//		Assert.assertTrue(separarPalavra.isVogal('a'));
+//		Assert.assertTrue(separarPalavra.isVogal('A'));
+//		Assert.assertTrue(separarPalavra.isVogal('e'));
+//		Assert.assertTrue(separarPalavra.isVogal('I'));
+//		Assert.assertFalse(separarPalavra.isVogal('b'));
+//	}
 
 }

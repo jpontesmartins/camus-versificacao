@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import camus.lacan.domain.InformacoesDaPalavra;
 import camus.lacan.domain.poema.Poema;
 import camus.lacan.domain.poema.Verso;
 import camus.lacan.domain.separacao.SepararPalavra;
@@ -17,12 +18,9 @@ public class EscansaoService {
 		poemaEscandido.setPoema(poema);
 		poemaEscandido.setVersos(identificarVersos(poema));
 		
-		//TODO: passar para expressão lamba
 		for (Verso verso : poemaEscandido.getVersos()) {
-			verso.setPalavras(new SepararPalavra().preencherInformacoesDasPalavras(verso.getVerso()));
+			verso.setPalavras(new InformacoesDaPalavra().preencherInformacoesDasPalavras(verso.getVerso()));
 		}
-		
-		
 		
 		return poemaEscandido;
 	}

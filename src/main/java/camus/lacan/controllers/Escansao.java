@@ -7,6 +7,7 @@ import java.util.List;
 import camus.lacan.comum.Letras;
 import camus.lacan.domain.Palavra;
 import camus.lacan.domain.separacao.SepararPalavra;
+import camus.lacan.domain.separacao.TratarVogais;
 import camus.lacan.domain.tonicidade.Tonicidade;
 import camus.lacan.enums.ClassificacaoVersoEnum;
 import camus.lacan.exceptions.EscansaoException;
@@ -114,7 +115,7 @@ public class Escansao {
 			}
 		}
 
-		if (separarPalavra.isVogal(primeiraLetra) && separarPalavra.isVogal(ultimaLetra)) {
+		if (TratarVogais.isVogal(primeiraLetra) && TratarVogais.isVogal(ultimaLetra)) {
 			String ultima = silabasPoeticas.get(silabasPoeticas.size() - 1);
 			String seguinte = primeiraSilaba;
 			String silabaSubstituta = ultima + seguinte;

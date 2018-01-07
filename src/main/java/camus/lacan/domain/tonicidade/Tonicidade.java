@@ -105,6 +105,5 @@ public class Tonicidade {
 	private boolean podeSerParoxitona(int qtdeSilabas) {
 		return qtdeSilabas >= 2;
 	}
-
-
+	
 }
