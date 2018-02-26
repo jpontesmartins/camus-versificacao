@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import camus.lacan.controllers.Escansao;
 import camus.lacan.domain.FiguraDeLinguagem;
 import camus.lacan.domain.Palavra;
+import camus.lacan.domain.escansao.Escansao;
 import camus.lacan.enums.ClassificacaoVersoEnum;
 
 public class Verso {
@@ -23,10 +23,9 @@ public class Verso {
 		this.verso = verso;
 		removerEspacosDesnessarios();
 		
-		
 		this.palavras = new ArrayList<Palavra>();
-		List<String> palavrasStr = new ArrayList<String>(Arrays.asList(this.verso.split(" ")));
-		palavrasStr.forEach(p -> this.palavras.add(new Palavra(p)));
+		List<String> palavras = new ArrayList<String>(Arrays.asList(this.verso.split(" ")));
+		palavras.forEach(p -> this.palavras.add(new Palavra(p)));
 		
 		ClassificacaoVersoEnum classificacao = new Escansao().classificarVerso(this.verso);
 		this.tamanho = classificacao.getQtdeSilabas();
@@ -42,13 +41,6 @@ public class Verso {
 			this.verso = this.verso.substring(1);
 		}
 	}
-
-	public int calcularSeparacaoPoetica() {
-		return new Escansao().contarSilabasPoeticas(this.verso);
-	}
-
-
-
 
 	public String getVerso() {
 		return verso;

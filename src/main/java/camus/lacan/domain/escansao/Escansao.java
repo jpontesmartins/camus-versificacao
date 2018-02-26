@@ -1,4 +1,4 @@
-package camus.lacan.controllers;
+package camus.lacan.domain.escansao;
 
 import java.util.ArrayList;
 import java.util.Arrays;

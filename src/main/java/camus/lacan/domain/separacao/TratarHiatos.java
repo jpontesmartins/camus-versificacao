@@ -7,6 +7,7 @@ import camus.lacan.comum.Letras;
 
 public class TratarHiatos {
 	
+	
 	public static boolean isHiato(char letra, char letraSeguinte, String palavra, int posicaoLetra) {
 		String hiato = letra + "" + letraSeguinte;
 		List<String> hiatos = Arrays.asList(Letras.HIATOS);

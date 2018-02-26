@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import camus.lacan.services.EscansaoService;
+import camus.lacan.domain.escansao.EscansaoService;
 
 public class ReconhecerVersosTest {
 

@@ -1,14 +1,12 @@
-package camus.lacan.controllers;
+package camus.lacan.domain.escansao;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import camus.lacan.domain.Palavra;
 import camus.lacan.domain.poema.Poema;
 import camus.lacan.domain.poema.Verso;
-import camus.lacan.services.EscansaoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 

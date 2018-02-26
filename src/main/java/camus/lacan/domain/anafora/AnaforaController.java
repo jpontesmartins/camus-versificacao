@@ -14,13 +14,23 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/anafora")
 @Api(value = "lacan", description = "procura pela existência de anáfora")
 public class AnaforaController {
-	
-	@ApiOperation(value = "Procura por anáfora no verso", response = Verso.class)
-	@RequestMapping(value = "/estrofe/{texto:.+}", method = RequestMethod.GET, produces = "application/json")
-	public Estrofe analisarEstrofe(@PathVariable String texto) {
-		AnaforaService anaforaService = new AnaforaService();
-		Estrofe estrofeAnalisado = anaforaService.analisarEstrofe(texto);
-		return estrofeAnalisado;
+
+	private static final String ENDPOINT_ESTROFE = "/estrofe/{texto:.+}";
+	private static final String ANAFORA_NA_ESTROFE = "Procura por anáfora na estrofe";
+	private static final String APPLICATION_JSON = "application/json";
+
+	private IAnaforaService anaforaService;
+
+	public AnaforaController() {
+		this.anaforaService = new AnaforaService();
 	}
-	
+
+	@ApiOperation(value = ANAFORA_NA_ESTROFE, response = Verso.class)
+	@RequestMapping(value = ENDPOINT_ESTROFE, method = RequestMethod.GET, produces = APPLICATION_JSON)
+	public Estrofe analisarEstrofe(@PathVariable String texto) {
+		Estrofe estrofeAnalisada = anaforaService.analisarEstrofe(new Estrofe(texto));
+
+		return estrofeAnalisada;
+	}
+
 }

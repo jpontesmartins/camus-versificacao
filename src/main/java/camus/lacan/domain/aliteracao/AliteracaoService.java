@@ -2,10 +2,10 @@ package camus.lacan.domain.aliteracao;
 
 import java.util.List;
 
+import camus.lacan.domain.escansao.EscansaoService;
 import camus.lacan.domain.fonema.Fonema;
 import camus.lacan.domain.poema.Estrofe;
 import camus.lacan.domain.poema.Verso;
-import camus.lacan.services.EscansaoService;
 
 public class AliteracaoService {
 	

@@ -1,4 +1,4 @@
-package camus.lacan.services;
+package camus.lacan.domain.escansao;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +7,6 @@ import java.util.List;
 import camus.lacan.domain.InformacoesDaPalavra;
 import camus.lacan.domain.poema.Poema;
 import camus.lacan.domain.poema.Verso;
-import camus.lacan.domain.separacao.SepararPalavra;
 
 public class EscansaoService {
 	

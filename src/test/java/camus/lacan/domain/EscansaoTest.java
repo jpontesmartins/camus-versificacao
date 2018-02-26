@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import camus.lacan.controllers.Escansao;
+import camus.lacan.domain.escansao.Escansao;
 
 public class EscansaoTest {
 

@@ -10,7 +10,6 @@ public class TratarEncontrosConsonantais {
 	public static boolean isEncontroConsonantalSeparavel(char letra, char letraSeguinte) {
 		return !(isConsoante(letra) && TratarVogais.isVogal(letraSeguinte));
 	}
-
 	
 	private static boolean isConsoante(char letra) {
 		return !TratarVogais.isVogal(letra);
