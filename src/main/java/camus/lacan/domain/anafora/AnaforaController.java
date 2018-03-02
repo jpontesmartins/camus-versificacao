@@ -24,6 +24,9 @@ public class AnaforaController {
 	public AnaforaController() {
 		this.anaforaService = new AnaforaService();
 	}
+	public AnaforaController(IAnaforaService anaforaService) {
+		this.anaforaService = anaforaService;
+	}
 
 	@ApiOperation(value = ANAFORA_NA_ESTROFE, response = Verso.class)
 	@RequestMapping(value = ENDPOINT_ESTROFE, method = RequestMethod.GET, produces = APPLICATION_JSON)

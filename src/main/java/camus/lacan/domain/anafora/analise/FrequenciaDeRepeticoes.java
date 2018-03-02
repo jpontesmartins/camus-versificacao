@@ -10,7 +10,6 @@ public class FrequenciaDeRepeticoes {
 	private List<String> versos;
 	private ComparacaoDeVersos comparacaoDeVersos;
 	private List<ExpressaoRepetida> expressoesRepetidas;
-	private Map<String, Integer> frequenciaDasExpressoes;
 	
 	public FrequenciaDeRepeticoes(List<String> versos) {
 		this.versos = versos;
@@ -59,10 +58,6 @@ public class FrequenciaDeRepeticoes {
 
 	public Map<String, Integer> getFrequenciaDasExpressoes() {
 		return contarFrequenciaDeExpressoesRepetidas();
-	}
-
-	public void setFrequenciaDasExpressoes(Map<String, Integer> frequenciaDasExpressoes) {
-		this.frequenciaDasExpressoes = frequenciaDasExpressoes;
 	}
 
 }

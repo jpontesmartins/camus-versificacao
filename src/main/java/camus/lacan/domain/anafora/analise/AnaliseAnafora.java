@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import camus.lacan.domain.anafora.Anafora;
 
@@ -23,8 +24,9 @@ public class AnaliseAnafora {
 
 	private List<Anafora> listarAnaforas() {
 		List<Anafora> anaforas = new ArrayList<>();
-		Iterator iteracaoNasAnaforas = frequenciaDeRepeticoes.contarFrequenciaDeExpressoesRepetidas().entrySet().iterator();
+		Iterator<Entry<String, Integer>> iteracaoNasAnaforas = frequenciaDeRepeticoes.contarFrequenciaDeExpressoesRepetidas().entrySet().iterator();
 		while (iteracaoNasAnaforas.hasNext()) {
+			@SuppressWarnings("rawtypes")
 			Map.Entry mapEntry = (Map.Entry) iteracaoNasAnaforas.next();
 
 			String expressao = mapEntry.getKey().toString();

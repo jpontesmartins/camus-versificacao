@@ -11,6 +11,9 @@ public class ComparacaoDeVersos {
 		this.versos = versos;
 	}
 	
+	public ComparacaoDeVersos() {
+	}
+	
 	public ExpressaoRepetida compararComOutroVerso(String versoAtual, String outroVerso) {
 		if (outroVerso == null)
 			return null;
@@ -53,5 +56,9 @@ public class ComparacaoDeVersos {
 			versoPosterior = this.versos.get(posicaoVersoAtual + 1);
 		}
 		return versoPosterior;
+	}
+
+	public ExpressaoRepetida compararComOutroVerso(int posicaoDoVerso, int posicaoDoOutroVerso) {
+		return compararComOutroVerso(this.versos.get(posicaoDoVerso), this.versos.get(posicaoDoOutroVerso));
 	}
 }

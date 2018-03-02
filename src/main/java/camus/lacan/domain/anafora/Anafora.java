@@ -17,7 +17,7 @@ public class Anafora extends FiguraDeLinguagem {
 		this.versos = new ArrayList<>();
 	}
 	public Anafora(String expressao, Integer frequencia, List<String> versos) {
-		this.expressao = expressao;
+		this.expressao = expressao.trim();
 		this.frequecia = frequencia;
 		this.versos = new ArrayList<>();
 		super.setFigura(FiguraDeLinguagemEnum.ANAFORA);
@@ -44,7 +44,7 @@ public class Anafora extends FiguraDeLinguagem {
 	}
 
 	public void setExpressao(String expressao) {
-		this.expressao = expressao;
+		this.expressao = expressao.trim();
 	}
 
 }
