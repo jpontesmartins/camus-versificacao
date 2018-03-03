@@ -7,12 +7,6 @@ import camus.lacan.comum.Letras;
 
 public class SepararPalavra {
 
-	public static void main(String args[]) {
-		SepararPalavra s = new SepararPalavra();
-		System.out.println(s.separar("quarto"));
-		
-	}
-
 	private String palavra;
 	private String palavraSeparada;
 	private List<String> silabas;
