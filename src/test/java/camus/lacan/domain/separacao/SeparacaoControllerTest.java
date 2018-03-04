@@ -1,4 +1,4 @@
-package camus.lacan.domain.anafora;
+package camus.lacan.domain.separacao;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -15,8 +15,8 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringRunner.class)
 @ContextConfiguration
-@WebMvcTest(controllers = AnaforaController.class)
-public class AnaforaControllerTest {
+@WebMvcTest(controllers = SeparacaoController.class)
+public class SeparacaoControllerTest {
 
 	@Autowired
 	private WebApplicationContext context;
@@ -26,7 +26,7 @@ public class AnaforaControllerTest {
 	@Test
 	public void should_return_2xx() throws Exception {
 		mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
-		mockMvc.perform(get("/anafora/estrofe/um verso qualquer")).andExpect(status().isOk());
+		mockMvc.perform(get("/separacao/poetica/umverso")).andExpect(status().isOk());
 	}
 
 }

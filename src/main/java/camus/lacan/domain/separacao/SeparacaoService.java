@@ -2,12 +2,9 @@ package camus.lacan.domain.separacao;
 
 import java.util.Arrays;
 
-import org.springframework.stereotype.Service;
-
 import camus.lacan.domain.Palavra;
 
-@Service
-public class SeparacaoService {
+public class SeparacaoService implements ISeparacaoService {
 
 	public Palavra separarPalavra(String palavra) {
 		Palavra vocabulo = new Palavra();

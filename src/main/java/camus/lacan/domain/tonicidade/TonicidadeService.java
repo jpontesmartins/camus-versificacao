@@ -1,11 +1,9 @@
 package camus.lacan.domain.tonicidade;
 
-import org.springframework.stereotype.Service;
-
 import camus.lacan.domain.Palavra;
 
-@Service
-public class TonicidadeService {
+public class TonicidadeService implements ITonicidadeService {
+	
 
 	public Palavra encontrarSilabaTonica(String palavra) {
 		Palavra vocabulo = new Palavra();

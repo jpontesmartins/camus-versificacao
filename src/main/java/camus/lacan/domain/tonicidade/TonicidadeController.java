@@ -1,6 +1,5 @@
 package camus.lacan.domain.tonicidade;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,11 +14,10 @@ import io.swagger.annotations.ApiOperation;
 @Api(value = "lacan", description = "encontrar sílaba tônica de uma palavra")
 public class TonicidadeController {
 
-	private TonicidadeService tonicidadeService;
-
-	@Autowired
-	public void setTonicidadeService(TonicidadeService tonicidadeService) {
-		this.tonicidadeService = tonicidadeService;
+	private ITonicidadeService tonicidadeService;
+	
+	public TonicidadeController() {
+		this.tonicidadeService = new TonicidadeService();
 	}
 
 	@ApiOperation(value = "Encontra a sílaba tônica de uma palavra", response = Palavra.class)
