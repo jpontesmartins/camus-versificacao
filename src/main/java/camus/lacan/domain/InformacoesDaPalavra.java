@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import camus.lacan.domain.separacao.SepararPalavra;
-import camus.lacan.domain.tonicidade.Tonicidade;
 import camus.lacan.domain.tonicidade.TonicidadeEnum;
+import camus.lacan.domain.tonicidade.monossilabos.Tonicidade;
 
 public class InformacoesDaPalavra {
 	

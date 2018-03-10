@@ -1,6 +1,7 @@
 package camus.lacan.domain.tonicidade;
 
 import camus.lacan.domain.Palavra;
+import camus.lacan.domain.tonicidade.monossilabos.Tonicidade;
 
 public class TonicidadeService implements ITonicidadeService {
 	

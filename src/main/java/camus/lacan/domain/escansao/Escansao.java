@@ -8,7 +8,7 @@ import camus.lacan.comum.Letras;
 import camus.lacan.domain.Palavra;
 import camus.lacan.domain.separacao.SepararPalavra;
 import camus.lacan.domain.separacao.TratarVogais;
-import camus.lacan.domain.tonicidade.Tonicidade;
+import camus.lacan.domain.tonicidade.monossilabos.Tonicidade;
 import camus.lacan.enums.ClassificacaoVersoEnum;
 import camus.lacan.exceptions.EscansaoException;
 

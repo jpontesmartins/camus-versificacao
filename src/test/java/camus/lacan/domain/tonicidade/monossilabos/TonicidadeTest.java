@@ -1,11 +1,11 @@
-package camus.lacan.domain;
+package camus.lacan.domain.tonicidade.monossilabos;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import camus.lacan.domain.tonicidade.Tonicidade;
 import camus.lacan.domain.tonicidade.TonicidadeEnum;
+import camus.lacan.domain.tonicidade.monossilabos.Tonicidade;
 
 public class TonicidadeTest {
 
@@ -19,27 +19,18 @@ public class TonicidadeTest {
 	@Test
 	public void identificarEm() {
 		Assert.assertEquals("em", tonicidade.encontrarSilabaTonica("em"));
+		Assert.assertEquals("que", tonicidade.encontrarSilabaTonica("que"));
+		Assert.assertEquals("nos", tonicidade.encontrarSilabaTonica("nos"));
 	}
 	
 
-	public void identificarMonossilabosAtonos() {
-		Assert.assertEquals(TonicidadeEnum.OXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("que"));
-	}
-	
 	@Test
-	public void identificarMonossilabosTonicos() {
-		Assert.assertEquals(TonicidadeEnum.MONOSSILABO.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("quê"));
-		Assert.assertEquals(TonicidadeEnum.MONOSSILABO.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("nós"));
-		Assert.assertEquals(TonicidadeEnum.MONOSSILABO.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("voz"));
-	}
-
-	@Test
-	public void reconheceJuizComoOxitonaTest() {
+	public void deve_reconher_oxitona_juiz() {
 		Assert.assertEquals(TonicidadeEnum.OXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("juiz"));
 	}
 
 	@Test
-	public void reconheceOxitonaTest() {
+	public void deve_reconhece_oxitona_sabia() {
 		Assert.assertEquals(TonicidadeEnum.OXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("sabiá"));
 		Assert.assertEquals(TonicidadeEnum.OXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("jejum"));
 		Assert.assertEquals(TonicidadeEnum.OXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("feliz"));
