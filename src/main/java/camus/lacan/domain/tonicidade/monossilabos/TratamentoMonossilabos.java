@@ -32,12 +32,4 @@ public class TratamentoMonossilabos {
 		return 0;
 	}
 	
-	public static void main(String[] args) {
-		
-		new TratamentoMonossilabos().distinguirEntreTonicoEAtono();
-		
-		
-		
-	}
-
 }
