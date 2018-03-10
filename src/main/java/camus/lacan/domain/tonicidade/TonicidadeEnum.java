@@ -2,16 +2,18 @@ package camus.lacan.domain.tonicidade;
 
 public enum TonicidadeEnum {
 
-	OXITONA("oxítona", 1), PAROXITONA("paroxítona", 2), PROPAROXITONA("proparoxítona", 3), MONOSSILABO("monossílabo",
-			0);
+	OXITONA("oxítona", 1), PAROXITONA("paroxítona", 2), PROPAROXITONA("proparoxítona",
+			3), MONOSSILABO_TONICO("monossílabo tônico", 0), MONOSSILABO_ATONO("monossílabo átono", -1);
 
 	private String tipo;
 	private int posicao;
 
 	public static String descricao(int posicao) {
 		switch (posicao) {
+		case -1:
+			return MONOSSILABO_ATONO.tipo;
 		case 0:
-			return MONOSSILABO.tipo;
+			return MONOSSILABO_TONICO.tipo;
 		case 1:
 			return OXITONA.tipo;
 		case 2:
