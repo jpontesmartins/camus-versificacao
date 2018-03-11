@@ -8,7 +8,7 @@ import camus.lacan.domain.tonicidade.TonicidadeEnum;
 
 import static camus.lacan.domain.tonicidade.Vogais.*;
 
-public class Tonicidade {
+public class AnaliseTonicidade {
 
 	public String FINAIS_PAROXITONAS[] = { A, O, E, AS, OS, ES };
 	public String VOGAIS_ACENTUADAS[] = { A_ACENTO, E_ACENTO, I_ACENTO, O_ACENTO, U_ACENTO, A_CIRC, E_CIRC, O_CIRC };
@@ -34,8 +34,7 @@ public class Tonicidade {
 
 	public int distinguirEntreMonossilaboTonicoOuAtono(String monossilabo) {
 		TratamentoMonossilabos monossilabos = new TratamentoMonossilabos(monossilabo);
-		monossilabos.distinguirEntreTonicoEAtono();
-		return TonicidadeEnum.MONOSSILABO_TONICO.getPosicao();
+		return monossilabos.distinguirEntreTonicoEAtono();
 	}
 
 	public String encontrarSilabaTonica(String palavra) {

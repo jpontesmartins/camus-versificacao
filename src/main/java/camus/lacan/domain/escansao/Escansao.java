@@ -8,7 +8,7 @@ import camus.lacan.comum.Letras;
 import camus.lacan.domain.Palavra;
 import camus.lacan.domain.separacao.SepararPalavra;
 import camus.lacan.domain.separacao.TratarVogais;
-import camus.lacan.domain.tonicidade.monossilabos.Tonicidade;
+import camus.lacan.domain.tonicidade.monossilabos.AnaliseTonicidade;
 import camus.lacan.enums.ClassificacaoVersoEnum;
 import camus.lacan.exceptions.EscansaoException;
 
@@ -90,7 +90,7 @@ public class Escansao {
 
 	public int contarSilabasPoeticas(String verso) {
 		List<String> palavras = Arrays.asList(verso.split(" "));
-		Tonicidade tonica = new Tonicidade();
+		AnaliseTonicidade tonica = new AnaliseTonicidade();
 		int tonicidade = tonica.encontrarTonicidadeDaPalavra(palavras.get(palavras.size() - 1));
 		return listarSilabasPoeticas(verso).size() - (tonicidade - 1);
 	}

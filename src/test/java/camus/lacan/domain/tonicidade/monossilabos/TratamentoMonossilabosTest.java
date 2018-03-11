@@ -6,6 +6,11 @@ import org.junit.Test;
 import camus.lacan.domain.tonicidade.monossilabos.TratamentoMonossilabos;
 
 public class TratamentoMonossilabosTest {
+	
+	@Test
+	public void deve_reconher_monossilabo_atono_nos() {
+		Assert.assertEquals(-1, new TratamentoMonossilabos("nos").distinguirEntreTonicoEAtono());
+	}
 
 	@Test
 	public void deve_reconher_monossilabo_atono_que() {

@@ -6,7 +6,7 @@ import java.util.List;
 
 import camus.lacan.domain.separacao.SepararPalavra;
 import camus.lacan.domain.tonicidade.TonicidadeEnum;
-import camus.lacan.domain.tonicidade.monossilabos.Tonicidade;
+import camus.lacan.domain.tonicidade.monossilabos.AnaliseTonicidade;
 
 public class InformacoesDaPalavra {
 	
@@ -18,8 +18,8 @@ public class InformacoesDaPalavra {
 			Palavra palavraInfo = new Palavra();
 			palavraInfo.setGrafia(palavra);
 			palavraInfo.setSilabas(Arrays.asList(new SepararPalavra().separar(palavra).split(" ")));
-			palavraInfo.setSilabaTonica(new Tonicidade().encontrarSilabaTonica(palavra));
-			palavraInfo.setTonicidade(TonicidadeEnum.descricao(new Tonicidade().encontrarTonicidadeDaPalavra(palavra)));
+			palavraInfo.setSilabaTonica(new AnaliseTonicidade().encontrarSilabaTonica(palavra));
+			palavraInfo.setTonicidade(TonicidadeEnum.descricao(new AnaliseTonicidade().encontrarTonicidadeDaPalavra(palavra)));
 
 			palavrasComInfomacoes.add(palavraInfo);
 		}

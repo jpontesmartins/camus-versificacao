@@ -5,24 +5,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 import camus.lacan.domain.tonicidade.TonicidadeEnum;
-import camus.lacan.domain.tonicidade.monossilabos.Tonicidade;
+import camus.lacan.domain.tonicidade.monossilabos.AnaliseTonicidade;
 
-public class TonicidadeTest {
+public class AnaliseTonicidadeTest {
 
-	Tonicidade tonicidade;
+	AnaliseTonicidade tonicidade;
 
 	@Before
 	public void setUp() {
-		tonicidade = new Tonicidade();
+		tonicidade = new AnaliseTonicidade();
 	}
-	
-	@Test
-	public void identificarEm() {
-		Assert.assertEquals("em", tonicidade.encontrarSilabaTonica("em"));
-		Assert.assertEquals("que", tonicidade.encontrarSilabaTonica("que"));
-		Assert.assertEquals("nos", tonicidade.encontrarSilabaTonica("nos"));
-	}
-	
 
 	@Test
 	public void deve_reconher_oxitona_juiz() {
@@ -32,30 +24,76 @@ public class TonicidadeTest {
 	@Test
 	public void deve_reconhece_oxitona_sabia() {
 		Assert.assertEquals(TonicidadeEnum.OXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("sabiá"));
+	}
+
+	@Test
+	public void deve_reconhece_oxitona_jejum() {
 		Assert.assertEquals(TonicidadeEnum.OXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("jejum"));
+	}
+
+	@Test
+	public void deve_reconhece_oxitona_feliz() {
 		Assert.assertEquals(TonicidadeEnum.OXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("feliz"));
 	}
 
 	@Test
-	public void reconheceParoxitonaTest() {
+	public void deve_reconhecer_paroxitona_casa() {
 		Assert.assertEquals(TonicidadeEnum.PAROXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("casa"));
+	}
+
+	@Test
+	public void deve_reconhecer_paroxitona_garrafa() {
 		Assert.assertEquals(TonicidadeEnum.PAROXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("garrafa"));
+	}
+
+	@Test
+	public void deve_reconhecer_paroxitona_tiro() {
 		Assert.assertEquals(TonicidadeEnum.PAROXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("tiro"));
+	}
+
+	@Test
+	public void deve_reconhecer_paroxitona_teste() {
 		Assert.assertEquals(TonicidadeEnum.PAROXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("teste"));
 	}
 
 	@Test
-	public void reconheceProparoxitonaTest() {
-		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("poética"));
-		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("árvore"));
-		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("última"));
-		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("ótimo"));
-		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("frutífero"));
-		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(), tonicidade.encontrarTonicidadeDaPalavra("frutífero"));
+	public void deve_reonhecer_proparoxitona_poetica() {
+		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(),
+				tonicidade.encontrarTonicidadeDaPalavra("poética"));
 	}
 
 	@Test
-	public void palavrasComAcentoTest() {
+	public void deve_reonhecer_proparoxitona_arvore() {
+		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(),
+				tonicidade.encontrarTonicidadeDaPalavra("árvore"));
+	}
+
+	@Test
+	public void deve_reonhecer_proparoxitona_ultima() {
+		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(),
+				tonicidade.encontrarTonicidadeDaPalavra("última"));
+	}
+
+	@Test
+	public void deve_reonhecer_proparoxitona_otimo() {
+		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(),
+				tonicidade.encontrarTonicidadeDaPalavra("ótimo"));
+	}
+	
+	@Test
+	public void deve_reonhecer_proparoxitona_frutifero() {
+		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(),
+				tonicidade.encontrarTonicidadeDaPalavra("frutífero"));
+	}
+	
+	@Test
+	public void deve_reonhecer_proparoxitona_pendulo() {
+		Assert.assertEquals(TonicidadeEnum.PROPAROXITONA.getPosicao(),
+				tonicidade.encontrarTonicidadeDaPalavra("pêndulo"));
+	}
+
+	@Test
+	public void deve_retornar_silaba_tonica_acentuada() {
 		Assert.assertEquals("é", tonicidade.encontrarSilabaTonica("poética"));
 		Assert.assertEquals("pós", tonicidade.encontrarSilabaTonica("póstumo"));
 		Assert.assertEquals("pró", tonicidade.encontrarSilabaTonica("próximo"));
@@ -68,7 +106,7 @@ public class TonicidadeTest {
 	}
 
 	@Test
-	public void palavrasOxitonasTest() {
+	public void deve_retornar_silaba_tonica() {
 		Assert.assertEquals("ca", tonicidade.encontrarSilabaTonica("casa"));
 		Assert.assertEquals("lher", tonicidade.encontrarSilabaTonica("mulher"));
 		Assert.assertEquals("mal", tonicidade.encontrarSilabaTonica("normal"));
@@ -83,7 +121,7 @@ public class TonicidadeTest {
 	}
 
 	@Test
-	public void palavrasParoxitonasTest() {
+	public void deve_retornar_silaba_tonica_das_oxitonas() {
 		Assert.assertEquals("clo", tonicidade.encontrarSilabaTonica("ciclope"));
 		Assert.assertEquals("po", tonicidade.encontrarSilabaTonica("pipoca"));
 		Assert.assertEquals("da", tonicidade.encontrarSilabaTonica("cidade"));
