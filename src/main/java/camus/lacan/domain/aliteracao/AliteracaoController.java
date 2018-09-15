@@ -1,5 +1,6 @@
 package camus.lacan.domain.aliteracao;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +11,7 @@ import camus.lacan.domain.poema.Verso;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/aliteracao")
 @Api(value = "lacan", description = "procura pela existência de aliteração")

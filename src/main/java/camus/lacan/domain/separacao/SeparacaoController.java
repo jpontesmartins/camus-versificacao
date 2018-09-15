@@ -1,5 +1,6 @@
 package camus.lacan.domain.separacao;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,6 +10,8 @@ import camus.lacan.domain.Palavra;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+
+@CrossOrigin
 @RestController
 @RequestMapping("/separacao")
 @Api(value = "lacan", description = "operação de separação silábica do módulo lacan do camus")
