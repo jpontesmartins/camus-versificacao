@@ -1,5 +1,6 @@
 package camus.lacan.domain.escansao;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +11,7 @@ import camus.lacan.domain.poema.Verso;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/escansao")
 @Api(value = "lacan", description = "escandir um verso")
